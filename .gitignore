@@ -1,3 +1,3 @@
-# ignore "no keep *.config" in all directory
-no keep *.config
+# ignore "no keep *prepros-6.config" in all directory
+no keep *prepros-6.config
 
