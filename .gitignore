@@ -1,0 +1,3 @@
+# ignore "no keep *.config" in all directory
+no keep *.config
+
