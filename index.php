@@ -4,7 +4,7 @@
     <?php include './include/include_head.php'; ?>
 </head>
 <body>
-	<?php include 'navbar.php'; ?>
+	<?php include 'nav_bar.php'; ?>
     
     
 </body>

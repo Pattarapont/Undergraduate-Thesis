@@ -15,9 +15,18 @@
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!-- Login -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item navbar-right">
+                    <a class="nav-link" href="log_in.php">Login</a>
+                </li>
+                <li class="nav-item navbar-right">
+                    <a class="nav-link" href="sign_in.php">Sign in</a>
+                </li>
+            </ul>
+            <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </form> -->
         </div>
     </nav>
