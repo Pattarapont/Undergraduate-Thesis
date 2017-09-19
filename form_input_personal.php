@@ -7,9 +7,9 @@
 					ข้อมูลส่วนตัว
 				</div>
 				<div class="card-body ">
-					<form class="was-validated">
+					<form id="#" class="was-validated" action="#" method="post">
 						
-						<div class="custom-controls-stacked d-block my-4">
+						<div class="form-group">
 							<p>เพศ</p>
 							<label class="custom-control custom-radio">
 								<input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input" required>
@@ -22,8 +22,10 @@
 								<span class="custom-control-description">หญิง</span>
 							</label>
 						</div>
+<!-- <div class="form-group custom-controls-stacked d-block my-4">
+</div> -->
 
-						<div class="custom-controls-stacked d-block my-4">
+						<div class="form-group">
 							<p>อายุ</p>
 							<select class="custom-select d-block col" required>
 								<option value="">โปรดเลือกอายุ</option>
@@ -33,7 +35,7 @@
 							</select>
 						</div>
 
-						<div class="custom-controls-stacked d-block my-4">
+						<div class="form-group">
 							<p>ภูมิลำเนา</p>
 							<select class="custom-select d-block col" required>
 								<option value="">ภูมิลำเนาของท่าน</option>
@@ -44,7 +46,7 @@
 						</div>
 
 
-						<div class="custom-controls-stacked d-block my-4">
+						<div class="form-group">
 							<p>อาชีพก่อนเกษียณ</p>
 							<select class="custom-select d-block col" required>
 								<option value="">โปรดเลือกอาชีพ</option>
@@ -58,8 +60,10 @@
 							</select>
 						</div>
 
+</form>
 
-						<div class="custom-controls-stacked d-block my-4">
+						<form id="#" class="was-validated" action="#" method="post">
+						<div class="form-group">
 							<p>โรคประจำตัว</p>
 							<label class="custom-control custom-radio">
 								<input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input" required>
@@ -75,20 +79,20 @@
 
 						
 						<select class="custom-select d-block col" required>
-							<option value="">โปรดเลือกโรคประจำตัว</option>
+							<!-- <select class="form-group custom-select d-block col" required> -->
+							<option value="" selected disabled hidden>โปรดเลือกโรคประจำตัว</option>
 							<option value="1">โรคหัวใจ</option>
 							<option value="2">เบาหวาน</option>
 							<option value="3">ความดันโลหิต</option>
 							<option value="4">ข้อเข่าเสื่อม</option>
 							<option value="5">จอประสาทตาเสื่อม</option>
 							<option value="6">โรคอื่นๆ</option>
-							
 						</select>
 
-						<div class="custom-controls-stacked d-block my-4">
+						<div class="form-group">
 							<p>การเคลื่อนไหวร่างกาย</p>
 							<select class="custom-select d-block col" required>
-								<option value="">โปรดเลือกการเคลื่อนไหวร่างกาย</option>
+								<option value="" selected disabled hidden>โปรดเลือกการเคลื่อนไหวร่างกาย</option>
 								<option value="1">เดินได้ปกติ</option>
 								<option value="2">เดินได้เล็กน้อย</option>
 								<option value="3">เดินได้เล็กน้อย/ใช้ไม้เท้า</option>
