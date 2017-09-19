@@ -5,7 +5,7 @@
 </head>
 <body>
 	<?php include 'nav_bar.php'; ?>
-	<?php include 'form_input_personal.php'; ?>
+	<?php include 'form_input_personal.php'; ?> 
 	<?php include 'form_input_location.php'; ?>
 
 	

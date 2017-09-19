@@ -32,6 +32,31 @@
 							</label>
 						</div>
 
+						
+						<div class="form-group">
+							<p>ประเภทการท่องเที่ยว</p>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" required>
+								<span class="custom-control-indicator"></span>
+								<span class="custom-control-description">พิษณุโลก</span>
+							</label>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" required>
+								<span class="custom-control-indicator"></span>
+								<span class="custom-control-description">เพชรบูรณ์</span>
+							</label>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" required>
+								<span class="custom-control-indicator"></span>
+								<span class="custom-control-description">เชียงใหม่</span>
+							</label>
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" required>
+								<span class="custom-control-indicator"></span>
+								<span class="custom-control-description">เชียงราย</span>
+							</label>
+						</div>
+
 						<div class="form-group">
 							<p>ท่านต้องการท่องเที่ยวรูปแบบ</p>
 							<select class="custom-select d-block col" required>
