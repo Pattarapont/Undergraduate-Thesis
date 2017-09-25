@@ -31,11 +31,11 @@
 							</div>
 							<!-- del ?? class = "form-check-label" -->
 							<!-- del ?? class = "form-check-input" -->
-							<label class="form-check-label custom-control custom-checkbox">
+						<!-- 	<label class="form-check-label custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input form-check-input" required> 
 								<span class="custom-control-indicator"></span>
 								<span class="custom-control-description">จดจำรหัสผ่าน</span>
-							</label>
+							</label> -->
 							<button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
 						</div>
 						<!-- <div class="row">
