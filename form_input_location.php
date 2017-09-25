@@ -38,22 +38,17 @@
 							<label class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" required>
 								<span class="custom-control-indicator"></span>
-								<span class="custom-control-description">พิษณุโลก</span>
+								<span class="custom-control-description">เชิงธรรมชาติ</span>
 							</label>
 							<label class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" required>
 								<span class="custom-control-indicator"></span>
-								<span class="custom-control-description">เพชรบูรณ์</span>
+								<span class="custom-control-description">เชิงวัฒนธรรม</span>
 							</label>
 							<label class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" required>
 								<span class="custom-control-indicator"></span>
-								<span class="custom-control-description">เชียงใหม่</span>
-							</label>
-							<label class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" required>
-								<span class="custom-control-indicator"></span>
-								<span class="custom-control-description">เชียงราย</span>
+								<span class="custom-control-description">ความสนใจส่วนบุคคล</span>
 							</label>
 						</div>
 
@@ -114,7 +109,9 @@
 								<option value="4">มากกว่า 5000 บาท</option>
 							</select>
 						</div>
-						
+						<div class="text-right">
+							<button type="button" class="btn btn-outline-primary">ค้นหาสถานที่</button>
+						</div>				
 					</form>
 				</div>
 			</div>

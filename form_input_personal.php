@@ -39,9 +39,13 @@
 							<p>ภูมิลำเนา</p>
 							<select class="custom-select d-block col" required>
 								<option value="">ภูมิลำเนาของท่าน</option>
-								<option value="1">50 - 60 ปี</option>
-								<option value="2">60 - 70 ปี</option>
-								<option value="3">มากกว่า 70 ปี</option>
+								<option value="1">พิษณุโลก</option>
+								<option value="2">เพชรบูรณ์</option>
+								<option value="3">เชียงใหม่</option>
+								<option value="1">เชียงราย</option>
+								<option value="2">นครสวรรค์</option>
+								<option value="3">กรุงเทพมหานคร</option>
+								<option value="3">อื่นๆ</option>
 							</select>
 						</div>
 
@@ -77,7 +81,7 @@
 							</label>
 						</div>
 
-						
+						<div class="form-group">
 						<select class="custom-select d-block col" required>
 							<!-- <select class="form-group custom-select d-block col" required> -->
 							<option value="" selected disabled hidden>โปรดเลือกโรคประจำตัว</option>
@@ -88,6 +92,7 @@
 							<option value="5">จอประสาทตาเสื่อม</option>
 							<option value="6">โรคอื่นๆ</option>
 						</select>
+						</div>
 
 						<div class="form-group">
 							<p>การเคลื่อนไหวร่างกาย</p>
@@ -100,6 +105,7 @@
 								<option value="2">เดินไม่ได้/ใช้รถเข็น</option>
 							</select>
 						</div>
+						
 
 					</form>
 					
