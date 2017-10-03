@@ -4,10 +4,14 @@
     
     
     <!-- css -->
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/custom.css">
+
+    <!-- <link rel="stylesheet" type="text/css" href="./css/style.css"> -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
     <script src="./js/jquery-3.1.1.slim.min.js"></script>
 <!--<script src="./js/tether.min.js"></script>-->
     <script src="./js/popper.min.js"></script>
