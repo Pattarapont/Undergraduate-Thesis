@@ -1,6 +1,6 @@
 # ignore "no keep prepros-6.config"
 
 prepros-6.config
-.phpintel/
+*.phpintel/
 *.map
 *.swp

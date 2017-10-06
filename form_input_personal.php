@@ -8,7 +8,7 @@
 				</div>
 				<div class="card-body ">
 					<form id="inputpersonal" class="was-validated" action="#" method="post">
-						
+
 						<div class="form-group">
 							<p>เพศ</p>
 							<label class="custom-control custom-radio">
@@ -99,8 +99,8 @@
 								<option value="4">เดินได้เล็กน้อย/ใช้รถเข็น</option>
 								<option value="5">เดินไม่ได้/ใช้รถเข็น</option>
 							</select>
-						</div>						
-					</form>					
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
