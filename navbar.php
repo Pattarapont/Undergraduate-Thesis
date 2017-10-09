@@ -17,16 +17,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="form_main.php">เลือกสถานที่ท่องเที่ยว</a>
             </li>
-            
+
         </ul>
         <!-- Login -->
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item navbar-right">
-                <a class="nav-link" href="log_in.php">เข้าสู่ระบบ</a>
+                <a class="nav-link" href="login.php">เข้าสู่ระบบ</a>
             </li>
-            <li class="nav-item navbar-right">
+            <!-- <li class="nav-item navbar-right">
                 <a class="nav-link" href="sign_in.php">สมัครสมาชิก</a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </nav>
