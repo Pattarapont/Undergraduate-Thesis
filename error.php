@@ -1,4 +1,6 @@
 <?php
+// include './include/include_head.php';
+
 /* Displays all error messages */
 session_start();
 ?>
@@ -6,11 +8,13 @@ session_start();
 <html>
 <head>
   <title>Error</title>
-<?php include './include/include_head.php';?>
+
+<link rel="stylesheet" type="text/css" href="./css/loginstyle.css">
 </head>
+
 <body>
 <div class="form">
-    <h1>Error</h1>
+    <h1>ผิดพลาด</h1>
     <p>
 <?php
 if (isset($_SESSION['message']) AND !empty($_SESSION['message'])):
