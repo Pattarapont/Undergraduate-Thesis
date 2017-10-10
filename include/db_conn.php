@@ -8,7 +8,7 @@
 $host   = 'localhost';
 $user   = 'root';
 $pass   = '';
-$db     = 'accounts';
+$db     = 'et_cbr';
 $mysqli = new mysqli($host, $user, $pass, $db) or die($mysqli->error);
 
 // ini_set('display_errors', 1);
