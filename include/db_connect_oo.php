@@ -1,5 +1,5 @@
-<?
-// php include 'db_conn.php';
+<?php
+include 'db_conn.php';
 ?>
 <?php
 function connect_db($db_server, $db_username, $db_password, $db_dbname) {
@@ -22,5 +22,8 @@ function connect_db($db_server, $db_username, $db_password, $db_dbname) {
 
 	return $conn;
 }
+
+// เรียกใช้ function connect_db
+// connect_db($db_server, $db_username, $db_password, $db_dbname);
 
 ?>
