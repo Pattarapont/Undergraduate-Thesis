@@ -5,10 +5,12 @@
 // $email  = $mysqli->escape_string($_POST['email']);
 // $result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
 
-if ($result->num_rows == 0) {// User doesn't exist
+if ($result->num_rows == 0) {
+	// User doesn't exist
 	$_SESSION['message'] = "User with that email doesn't exist!";
 	header("location: error.php");
-} else {// User exists
+} else {
+	// User exists
 	$user = $result->fetch_assoc();
 
 	if (password_verify($_POST['password'], $user['password'])) {

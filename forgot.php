@@ -12,7 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	{
 		$_SESSION['message'] = "User with that email doesn't exist!";
 		header("location: error.php");
-	} else {// User exists (num_rows != 0)
+	} else {
+		// User exists (num_rows != 0)
 
 		$user = $result->fetch_assoc();// $user becomes array with user data
 
