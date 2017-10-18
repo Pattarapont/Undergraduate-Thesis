@@ -43,7 +43,6 @@ function getName_congenital_dis($conn) {
 
 function getBody_movement($conn) {
 	$body_movement = [];
-
 	return $body_movement;
 }
 

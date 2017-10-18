@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 25, 2017 at 08:36 AM
+-- Generation Time: Oct 18, 2017 at 05:11 PM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -974,12 +974,28 @@ INSERT INTO `data_phitsanulok` (`id_phitsanulok`, `tourism`, `travel_form`, `veh
 CREATE TABLE `save_record` (
   `id_save_record` int(10) NOT NULL,
   `name_location` text COLLATE utf8_unicode_ci NOT NULL,
-  `latitude` double NOT NULL,
-  `longitude` double NOT NULL,
+  `latitude` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `longitude` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `memo_detail` text COLLATE utf8_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
   `year` year(4) NOT NULL,
   `id_data_member` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `hash` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1030,6 +1046,12 @@ ALTER TABLE `save_record`
   ADD PRIMARY KEY (`id_save_record`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1038,36 +1060,49 @@ ALTER TABLE `save_record`
 --
 ALTER TABLE `data_chiangmai`
   MODIFY `id_chiangmai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+
 --
 -- AUTO_INCREMENT for table `data_chiangrai`
 --
 ALTER TABLE `data_chiangrai`
   MODIFY `id_chiangrai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+
 --
 -- AUTO_INCREMENT for table `data_member`
 --
 ALTER TABLE `data_member`
   MODIFY `id_data_member` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `data_oldcase`
 --
 ALTER TABLE `data_oldcase`
   MODIFY `id_data_oldcase` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+
 --
 -- AUTO_INCREMENT for table `data_phetchabun`
 --
 ALTER TABLE `data_phetchabun`
   MODIFY `id_phetchabun` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+
 --
 -- AUTO_INCREMENT for table `data_phitsanulok`
 --
 ALTER TABLE `data_phitsanulok`
   MODIFY `id_phitsanulok` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+
 --
 -- AUTO_INCREMENT for table `save_record`
 --
 ALTER TABLE `save_record`
   MODIFY `id_save_record` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- Constraints for dumped tables
 --
