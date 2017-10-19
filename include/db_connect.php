@@ -1,5 +1,5 @@
 <?php
-include 'db_conn.php';
+require 'db_conn.php';
 ?>
 <?php
 function connect_db($db_server, $db_username, $db_password, $db_dbname) {
@@ -10,9 +10,8 @@ function connect_db($db_server, $db_username, $db_password, $db_dbname) {
 		echo "Failed to connect to MySQL: ".$conn->connect_error;
 		exit;
 	} else {
-		echo "Success: connected to MySQL Najaaaaaa <br>", PHP_EOL;
-		echo "Who am i <br>";
-		echo "pattarapon";
+		// echo "Success: connected to MySQL Najaaaaaa <br>", PHP_EOL;
+		// echo "Who am i ";
 	}
 
 	if (!$conn->set_charset("utf8")) {
@@ -23,7 +22,5 @@ function connect_db($db_server, $db_username, $db_password, $db_dbname) {
 	return $conn;
 }
 
-// เรียกใช้ function connect_db
-// connect_db($db_server, $db_username, $db_password, $db_dbname);
-
+$conn = connect_db($db_server, $db_username, $db_password, $db_dbname);
 ?>
