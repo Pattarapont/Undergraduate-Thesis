@@ -12,12 +12,12 @@
 					<div class="form-group">
 						<p>เพศ</p>
 						<label class="custom-control custom-radio">
-							<input id="gender" name="gender" type="radio" class="custom-control-input" required>
+							<input id="gender" name="gender" value="1" type="radio" class="custom-control-input" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">ชาย</span>
 						</label>
 						<label class="custom-control custom-radio">
-							<input id="gender" name="gender" type="radio" class="custom-control-input" required>
+							<input id="gender" name="gender" value="0" type="radio" class="custom-control-input" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">หญิง</span>
 						</label>
@@ -65,12 +65,12 @@
 					<div class="form-group">
 						<p>โรคประจำตัว</p>
 						<label class="custom-control custom-radio">
-							<input id="congenital_dis" name="congenital_dis" type="radio" class="custom-control-input" required>
+							<input id="congenital_dis" name="congenital_dis" value="0" type="radio" class="custom-control-input" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">ไม่มี</span>
 						</label>
 						<label class="custom-control custom-radio">
-							<input id="congenital_dis" name="congenital_dis" type="radio" class="custom-control-input" required>
+							<input id="congenital_dis" name="congenital_dis" value="1" type="radio" class="custom-control-input" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">มี</span>
 						</label>

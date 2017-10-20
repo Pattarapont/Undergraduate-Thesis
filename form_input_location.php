@@ -11,22 +11,22 @@
 					<div class="form-group">
 						<p>จังหวัดที่ต้องการท่องเที่ยว</p>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" required>
+							<input type="checkbox" class="custom-control-input" value="option1" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">พิษณุโลก</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" required>
+							<input type="checkbox" class="custom-control-input" value="option2" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เพชรบูรณ์</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" required>
+							<input type="checkbox" class="custom-control-input" value="option3" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชียงใหม่</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" required>
+							<input type="checkbox" class="custom-control-input" value="option4" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชียงราย</span>
 						</label>
@@ -36,17 +36,17 @@
 					<div class="form-group">
 						<p>ประเภทการท่องเที่ยว</p>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" required>
+							<input type="checkbox" class="custom-control-input" value="option1" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชิงธรรมชาติ</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" required>
+							<input type="checkbox" class="custom-control-input" value="option2" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชิงวัฒนธรรม</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" required>
+							<input type="checkbox" class="custom-control-input" value="option3" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">ความสนใจส่วนบุคคล</span>
 						</label>
@@ -54,7 +54,7 @@
 
 					<div class="form-group">
 						<p>ท่านต้องการท่องเที่ยวรูปแบบ</p>
-						<select class="custom-select d-block col" name="fast_food" id="fast_food" required>
+						<select class="custom-select d-block col" name="travel" id="travel" required>
 							<option value="" selected disabled hidden>-- รูปแบบการท่องเที่ยว --</option>
 							<option value="">ครอบครัว</option>
 							<option value="1">กลุ่มเพื่อน</option>
@@ -65,7 +65,7 @@
 
 					<div class="form-group">
 						<p>ยานพาหนะในการเดินทาง</p>
-						<select class="custom-select d-block col" name="fast_food" id="fast_food" required>
+						<select class="custom-select d-block col" name="car" id="car" required>
 							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
 							<option value="1">รถส่วนตัว </option>
 							<option value="2">รถประจำทาง</option>
@@ -78,7 +78,7 @@
 
 					<div class="form-group">
 						<p>ระยะเวลาที่ท่านท่องเที่ยว</p>
-						<select class="custom-select d-block col" name="fast_food" id="fast_food" required>
+						<select class="custom-select d-block col" name="traveltime" id="traveltime" required>
 							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
 							<option value="1">ไปเช้าเย็นกลับ </option>
 							<option value="2">2 - 3 วัน</option>
@@ -90,7 +90,7 @@
 
 					<div class="form-group">
 						<p>ที่พัก</p>
-						<select class="custom-select d-block col" name="fast_food" id="fast_food" required>
+						<select class="custom-select d-block col" name="camp" id="camp" required>
 							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
 							<option value="1">บ้านตนเอง</option>
 							<option value="2">บ้านญาติ</option>
@@ -100,7 +100,7 @@
 					</div>
 					<div class="form-group">
 						<p>งบประมาณ</p>
-						<select class="custom-select d-block col" name="fast_food" id="fast_food" required>
+						<select class="custom-select d-block col" name="money" id="money" required>
 							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
 							<option value="1">1000 บาท </option>
 							<option value="2">1000 - 3000 บาท</option>

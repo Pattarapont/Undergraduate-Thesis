@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 20, 2017 at 06:31 PM
+-- Generation Time: Oct 20, 2017 at 07:05 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -392,21 +392,6 @@ INSERT INTO `data_chiangrai` (`id_chiangrai`, `tourism`, `travel_form`, `vehicle
 (148, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (149, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (150, '1', 'กลุ่มผู้สูงอายุ', 'รถบัส', '2 - 3 วัน', 'โรงแรม', '1,000 - 3,000 บาท', '5', '5', '3', '4', '', '', '4', 'พื้นราบสำหรับรถเข็น, ที่จอดรถผู้สูงอายุ, ที่นั่งพัก, สุขาผู้สูงอายุ/ผู้พิการ', 'พื้นราบสำหรับรถเข็น, ที่นั่งพัก', '', 'พื้นราบสำหรับรถเข็น, ที่จอดรถผู้สูงอายุ, ที่นั่งพัก', '', '', 'พื้นราบสำหรับรถเข็น');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `data_member`
---
-
-CREATE TABLE `data_member` (
-  `id_data_member` int(11) NOT NULL,
-  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `name` text COLLATE utf8_unicode_ci NOT NULL,
-  `lastname` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -979,7 +964,7 @@ CREATE TABLE `save_record` (
   `memo_detail` text COLLATE utf8_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
   `year` year(4) NOT NULL,
-  `id_data_member` int(11) NOT NULL
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -989,7 +974,7 @@ CREATE TABLE `save_record` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `first_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1016,12 +1001,6 @@ ALTER TABLE `data_chiangrai`
   ADD PRIMARY KEY (`id_chiangrai`);
 
 --
--- Indexes for table `data_member`
---
-ALTER TABLE `data_member`
-  ADD PRIMARY KEY (`id_data_member`);
-
---
 -- Indexes for table `data_oldcase`
 --
 ALTER TABLE `data_oldcase`
@@ -1046,13 +1025,14 @@ ALTER TABLE `data_phitsanulok`
 -- Indexes for table `save_record`
 --
 ALTER TABLE `save_record`
-  ADD PRIMARY KEY (`id_save_record`);
+  ADD PRIMARY KEY (`id_save_record`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1069,12 +1049,6 @@ ALTER TABLE `data_chiangmai`
 --
 ALTER TABLE `data_chiangrai`
   MODIFY `id_chiangrai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
-
---
--- AUTO_INCREMENT for table `data_member`
---
-ALTER TABLE `data_member`
-  MODIFY `id_data_member` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `data_oldcase`
@@ -1104,7 +1078,7 @@ ALTER TABLE `save_record`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -1133,6 +1107,12 @@ ALTER TABLE `data_phetchabun`
 --
 ALTER TABLE `data_phitsanulok`
   ADD CONSTRAINT `data_phitsanulok_ibfk_1` FOREIGN KEY (`id_phetchabun`) REFERENCES `data_phetchabun` (`id_phetchabun`);
+
+--
+-- Constraints for table `save_record`
+--
+ALTER TABLE `save_record`
+  ADD CONSTRAINT `save_record_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
