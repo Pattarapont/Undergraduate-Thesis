@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2017 at 05:11 PM
+-- Generation Time: Oct 20, 2017 at 06:31 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -391,8 +391,7 @@ INSERT INTO `data_chiangrai` (`id_chiangrai`, `tourism`, `travel_form`, `vehicle
 (147, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (148, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (149, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(150, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(151, '1', 'กลุ่มผู้สูงอายุ', 'รถบัส', '2 - 3 วัน', 'โรงแรม', '1,000 - 3,000 บาท', '5', '5', '3', '4', '', '', '4', 'พื้นราบสำหรับรถเข็น, ที่จอดรถผู้สูงอายุ, ที่นั่งพัก, สุขาผู้สูงอายุ/ผู้พิการ', 'พื้นราบสำหรับรถเข็น, ที่นั่งพัก', '', 'พื้นราบสำหรับรถเข็น, ที่จอดรถผู้สูงอายุ, ที่นั่งพัก', '', '', 'พื้นราบสำหรับรถเข็น');
+(150, '1', 'กลุ่มผู้สูงอายุ', 'รถบัส', '2 - 3 วัน', 'โรงแรม', '1,000 - 3,000 บาท', '5', '5', '3', '4', '', '', '4', 'พื้นราบสำหรับรถเข็น, ที่จอดรถผู้สูงอายุ, ที่นั่งพัก, สุขาผู้สูงอายุ/ผู้พิการ', 'พื้นราบสำหรับรถเข็น, ที่นั่งพัก', '', 'พื้นราบสำหรับรถเข็น, ที่จอดรถผู้สูงอายุ, ที่นั่งพัก', '', '', 'พื้นราบสำหรับรถเข็น');
 
 -- --------------------------------------------------------
 
@@ -425,7 +424,7 @@ CREATE TABLE `data_oldcase` (
   `name_congenital_dis` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `body_movement` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `saving` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `id_phitsanulok` int(7) NOT NULL
+  `id_phitsanulok` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -582,7 +581,7 @@ INSERT INTO `data_oldcase` (`id_data_oldcase`, `gender`, `age`, `province`, `car
 (147, 'หญิง', '70 ปีขึ้นไป', 'สุโขทัย', 'ธุรกิจส่วนตัว', 'มี', 'เบาหวาน', 'เดินได้ปกติ', 'ไม่มี', 147),
 (148, 'หญิง', '70 ปีขึ้นไป', 'สุโขทัย', 'แม่บ้าน', 'มี', 'ความดันโลหิต', 'เดินได้ปกติ', 'ไม่มี', 148),
 (149, 'ชาย', '50 - 60 ปี', 'พิจิตร', 'ค้าขาย', 'ไม่มี', '', 'เดินได้ปกติ', 'ไม่มี', 149),
-(150, 'ชาย', '50 - 60 ปี', 'พิษณุโลก', 'ค้าขาย', 'มี', 'ข้อเข่าเสื่อม', 'เดินได้ปกติ', 'มี', 149);
+(150, 'ชาย', '50 - 60 ปี', 'พิษณุโลก', 'ค้าขาย', 'มี', 'ข้อเข่าเสื่อม', 'เดินได้ปกติ', 'มี', 150);
 
 -- --------------------------------------------------------
 
@@ -774,7 +773,8 @@ INSERT INTO `data_phetchabun` (`id_phetchabun`, `tourism`, `travel_form`, `vehic
 (146, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 146),
 (147, '1', 'กลุ่มผู้สูงอายุ', 'รถบัส', '1 วัน', 'โรงแรม', '1,000 - 3,000 บาท', '5', '', '5', '5', '5', '4', '4', '4', '4', '4', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 147),
 (148, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 148),
-(149, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 148);
+(149, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 149),
+(150, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 150);
 
 -- --------------------------------------------------------
 
@@ -806,7 +806,7 @@ CREATE TABLE `data_phitsanulok` (
   `facilities_KaengSopha` text COLLATE utf8_unicode_ci,
   `facilities_Phuhinrongkla` text COLLATE utf8_unicode_ci,
   `facilities_PhuSoiDao` text COLLATE utf8_unicode_ci,
-  `id_phetchabun` int(5) NOT NULL
+  `id_phetchabun` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1006,7 +1006,8 @@ CREATE TABLE `users` (
 -- Indexes for table `data_chiangmai`
 --
 ALTER TABLE `data_chiangmai`
-  ADD PRIMARY KEY (`id_chiangmai`);
+  ADD PRIMARY KEY (`id_chiangmai`),
+  ADD KEY `id_chiangrai` (`id_chiangrai`);
 
 --
 -- Indexes for table `data_chiangrai`
@@ -1031,13 +1032,15 @@ ALTER TABLE `data_oldcase`
 -- Indexes for table `data_phetchabun`
 --
 ALTER TABLE `data_phetchabun`
-  ADD PRIMARY KEY (`id_phetchabun`);
+  ADD PRIMARY KEY (`id_phetchabun`),
+  ADD KEY `id_chiangmai` (`id_chiangmai`);
 
 --
 -- Indexes for table `data_phitsanulok`
 --
 ALTER TABLE `data_phitsanulok`
-  ADD PRIMARY KEY (`id_phitsanulok`);
+  ADD PRIMARY KEY (`id_phitsanulok`),
+  ADD KEY `id_phetchabun` (`id_phetchabun`);
 
 --
 -- Indexes for table `save_record`
@@ -1065,7 +1068,7 @@ ALTER TABLE `data_chiangmai`
 -- AUTO_INCREMENT for table `data_chiangrai`
 --
 ALTER TABLE `data_chiangrai`
-  MODIFY `id_chiangrai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
+  MODIFY `id_chiangrai` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `data_member`
@@ -1083,7 +1086,7 @@ ALTER TABLE `data_oldcase`
 -- AUTO_INCREMENT for table `data_phetchabun`
 --
 ALTER TABLE `data_phetchabun`
-  MODIFY `id_phetchabun` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id_phetchabun` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `data_phitsanulok`
@@ -1108,10 +1111,28 @@ ALTER TABLE `users`
 --
 
 --
+-- Constraints for table `data_chiangmai`
+--
+ALTER TABLE `data_chiangmai`
+  ADD CONSTRAINT `data_chiangmai_ibfk_1` FOREIGN KEY (`id_chiangrai`) REFERENCES `data_chiangrai` (`id_chiangrai`);
+
+--
 -- Constraints for table `data_oldcase`
 --
 ALTER TABLE `data_oldcase`
   ADD CONSTRAINT `data_oldcase_ibfk_1` FOREIGN KEY (`id_phitsanulok`) REFERENCES `data_phitsanulok` (`id_phitsanulok`);
+
+--
+-- Constraints for table `data_phetchabun`
+--
+ALTER TABLE `data_phetchabun`
+  ADD CONSTRAINT `data_phetchabun_ibfk_1` FOREIGN KEY (`id_chiangmai`) REFERENCES `data_chiangmai` (`id_chiangmai`);
+
+--
+-- Constraints for table `data_phitsanulok`
+--
+ALTER TABLE `data_phitsanulok`
+  ADD CONSTRAINT `data_phitsanulok_ibfk_1` FOREIGN KEY (`id_phetchabun`) REFERENCES `data_phetchabun` (`id_phetchabun`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
