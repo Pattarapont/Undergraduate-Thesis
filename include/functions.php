@@ -11,12 +11,17 @@ $sql_DataChiangMai   = "SELECT * FROM data_chiangmai ";
 $sql_DataChiangRai   = "SELECT * FROM data_chiangrai ";
  */
 
-// function indexkey($conn) {
+
+function indexkey($conn) {
 	/*
 	โรคประจำตัว = 9.0
 	การเคลื่อนไหวร่างกาย = 10.0
 	 */
-	
+
+	$new_congenital_dis 	= "ไม่มี";
+	$new_body_movement 		= "เดินได้ปกติ";
+
+
 	$oldcase_db = "SELECT * FROM data_oldcase ORDER BY  `id_data_oldcase` ASC ";
 	$result     = $conn->query($oldcase_db);
 	$id_indexkey = "";
@@ -35,8 +40,21 @@ $sql_DataChiangRai   = "SELECT * FROM data_chiangrai ";
 				// ไม่นำ id มาคำนวน
 			}	
 		}
-		print_r($id_indexkey);
-		// echo $id_indexkey;
+		
+		
+		// เรียก Array ตำแหน่งที่ 81
+		
+		// echo $id_indexkey[1]; 
+
+		// echo "<br>";
+		// print_r($id_indexkey);
+		
+		$arrlength = count($id_indexkey);
+
+		for ($i = 0; $i < $arrlength ; $i++) {
+			echo $id_indexkey[$i];
+    		echo "<br>";
+		}
 		
 	}
 
@@ -110,8 +128,10 @@ $sql_DataChiangRai   = "SELECT * FROM data_chiangrai ";
 	// }
 }
 */
-// }
 
-// indexkey($conn);
+	// return $id_indexkey;
+}
+
+indexkey($conn);
 
 ?>
