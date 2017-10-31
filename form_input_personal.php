@@ -7,7 +7,7 @@
 				ข้อมูลส่วนตัว
 			</div>
 			<div class="card-body ">
-				<form id="inputpersonal" class="was-validated" action="#" method="post">
+				<form id="inputpersonal" class="was-validated" action="./include/getvariable.php" method="POST">
 
 					<div class="form-group">
 						<p>เพศ</p>

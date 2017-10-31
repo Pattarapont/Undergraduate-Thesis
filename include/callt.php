@@ -2,7 +2,7 @@
 <?php
 
 function getold($conn) {
-	$oldcase_db = "SELECT * FROM data_oldcase";
+	$oldcase_db = "SELECT * FROM data_oldcase ORDER BY  `id_data_oldcase` ASC ";
 	$result     = $conn->query($oldcase_db);
 	// check number row db
 	if ($result->num_rows > 0) {

@@ -1,5 +1,6 @@
 <?php
 include 'db_connect.php';
+include 'getvariable.php';
 
 /*
 $sql_DataOldcase = "SELECT * FROM data_oldcase WHERE id_data_oldcase = 1";
@@ -12,115 +13,188 @@ $sql_DataPhetchabun  = "SELECT * FROM data_phetchabun";
 $sql_DataChiangMai   = "SELECT * FROM data_chiangmai ";
 $sql_DataChiangRai   = "SELECT * FROM data_chiangrai ";
  */
-function indexkey($conn) {
+// function indexkey($conn) {
 	/*
 	โรคประจำตัว = 9.0
 	การเคลื่อนไหวร่างกาย = 10.0
 	 */
 	// $keyindex   = [];
-	$oldcase_db = "SELECT * FROM data_oldcase";
+	$oldcase_db = "SELECT * FROM data_oldcase ORDER BY  `id_data_oldcase` ASC ";
 	$result     = $conn->query($oldcase_db);
+	$n = "";
 	if ($result->num_rows > 0) {
 		// output data of each row
 		while ($row = $result->fetch_assoc()) {
-			/*
-			echo "<br> รวมนะจ๊าาา: ".$row["id_data_oldcase"].$row["province"]." ".$row["body_movement"]."<br>";
-			echo $row["congenital_dis"];
-			echo $row["body_movement"];
-			 */
+
+			// $result_indexkey = 0 ;
+
+			if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement']) {
+
+					$n = $row['id_data_oldcase'];
+					echo $n;
+					echo "<br>";
+
+				// echo "แสดง id";
+			} else {
+				// ไม่นำ id มาคำนวน
+			}	
+		}
+		
+		// $indexkey = [];
+		// return $indexkey;
+	}
+
+/*
+// คำนวนค่า
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while ($row = $result->fetch_assoc()) {
+
+			$result_indexkey = 0 ;
 
 			// โรคประจำตัว = 9.0
 			if ($new_congenital_dis == $row['congenital_dis']) {
 				$summath1 = 9;
-				$resultmath += $summath1;
+				$result_indexkey += $summath1;
 			} else {
 				$summath1 = 0;
-				$resultmath += $summath1;
+				$result_indexkey += $summath1;
 			}
 			// การเคลื่อนไหวร่างกาย = 10.0
 			if ($new_body_movement == $row['body_movement']) {
 				$summath2 = 10;
-				$resultmath += $summath2;
+				$result_indexkey += $summath2;
 			} else {
 				$summath2 = 0;
-				$resultmath += $summath2;
+				$result_indexkey += $summath2;
 			}
 			// ฟังก์ชันคำนวน ??????????????
+
+			$n1 = 0;
+	        $t1 = "";
+
+	        $n2 = 0;
+	        $t2 = "";
+
+	        $n3 = 0;
+	        $t3 = "";
+
+			if ($result_indexkey >= $n1){
+                if ($result_indexkey >= $n2) {
+                      if ($result_indexkey >= $n3) {
+                          $n1 = $n2;
+                          $t1 = $t2;
+
+                          $n2 = $n3;
+                          $t2 = $t3;
+
+                          $n3 = $result_indexkey;
+                          $t3 = $num1;
+                        }else{
+                          $n1 = $n2;
+                          $t1 = $t2;
+
+                          $n2 = $result_indexkey;
+                          $t2 = $num1;
+                        }
+                  }else{
+                $n1 = $result_indexkey;
+                $t1 = $num1;
+                }  
+            }
 
 		}
 
 		// $keyindex = ;
 		// return $keyindex;
 
-	} else {
-		echo "0 results";
-	}
+	} 
+	// else {
+	// 	echo "0 results";
+	// }
+}
+*/
+// }
 
-	function matchinglocation() {
+// indexkey($conn);
 
-	}
+/*
+function matchinglocation() {
+	// $oldcase_db = "SELECT * FROM data_oldcase ORDER BY  `id_data_oldcase` ASC ";
+	// $result     = $conn->query($oldcase_db);
+	
+	// $mathloca = indexkey($conn);
 
-	/*
-while ($row = mysql_fetch_array($objQuery)) {
+// คำนวนค่า
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while ($row = $result->fetch_assoc()) {
 
-$result_index = 0;
-$num1         = $row['id'];
+			$result_indexkey = 0 ;
 
-#โรคประจำตัว = 9.0
-if ($New_Shadow == $row['shadow']) {
-$summat1 = 3;
-$resultmat += $summat1;
-} else {
-$summat1 = 0;
-$resultmat += $summat1;
+			// โรคประจำตัว = 9.0
+			if ($new_congenital_dis == $row['congenital_dis']) {
+				$summath1 = 9;
+				$result_indexkey += $summath1;
+			} else {
+				$summath1 = 0;
+				$result_indexkey += $summath1;
+			}
+			// การเคลื่อนไหวร่างกาย = 10.0
+			if ($new_body_movement == $row['body_movement']) {
+				$summath2 = 10;
+				$result_indexkey += $summath2;
+			} else {
+				$summath2 = 0;
+				$result_indexkey += $summath2;
+			}
+			// ฟังก์ชันคำนวน ??????????????
+
+			$n1 = 0;
+	        $t1 = "";
+
+	        $n2 = 0;
+	        $t2 = "";
+
+	        $n3 = 0;
+	        $t3 = "";
+
+			if ($result_indexkey >= $n1){
+                if ($result_indexkey >= $n2) {
+                      if ($result_indexkey >= $n3) {
+                          $n1 = $n2;
+                          $t1 = $t2;
+
+                          $n2 = $n3;
+                          $t2 = $t3;
+
+                          $n3 = $result_indexkey;
+                          $t3 = $num1;
+                        }else{
+                          $n1 = $n2;
+                          $t1 = $t2;
+
+                          $n2 = $result_indexkey;
+                          $t2 = $num1;
+                        }
+                  }else{
+                $n1 = $result_indexkey;
+                $t1 = $num1;
+                }  
+            }
+
+		}
+
+		// $keyindex = ;
+		// return $keyindex;
+
+	} 
+	// else {
+	// 	echo "0 results";
+	// }
 }
 
-#การเคลื่อนไหวร่างกาย = 10.0
-if ($New_Beak == $row['beak_style']) {
-$summat2 = 1;
-$resultmat += $summat2;
-} else {
-$summat2 = 0;
-$resultmat += $summat2;
-}
-
-#สิ่งอำนวยความสะดวกของสถานที่ = 8.0
-if ($New_colorHead == $row['color_head']) {
-$summat3 = 1;
-$resultmat += $summat3;
-} else {
-$summat3 = 0;
-$resultmat += $summat3;
-}
-
-if ($resultmat >= $n1) {
-if ($resultmat >= $n2) {
-if ($resultmat >= $n3) {
-$n1 = $n2;
-$t1 = $t2;
-
-$n2 = $n3;
-$t2 = $t3;
-
-$n3 = $resultmat;
-$t3 = $num1;
-} else {
-$n1 = $n2;
-$t1 = $t2;
-
-$n2 = $resultmat;
-$t2 = $num1;
-}
-} else {
-$n1 = $resultmat;
-$t1 = $num1;
-}
-
-}
-}
- */
-
-}
+*/	
 
 /*
 function getGender($conn) {
@@ -184,4 +258,6 @@ $a = 'kk';
 
 echo $a, $b;
  */
+
+// indexkey($conn);
 ?>

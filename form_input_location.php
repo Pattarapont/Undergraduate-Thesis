@@ -7,7 +7,7 @@
 				ข้อมูลการท่องเทื่ยว
 			</div>
 			<div class="card-body ">
-				<form id="#" class="was-validated" action="#" method="post">
+				<form id="#" class="was-validated" action="./include/getvariable.php" method="POST">
 					<div class="form-group">
 						<p>จังหวัดที่ต้องการท่องเที่ยว</p>
 						<label class="custom-control custom-checkbox">
