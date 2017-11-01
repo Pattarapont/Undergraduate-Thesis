@@ -2,10 +2,10 @@
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 20, 2017 at 07:05 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Host: 127.0.0.1
+-- Generation Time: Nov 01, 2017 at 05:12 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
