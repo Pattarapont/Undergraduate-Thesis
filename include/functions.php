@@ -2,136 +2,160 @@
 include 'db_connect.php';
 include 'getvariable.php';
 
+
+// SQL JOIN 5 TABLE
 /*
-$sql_DataOldcase = "SELECT * FROM data_oldcase WHERE id_data_oldcase = 1";
-
-$sql_DataPhitsanulok = "SELECT * FROM data_phitsanulok";
-$sql_DataPhetchabun  = "SELECT * FROM data_phetchabun";
-$sql_DataChiangMai   = "SELECT * FROM data_chiangmai ";
-$sql_DataChiangRai   = "SELECT * FROM data_chiangrai ";
- */
-
-
-function indexkey($conn) {
-	/*
-	โรคประจำตัว = 9.0
-	การเคลื่อนไหวร่างกาย = 10.0
-	 */
-
-	$new_congenital_dis 	= "ไม่มี";
-	$new_body_movement 		= "เดินได้ปกติ";
-
-
-	$oldcase_db = "SELECT * FROM data_oldcase ORDER BY  `id_data_oldcase` ASC ";
-	$result     = $conn->query($oldcase_db);
-	$id_indexkey = "";
-	if ($result->num_rows > 0) {
-		// output data of each row
-	$id_indexkey = array();
-		while ($row = $result->fetch_assoc()) {
-
-			if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement']) {
-
-					$id_indexkey[] = $row['id_data_oldcase']; 
-					// echo $id_indexkey;
-					// echo "<br>";
-
-			} else {
-				// ไม่นำ id มาคำนวน
-			}	
-		}
-		
-		
-		// เรียก Array ตำแหน่งที่ 81
-		
-		// echo $id_indexkey[1]; 
-
-		// echo "<br>";
-		// print_r($id_indexkey);
-		
-		$arrlength = count($id_indexkey);
-
-		for ($i = 0; $i < $arrlength ; $i++) {
-			echo $id_indexkey[$i];
-    		echo "<br>";
-		}
-		
-	}
-
-/*
-// คำนวนค่า
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while ($row = $result->fetch_assoc()) {
-
-			$result_indexkey = 0 ;
-
-			// โรคประจำตัว = 9.0
-			if ($new_congenital_dis == $row['congenital_dis']) {
-				$summath1 = 9;
-				$result_indexkey += $summath1;
-			} else {
-				$summath1 = 0;
-				$result_indexkey += $summath1;
-			}
-			// การเคลื่อนไหวร่างกาย = 10.0
-			if ($new_body_movement == $row['body_movement']) {
-				$summath2 = 10;
-				$result_indexkey += $summath2;
-			} else {
-				$summath2 = 0;
-				$result_indexkey += $summath2;
-			}
-			// ฟังก์ชันคำนวน ??????????????
-
-			$n1 = 0;
-	        $t1 = "";
-
-	        $n2 = 0;
-	        $t2 = "";
-
-	        $n3 = 0;
-	        $t3 = "";
-
-			if ($result_indexkey >= $n1){
-                if ($result_indexkey >= $n2) {
-                      if ($result_indexkey >= $n3) {
-                          $n1 = $n2;
-                          $t1 = $t2;
-
-                          $n2 = $n3;
-                          $t2 = $t3;
-
-                          $n3 = $result_indexkey;
-                          $t3 = $num1;
-                        }else{
-                          $n1 = $n2;
-                          $t1 = $t2;
-
-                          $n2 = $result_indexkey;
-                          $t2 = $num1;
-                        }
-                  }else{
-                $n1 = $result_indexkey;
-                $t1 = $num1;
-                }  
-            }
-
-		}
-
-		// $keyindex = ;
-		// return $keyindex;
-
-	} 
-	// else {
-	// 	echo "0 results";
-	// }
-}
+$sql_joindata = "SELECT * FROM data_oldcase
+JOIN data_phitsanulok ON data_phitsanulok.id_phitsanulok = 
+data_oldcase.id_phitsanulok
+JOIN data_phetchabun ON data_phetchabun.id_phetchabun = 
+data_phitsanulok.id_phetchabun
+JOIN data_chiangmai ON data_chiangmai.id_chiangmai = 
+data_phetchabun.id_chiangmai
+JOIN data_chiangrai ON data_chiangrai.id_chiangrai = 
+data_chiangmai.id_chiangrai
+WHERE id_data_oldcase";
 */
+// $new_congenital_dis     = "ไม่มี";
+// $new_body_movement         = "เดินได้ปกติ";
 
-	// return $id_indexkey;
+function indexkey($conn)
+{
+    /*
+    โรคประจำตัว = 9.0
+    การเคลื่อนไหวร่างกาย = 10.0
+    */
+    
+    $new_congenital_dis = "ไม่มี";
+    $new_body_movement  = "เดินได้ปกติ";
+    
+    $oldcase_db = "SELECT * FROM data_oldcase ORDER BY  `id_data_oldcase` ASC ";
+    $inkey      = $conn->query($oldcase_db);
+    // $id_indexkey = ""; 
+    if ($inkey->num_rows > 0) {
+        // output data of each row
+        $id_indexkey = array();
+        while ($row = $inkey->fetch_assoc()) {
+            
+            if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement']) {
+                
+                $id_indexkey[] = $row['id_data_oldcase'];
+            }
+            // else {
+            
+            // }    
+        }
+        
+        // เรียก Array ตำแหน่งที่ 81
+        // echo $id_indexkey[1]; 
+        
+        print_r($id_indexkey);
+        echo "<br>";
+        
+        $arrlength = count($id_indexkey);
+        
+        for ($i = 0; $i < $arrlength; $i++) {
+            echo $id_indexkey[$i];
+            echo "<br>";
+        }
+        
+        
+    }
 }
 
 indexkey($conn);
 
+function matching($conn)
+{
+    
+    // SQL JOIN 5 TABLE
+    
+    $jointable_db = "SELECT * FROM data_oldcase 
+    JOIN data_phitsanulok ON data_phitsanulok.id_phitsanulok =
+    	data_oldcase.id_phitsanulok
+	JOIN data_phetchabun ON data_phetchabun.id_phetchabun = 
+    	data_phitsanulok.id_phetchabun
+	JOIN data_chiangmai ON data_chiangmai.id_chiangmai = 
+   		data_phetchabun.id_chiangmai
+	JOIN data_chiangrai ON data_chiangrai.id_chiangrai = 
+    	data_chiangmai.id_chiangrai
+	WHERE id_data_oldcase";
+    
+    
+    // เรียกใช้ function indexkey($conn)
+    // indexkey($conn);
+    
+    $result = $conn->query($jointable_db);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            
+            //     $inkey_indexkey = 0 ;
+            
+            //     // โรคประจำตัว = 9.0
+            //     if ($new_congenital_dis == $row['congenital_dis']) {
+            //         $summath1 = 9;
+            //         $inkey_indexkey += $summath1;
+            //     } else {
+            //         $summath1 = 0;
+            //         $inkey_indexkey += $summath1;
+            //     }
+            //     // การเคลื่อนไหวร่างกาย = 10.0
+            //     if ($new_body_movement == $row['body_movement']) {
+            //         $summath2 = 10;
+            //         $inkey_indexkey += $summath2;
+            //     } else {
+            //         $summath2 = 0;
+            //         $inkey_indexkey += $summath2;
+            //     }
+            //     // ฟังก์ชันคำนวน ??????????????
+            
+            //     $n1 = 0;
+            //        $t1 = "";
+            
+            //        $n2 = 0;
+            //        $t2 = "";
+            
+            //        $n3 = 0;
+            //        $t3 = "";
+            
+            //     if ($inkey_indexkey >= $n1){
+            //               if ($inkey_indexkey >= $n2) {
+            //                     if ($inkey_indexkey >= $n3) {
+            //                         $n1 = $n2;
+            //                         $t1 = $t2;
+            
+            //                         $n2 = $n3;
+            //                         $t2 = $t3;
+            
+            //                         $n3 = $inkey_indexkey;
+            //                         $t3 = $num1;
+            //                       }else{
+            //                         $n1 = $n2;
+            //                         $t1 = $t2;
+            
+            //                         $n2 = $inkey_indexkey;
+            //                         $t2 = $num1;
+            //                       }
+            //                 }else{
+            //               $n1 = $inkey_indexkey;
+            //               $t1 = $num1;
+            //               }  
+            //           }
+            
+        }
+        
+        // $keyindex = ;
+        // return $keyindex;
+        
+    }
+    // else {
+    //     echo "0 inkeys";
+    // }
+}
+
+
+// return $id_indexkey;
+
+matching($conn);
 ?>

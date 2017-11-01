@@ -12,7 +12,8 @@
 	$new_traveltime 		= $_POST['traveltime'];
 	$new_camp 				= $_POST['camp'];
 	$new_money 				= $_POST['money'];
-	*/
+*/
+
 	$new_gender				= "ชาย";
 	$new_age 				= "50 - 60 ปี";
 	$new_province 			= "พิษณุโลก";

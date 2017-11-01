@@ -4,3 +4,4 @@ prepros-6.config
 *.phpintel/
 *.map
 *.swp
+*.php-tmp
