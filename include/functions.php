@@ -2,20 +2,6 @@
 include 'db_connect.php';
 include 'getvariable.php';
 
-
-// SQL JOIN 5 TABLE
-/*
-$sql_joindata = "SELECT * FROM data_oldcase
-JOIN data_phitsanulok ON data_phitsanulok.id_phitsanulok = 
-data_oldcase.id_phitsanulok
-JOIN data_phetchabun ON data_phetchabun.id_phetchabun = 
-data_phitsanulok.id_phetchabun
-JOIN data_chiangmai ON data_chiangmai.id_chiangmai = 
-data_phetchabun.id_chiangmai
-JOIN data_chiangrai ON data_chiangrai.id_chiangrai = 
-data_chiangmai.id_chiangrai
-WHERE id_data_oldcase";
-*/
 // $new_congenital_dis     = "ไม่มี";
 // $new_body_movement         = "เดินได้ปกติ";
 
@@ -40,10 +26,7 @@ function indexkey($conn)
             if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement']) {
                 
                 $id_indexkey[] = $row['id_data_oldcase'];
-            }
-            // else {
-            
-            // }    
+            } 
         }
         
         // เรียก Array ตำแหน่งที่ 81
@@ -58,16 +41,12 @@ function indexkey($conn)
             echo $id_indexkey[$i];
             echo "<br>";
         }
-        
-        
     }
 }
 
 indexkey($conn);
 
-function matching($conn)
-{
-    
+function matching($conn){
     // SQL JOIN 5 TABLE
     
     $jointable_db = "SELECT * FROM data_oldcase 
@@ -85,10 +64,171 @@ function matching($conn)
     // เรียกใช้ function indexkey($conn)
     // indexkey($conn);
     
+
+    // วนลูปของแถว
     $result = $conn->query($jointable_db);
     if ($result->num_rows > 0) {
-        // output data of each row
+
         while ($row = $result->fetch_assoc()) {
+
+            	// olacase col 1
+                if ($new_gender == $row['gender']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                } else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                }
+
+            	// olacase col 2
+                if ($new_age == $row['age']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                } else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                }
+
+                // olacase col 3
+                if ($new_province == $row['province']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                } else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                }
+
+                // olacase col 1
+                if ($new_career == $row['career']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                } else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                }
+
+                // olacase col 1
+                if ($new_congenital_dis == $row['congenital_dis']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                } else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                }
+
+                // olacase col 1
+                if ($new_name_congenital_dis == $row['name_congenital_dis']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                } else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                }
+
+                // olacase col 1
+                if ($new_body_movement == $row['body_movement']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                } else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                }
+
+                // ตรวจสอบว่าเคยไปพิษณุโลกไหม
+                // 0 = ไม่เคย
+                // 1 = เคย
+                
+                if ($row['tourism_PLK'] == 1) {
+                	if ($new_travel == $row['travel_PLK']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                	} else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                	}
+
+                	if ($new_car == $row['car_PLK']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                	} else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                	}
+
+                	if ($new_traveltime == $row['traveltime_PLK']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                	} else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                	}
+
+                	if ($new_camp == $row['camp_PLK']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                	} else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                	}
+
+                	if ($new_money == $row['money_phitsanulok']) {
+                    $summath1 = 9;
+                    $inkey_indexkey += $summath1;
+                	} else {
+                    $summath1 = 0;
+                    $inkey_indexkey += $summath1;
+                	}
+
+                	for ($locat_PLK = 0; $locat_PLK < ????; $locat_PLK++) {
+
+	                	if ($row[''] > 3 ) {
+                    	$summath1 = 9;
+                    	$inkey_indexkey += $summath1;
+                		} else {
+	                    $summath1 = 0;
+	                    $inkey_indexkey += $summath1;
+	                	}
+
+	               		else if ($row[''] > 3 ) {
+                    	$summath1 = 9;
+                    	$inkey_indexkey += $summath1;
+                		} else {
+	                    $summath1 = 0;
+	                    $inkey_indexkey += $summath1;
+	                	}
+
+	                	if ($row[''] > 3 ) {
+                    	$summath1 = 9;
+                    	$inkey_indexkey += $summath1;
+                		} else {
+	                    $summath1 = 0;
+	                    $inkey_indexkey += $summath1;
+	                	}
+
+	                	if ($row[''] > 3 ) {
+                    	$summath1 = 9;
+                    	$inkey_indexkey += $summath1;
+                		} else {
+	                    $summath1 = 0;
+	                    $inkey_indexkey += $summath1;
+	                	}
+                		
+                	}
+
+                } // จบการทำงานคำนวนสถานที่พิษณุโลกห
+
+                
+                if ($row['tourism_phetchabun'] == 1) {
+                	
+                }
+
+                if ($row['tourism_chiangmai'] == 1) {
+                	
+                }
+                
+                if ($row['tourism_chiangrai'] == 1) {
+                	
+                }
             
             //     $inkey_indexkey = 0 ;
             
@@ -145,17 +285,10 @@ function matching($conn)
             
         }
         
-        // $keyindex = ;
-        // return $keyindex;
-        
     }
-    // else {
-    //     echo "0 inkeys";
-    // }
+    
 }
 
-
-// return $id_indexkey;
 
 matching($conn);
 ?>

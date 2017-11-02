@@ -7,6 +7,7 @@
 	$new_congenital_dis 	= $_POST['congenital_dis'];
 	$new_name_congenital_dis	= $_POST['name_congenital_dis'];
 	$new_body_movement 		= $_POST['body_movement'];
+	
 	$new_travel 			= $_POST['travel'];
 	$new_car 				= $_POST['car'];
 	$new_traveltime 		= $_POST['traveltime'];
