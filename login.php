@@ -8,7 +8,7 @@
 if ($result->num_rows == 0) {
 	// User doesn't exist
 	$_SESSION['message'] = "User with that email doesn't exist!";
-	header("location: error.php");
+	header("location: account.php");
 } else {
 	// User exists
 	$user = $result->fetch_assoc();
