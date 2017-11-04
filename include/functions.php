@@ -46,8 +46,7 @@ function indexkey($conn)
 
 indexkey($conn);
 
-function matching($conn)
-{
+function matching($conn){
     // SQL JOIN 5 TABLE
     
     $jointable_db = "SELECT * FROM data_oldcase 
@@ -65,154 +64,179 @@ function matching($conn)
     // เรียกใช้ function indexkey($conn)
     // indexkey($conn);
     
-    
     // วนลูปของแถว
     $result = $conn->query($jointable_db);
-    
-    if ($result->num_rows > 0) {
-        
-      while ($row = $result->fetch_assoc()) {
+    if ($result->num_rows > 0) {  
+        while ($row = $result->fetch_assoc()) {
           
             // data_oldcase
             // gender
             if ($new_gender == $row['gender']) {
-                $summath1 = 9;
-                $inkey_indexkey += $summath1;
+                $summath1 = 3.0;
+                $mathtotal += $summath1;
             } else {
                 $summath1 = 0;
-                $inkey_indexkey += $summath1;
+                $mathtotal += $summath1;
             }
             
             // age
             if ($new_age == $row['age']) {
-                $summath1 = 9;
-                $inkey_indexkey += $summath1;
+                $summath2 = 6.3;
+                $mathtotal += $summath2;
             } else {
-                $summath1 = 0;
-                $inkey_indexkey += $summath1;
+                $summath2 = 0;
+                $mathtotal += $summath2;
             }
             
             // province
             if ($new_province == $row['province']) {
-                $summath1 = 9;
-                $inkey_indexkey += $summath1;
+                $summath3 = 4.0;
+                $mathtotal += $summath3;
             } else {
-                $summath1 = 0;
-                $inkey_indexkey += $summath1;
+                $summath3 = 0;
+                $mathtotal += $summath3;
             }
             
             // career
             if ($new_career == $row['career']) {
-                $summath1 = 9;
-                $inkey_indexkey += $summath1;
+                $summath4 = 3.7;
+                $mathtotal += $summath4;
             } else {
-                $summath1 = 0;
-                $inkey_indexkey += $summath1;
+                $summath4 = 0;
+                $mathtotal += $summath4;
             }
             
             // congenital_dis
             if ($new_congenital_dis == $row['congenital_dis']) {
-                $summath1 = 9;
-                $inkey_indexkey += $summath1;
+                $summath5 = 9.0;
+                $mathtotal += $summath5;
             } else {
-                $summath1 = 0;
-                $inkey_indexkey += $summath1;
+                $summath5 = 0;
+                $mathtotal += $summath5;
             }
             
+            /*
             // name_congenital_dis
             if ($new_name_congenital_dis == $row['name_congenital_dis']) {
-                $summath1 = 9;
-                $inkey_indexkey += $summath1;
+                $summath6 = 9;
+                $mathtotal += $summath6;
             } else {
-                $summath1 = 0;
-                $inkey_indexkey += $summath1;
+                $summath6 = 0;
+                $mathtotal += $summath6;
             }
-            
+            */
+           
             // body_movement
             if ($new_body_movement == $row['body_movement']) {
-                $summath1 = 9;
-                $inkey_indexkey += $summath1;
+                $summath6 = 10.0;
+                $mathtotal += $summath6;
             } else {
-                $summath1 = 0;
-                $inkey_indexkey += $summath1;
+                $summath6 = 0;
+                $mathtotal += $summath6;
             }
             
             // ตรวจสอบว่าเคยไปพิษณุโลกไหม
             // 0 = ไม่เคย   1 = เคย
             
             if ($row['tourism_PLK'] == 1) {
-                if ($new_travel == $row['travel_PLK']) {
-                    $summath1 = 9;
-                    $inkey_indexkey += $summath1;
+
+                if ($new_travel == $row['travel_form_PLK']) {
+                    $summath7 = 5.0;
+                    $mathtotal += $summath7;
                 } else {
-                    $summath1 = 0;
-                    $inkey_indexkey += $summath1;
+                    $summath7 = 0;
+                    $mathtotal += $summath7;
+                }
+
+                if ($new_car == $row['vehicle_PLK']) {
+                    $summath8 = 6.0;
+                    $mathtotal += $summath8;
+                } else {
+                    $summath8 = 0;
+                    $mathtotal += $summath8;
                 }
                 
-                if ($new_car == $row['car_PLK']) {
-                    $summath1 = 9;
-                    $inkey_indexkey += $summath1;
+                if ($new_traveltime == $row['travel_time_PLK']) {
+                    $summath9 = 5.5;
+                    $mathtotal += $summath9;
                 } else {
-                    $summath1 = 0;
-                    $inkey_indexkey += $summath1;
-                }
-                
-                if ($new_traveltime == $row['traveltime_PLK']) {
-                    $summath1 = 9;
-                    $inkey_indexkey += $summath1;
-                } else {
-                    $summath1 = 0;
-                    $inkey_indexkey += $summath1;
+                    $summath9 = 0;
+                    $mathtotal += $summath9;
                 }
                 
                 if ($new_camp == $row['camp_PLK']) {
-                    $summath1 = 9;
-                    $inkey_indexkey += $summath1;
+                    $summath10 = 6.0;
+                    $mathtotal += $summath10;
                 } else {
-                    $summath1 = 0;
-                    $inkey_indexkey += $summath1;
+                    $summath10 = 0;
+                    $mathtotal += $summath10;
                 }
                 
-                if ($new_money == $row['money_phitsanulok']) {
-                    $summath1 = 9;
-                    $inkey_indexkey += $summath1;
+                if ($new_money == $row['charges_PLK']) {
+                    $summath11 = 7.0;
+                    $mathtotal += $summath11;
                 } else {
-                    $summath1 = 0;
-                    $inkey_indexkey += $summath1;
+                    $summath11 = 0;
+                    $mathtotal += $summath11;
                 }
                 
-                for ($locat_PLK = 0; $locat_PLK < xxx; $locat_PLK++) {
+                // เก็บค่าในรูปแบบ Array 2 มิติ
+                // $response [x][y] = x คือ ตำแหน่งแถว y คือ ตำแหน่งคอลัมม์
+                for ($location_PLK = 0; $location_PLK < xxx; $location_PLK++) {
                     
-                    if ($row['a'] > 3) {
+                    if ($row['score_WatYai'] > 3) {
                         $summath1 = 9;
-                        $inkey_indexkey += $summath1;
+                        $mathtotal += $summath1;
+
+                        if ($row['facilities_WatYai']) {
+                            $summath1 = 9;
+                            $mathtotal += $summath1;
+                        }
                     } else {
                         $summath1 = 0;
-                        $inkey_indexkey += $summath1;
+                        $mathtotal += $summath1;
+                    }
+                    
+                    if ($row['score_ThaweeFolkMuseum'] > 3) {
+                        $summath1 = 9;
+                        $mathtotal += $summath1;
+
+                        if ($row['facilities_ThaweeFolkMuseum']) {
+                            $summath1 = 9;
+                            $mathtotal += $summath1;
+                        }
+
+                    } else {
+                        $summath1 = 0;
+                        $mathtotal += $summath1;
+                    }
+                    
+                    if ($row['score_WatChulamanee'] > 3) {
+                        $summath1 = 9;
+                        $mathtotal += $summath1;
+
+                        if ($row['facilities_WatChulamanee']) {
+                            $summath1 = 9;
+                            $mathtotal += $summath1;
+                        }
+
+                    } else {
+                        $summath1 = 0;
+                        $mathtotal += $summath1;
                     }
                     
                     if ($row['a'] > 3) {
                         $summath1 = 9;
-                        $inkey_indexkey += $summath1;
+                        $mathtotal += $summath1;
+
+                        if ($row['score_SanSomdej']) {
+                            $summath1 = 9;
+                            $mathtotal += $summath1;
+                        }
+
                     } else {
                         $summath1 = 0;
-                        $inkey_indexkey += $summath1;
-                    }
-                    
-                    if ($row['a'] > 3) {
-                        $summath1 = 9;
-                        $inkey_indexkey += $summath1;
-                    } else {
-                        $summath1 = 0;
-                        $inkey_indexkey += $summath1;
-                    }
-                    
-                    if ($row['a'] > 3) {
-                        $summath1 = 9;
-                        $inkey_indexkey += $summath1;
-                    } else {
-                        $summath1 = 0;
-                        $inkey_indexkey += $summath1;
+                        $mathtotal += $summath1;
                     }
                     
                 }
@@ -232,23 +256,23 @@ function matching($conn)
                 
             }
             
-            //     $inkey_indexkey = 0 ;
+            //     $mathtotal = 0 ;
             
             //     // โรคประจำตัว = 9.0
             //     if ($new_congenital_dis == $row['congenital_dis']) {
             //         $summath1 = 9;
-            //         $inkey_indexkey += $summath1;
+            //         $mathtotal += $summath1;
             //     } else {
             //         $summath1 = 0;
-            //         $inkey_indexkey += $summath1;
+            //         $mathtotal += $summath1;
             //     }
             //     // การเคลื่อนไหวร่างกาย = 10.0
             //     if ($new_body_movement == $row['body_movement']) {
             //         $summath2 = 10;
-            //         $inkey_indexkey += $summath2;
+            //         $mathtotal += $summath2;
             //     } else {
             //         $summath2 = 0;
-            //         $inkey_indexkey += $summath2;
+            //         $mathtotal += $summath2;
             //     }
             //     // ฟังก์ชันคำนวน ??????????????
             
@@ -261,26 +285,26 @@ function matching($conn)
             //        $n3 = 0;
             //        $t3 = "";
             
-            //     if ($inkey_indexkey >= $n1){
-            //               if ($inkey_indexkey >= $n2) {
-            //                     if ($inkey_indexkey >= $n3) {
+            //     if ($mathtotal >= $n1){
+            //               if ($mathtotal >= $n2) {
+            //                     if ($mathtotal >= $n3) {
             //                         $n1 = $n2;
             //                         $t1 = $t2;
             
             //                         $n2 = $n3;
             //                         $t2 = $t3;
             
-            //                         $n3 = $inkey_indexkey;
+            //                         $n3 = $mathtotal;
             //                         $t3 = $num1;
             //                       }else{
             //                         $n1 = $n2;
             //                         $t1 = $t2;
             
-            //                         $n2 = $inkey_indexkey;
+            //                         $n2 = $mathtotal;
             //                         $t2 = $num1;
             //                       }
             //                 }else{
-            //               $n1 = $inkey_indexkey;
+            //               $n1 = $mathtotal;
             //               $t1 = $num1;
             //               }  
             //           }

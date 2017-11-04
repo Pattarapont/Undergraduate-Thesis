@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2017 at 05:12 PM
+-- Generation Time: Nov 03, 2017 at 05:15 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data_chiangmai` (
   `id_chiangmai` int(5) NOT NULL,
-  `tourism` text COLLATE utf8_unicode_ci NOT NULL,
-  `travel_form` text COLLATE utf8_unicode_ci,
-  `vehicle` text COLLATE utf8_unicode_ci,
-  `travel_time` text COLLATE utf8_unicode_ci,
-  `camp` text COLLATE utf8_unicode_ci,
-  `charges` text COLLATE utf8_unicode_ci,
+  `tourism_CMI` text COLLATE utf8_unicode_ci NOT NULL,
+  `travel_form_CMI` text COLLATE utf8_unicode_ci,
+  `vehicle_CMI` text COLLATE utf8_unicode_ci,
+  `travel_time_CMI` text COLLATE utf8_unicode_ci,
+  `camp_CMI` text COLLATE utf8_unicode_ci,
+  `charges_CMI` text COLLATE utf8_unicode_ci,
   `score_KrubaSrivichai` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_DoiSuthep` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_ChiangMaiZoo` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `data_chiangmai` (
 -- Dumping data for table `data_chiangmai`
 --
 
-INSERT INTO `data_chiangmai` (`id_chiangmai`, `tourism`, `travel_form`, `vehicle`, `travel_time`, `camp`, `charges`, `score_KrubaSrivichai`, `score_DoiSuthep`, `score_ChiangMaiZoo`, `score_InthanonAgrRoyal`, `score_BhubingPalace`, `score_DoiInthanon`, `facilities_KrubaSrivichai`, `facilities_DoiSuthep`, `facilities_ChiangMaiZoo`, `facilities_InthanonAgrRoyal`, `facilities_BhubingPalace`, `facilities_DoiInthanon`, `id_chiangrai`) VALUES
+INSERT INTO `data_chiangmai` (`id_chiangmai`, `tourism_CMI`, `travel_form_CMI`, `vehicle_CMI`, `travel_time_CMI`, `camp_CMI`, `charges_CMI`, `score_KrubaSrivichai`, `score_DoiSuthep`, `score_ChiangMaiZoo`, `score_InthanonAgrRoyal`, `score_BhubingPalace`, `score_DoiInthanon`, `facilities_KrubaSrivichai`, `facilities_DoiSuthep`, `facilities_ChiangMaiZoo`, `facilities_InthanonAgrRoyal`, `facilities_BhubingPalace`, `facilities_DoiInthanon`, `id_chiangrai`) VALUES
 (1, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 1),
 (2, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 2),
 (3, '1', 'แพคเกจท่องเที่ยว', 'รถตู้', '2 - 3 วัน', 'รีสอร์ท', '1,000 - 3,000 บาท', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', '', '', '', '', '', '', 3),
@@ -215,12 +215,12 @@ INSERT INTO `data_chiangmai` (`id_chiangmai`, `tourism`, `travel_form`, `vehicle
 
 CREATE TABLE `data_chiangrai` (
   `id_chiangrai` int(5) NOT NULL,
-  `tourism` text COLLATE utf8_unicode_ci NOT NULL,
-  `travel_form` text COLLATE utf8_unicode_ci,
-  `vehicle` text COLLATE utf8_unicode_ci,
-  `travel_time` text COLLATE utf8_unicode_ci,
-  `camp` text COLLATE utf8_unicode_ci,
-  `charges` text COLLATE utf8_unicode_ci,
+  `tourism_CRI` text COLLATE utf8_unicode_ci NOT NULL,
+  `travel_form_CRI` text COLLATE utf8_unicode_ci,
+  `vehicle_CRI` text COLLATE utf8_unicode_ci,
+  `travel_time_CRI` text COLLATE utf8_unicode_ci,
+  `camp_CRI` text COLLATE utf8_unicode_ci,
+  `charges_CRI` text COLLATE utf8_unicode_ci,
   `score_WatRongKhun` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_DoiTungRoyal` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_WatPhraKaew` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -241,7 +241,7 @@ CREATE TABLE `data_chiangrai` (
 -- Dumping data for table `data_chiangrai`
 --
 
-INSERT INTO `data_chiangrai` (`id_chiangrai`, `tourism`, `travel_form`, `vehicle`, `travel_time`, `camp`, `charges`, `score_WatRongKhun`, `score_DoiTungRoyal`, `score_WatPhraKaew`, `score_MaesaiMarket`, `score_BoonRawdFarm`, `score_BlackHouse`, `score_GoldenTriangle`, `facilities_WatRongKhun`, `facilities_DoiTungRoyal`, `facilities_WatPhraKaew`, `facilities_MaesaiMarket`, `facilities_BoonRawdFarm`, `facilities_BlackHouse`, `facilities_GoldenTriangle`) VALUES
+INSERT INTO `data_chiangrai` (`id_chiangrai`, `tourism_CRI`, `travel_form_CRI`, `vehicle_CRI`, `travel_time_CRI`, `camp_CRI`, `charges_CRI`, `score_WatRongKhun`, `score_DoiTungRoyal`, `score_WatPhraKaew`, `score_MaesaiMarket`, `score_BoonRawdFarm`, `score_BlackHouse`, `score_GoldenTriangle`, `facilities_WatRongKhun`, `facilities_DoiTungRoyal`, `facilities_WatPhraKaew`, `facilities_MaesaiMarket`, `facilities_BoonRawdFarm`, `facilities_BlackHouse`, `facilities_GoldenTriangle`) VALUES
 (1, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (2, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (3, '1', 'แพคเกจท่องเที่ยว', 'รถตู้', '2 - 3 วัน', 'โรงแรม', '1,000 - 3,000 บาท', '5', '5', '4', '5', '3', '3', '5', '', '', '', '', '', '', ''),
@@ -576,12 +576,12 @@ INSERT INTO `data_oldcase` (`id_data_oldcase`, `gender`, `age`, `province`, `car
 
 CREATE TABLE `data_phetchabun` (
   `id_phetchabun` int(5) NOT NULL,
-  `tourism` text COLLATE utf8_unicode_ci NOT NULL,
-  `travel_form` text COLLATE utf8_unicode_ci,
-  `vehicle` text COLLATE utf8_unicode_ci,
-  `travel_time` text COLLATE utf8_unicode_ci,
-  `camp` text COLLATE utf8_unicode_ci,
-  `charges` text COLLATE utf8_unicode_ci,
+  `tourism_PBI` text COLLATE utf8_unicode_ci NOT NULL,
+  `travel_form_PBI` text COLLATE utf8_unicode_ci,
+  `vehicle_PBI` text COLLATE utf8_unicode_ci,
+  `travel_time_PBI` text COLLATE utf8_unicode_ci,
+  `camp_PBI` text COLLATE utf8_unicode_ci,
+  `charges_PBI` text COLLATE utf8_unicode_ci,
   `score_WatPhaKaenKaew` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_KhaoKhoPalace` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_JadeeKhaoKho` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -609,7 +609,7 @@ CREATE TABLE `data_phetchabun` (
 -- Dumping data for table `data_phetchabun`
 --
 
-INSERT INTO `data_phetchabun` (`id_phetchabun`, `tourism`, `travel_form`, `vehicle`, `travel_time`, `camp`, `charges`, `score_WatPhaKaenKaew`, `score_KhaoKhoPalace`, `score_JadeeKhaoKho`, `score_PhoKhunPhaMuang`, `score_ThungSalaengLuang`, `score_KhaoKho`, `score_PhuTubberk`, `score_RaiKunnanChul`, `score_BNFarm`, `score_PhuKaewAdven`, `facilities_WatPhaKaenKaew`, `facilities_KhaoKhoPalace`, `facilities_JadeeKhaoKho`, `facilities_PhoKhunPhaMuang`, `facilities_ThungSalaengLuan`, `facilities_KhaoKho`, `facilities_PhuTubberk`, `facilities_RaiKunnanChul`, `facilities_BNFarm`, `facilities_PhuKaewAdven`, `id_chiangmai`) VALUES
+INSERT INTO `data_phetchabun` (`id_phetchabun`, `tourism_PBI`, `travel_form_PBI`, `vehicle_PBI`, `travel_time_PBI`, `camp_PBI`, `charges_PBI`, `score_WatPhaKaenKaew`, `score_KhaoKhoPalace`, `score_JadeeKhaoKho`, `score_PhoKhunPhaMuang`, `score_ThungSalaengLuang`, `score_KhaoKho`, `score_PhuTubberk`, `score_RaiKunnanChul`, `score_BNFarm`, `score_PhuKaewAdven`, `facilities_WatPhaKaenKaew`, `facilities_KhaoKhoPalace`, `facilities_JadeeKhaoKho`, `facilities_PhoKhunPhaMuang`, `facilities_ThungSalaengLuan`, `facilities_KhaoKho`, `facilities_PhuTubberk`, `facilities_RaiKunnanChul`, `facilities_BNFarm`, `facilities_PhuKaewAdven`, `id_chiangmai`) VALUES
 (1, '1', 'ครอบครัว', 'รถส่วนตัว', '2 - 3 วัน', 'รีสอร์ท', '3,000 – 5,000 บาท', '3', '3', '3', '3', '3', '4', '3', '3', '4', '3', 'ที่จอดรถผู้สูงอายุ, ที่นั่งพัก', 'ที่นั่งพัก', 'ที่นั่งพัก', 'ที่จอดรถผู้สูงอายุ, ที่นั่งพัก', 'ที่จอดรถผู้สูงอายุ', 'ที่จอดรถผู้สูงอายุ', 'ที่นั่งพัก', 'ที่จอดรถผู้สูงอายุ', 'ที่จอดรถผู้สูงอายุ', 'ที่จอดรถผู้สูงอายุ', 1),
 (2, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 2),
 (3, '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 3),
@@ -769,12 +769,12 @@ INSERT INTO `data_phetchabun` (`id_phetchabun`, `tourism`, `travel_form`, `vehic
 
 CREATE TABLE `data_phitsanulok` (
   `id_phitsanulok` int(5) NOT NULL,
-  `tourism` text COLLATE utf8_unicode_ci NOT NULL,
-  `travel_form` text COLLATE utf8_unicode_ci,
-  `vehicle` text COLLATE utf8_unicode_ci,
-  `travel_time` text COLLATE utf8_unicode_ci,
-  `camp` text COLLATE utf8_unicode_ci,
-  `charges` text COLLATE utf8_unicode_ci,
+  `tourism_PLK` text COLLATE utf8_unicode_ci NOT NULL,
+  `travel_form_PLK` text COLLATE utf8_unicode_ci,
+  `vehicle_PLK` text COLLATE utf8_unicode_ci,
+  `travel_time_PLK` text COLLATE utf8_unicode_ci,
+  `camp_PLK` text COLLATE utf8_unicode_ci,
+  `charges_PLK` text COLLATE utf8_unicode_ci,
   `score_WatYai` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_ThaweeFolkMuseum` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `score_WatChulamanee` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -798,7 +798,7 @@ CREATE TABLE `data_phitsanulok` (
 -- Dumping data for table `data_phitsanulok`
 --
 
-INSERT INTO `data_phitsanulok` (`id_phitsanulok`, `tourism`, `travel_form`, `vehicle`, `travel_time`, `camp`, `charges`, `score_WatYai`, `score_ThaweeFolkMuseum`, `score_WatChulamanee`, `score_SanSomdej`, `score_MuseumThirdArmy`, `score_KaengSopha`, `score_Phuhinrongkla`, `score_PhuSoiDao`, `facilities_WatYai`, `facilities_ThaweeFolkMuseum`, `facilities_WatChulamanee`, `facilities_SanSomdej`, `facilities_MuseumThirdArmy`, `facilities_KaengSopha`, `facilities_Phuhinrongkla`, `facilities_PhuSoiDao`, `id_phetchabun`) VALUES
+INSERT INTO `data_phitsanulok` (`id_phitsanulok`, `tourism_PLK`, `travel_form_PLK`, `vehicle_PLK`, `travel_time_PLK`, `camp_PLK`, `charges_PLK`, `score_WatYai`, `score_ThaweeFolkMuseum`, `score_WatChulamanee`, `score_SanSomdej`, `score_MuseumThirdArmy`, `score_KaengSopha`, `score_Phuhinrongkla`, `score_PhuSoiDao`, `facilities_WatYai`, `facilities_ThaweeFolkMuseum`, `facilities_WatChulamanee`, `facilities_SanSomdej`, `facilities_MuseumThirdArmy`, `facilities_KaengSopha`, `facilities_Phuhinrongkla`, `facilities_PhuSoiDao`, `id_phetchabun`) VALUES
 (1, '1', 'ครอบครัว', 'รถส่วนตัว', '2 - 3 วัน', 'รีสอร์ท', '3,000 – 5,000 บาท', '4', '4', '4', '4', '4', 4, '4', '4', 'ที่จอดรถผู้สูงอายุ', 'ที่นั่งพัก', 'ที่จอดรถผู้สูงอายุ', 'ที่จอดรถผู้สูงอายุ', 'ที่จอดรถผู้สูงอายุ', 'ที่นั่งพัก', 'ที่จอดรถผู้สูงอายุ', 'ที่จอดรถผู้สูงอายุ', 1),
 (2, '1', 'ครอบครัว', 'รถส่วนตัว', '4 – 5 วัน', 'โรงแรม', '1,000 - 3,000 บาท', '3', '4', '4', '4', '4', 4, '3', '1', '', '', '', '', '', '', '', '', 2),
 (3, '1', 'ครอบครัว', 'รถส่วนตัว', '1 วัน', 'บ้านตนเอง', '1,000 - 3,000 บาท', '5', '3', '3', '4', '3', 3, '3', '3', 'ที่นั่งพัก', '', '', '', '', '', '', '', 3),
