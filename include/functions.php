@@ -17,129 +17,52 @@ function indexkey($conn) {
 	$oldcase_db = "SELECT * FROM oldcase ORDER BY `id` ASC ";
 	$inkey = $conn->query($oldcase_db);
 	// $id_indexkey = "";
-
-	$n1 = 0;
-	$t1 = "";
-
-	$n2 = 0;
-	$t2 = "";
-
-	$n3 = 0;
-	$t3 = "";
-
-	$n4 = 0;
-	$t4 = "";
-
-	$n5 = 0;
-	$t5 = "";
-
 	if ($inkey->num_rows > 0) {
 		// output data of each row
 		$id_indexkey = array();
 		while ($row = $inkey->fetch_assoc()) {
+			if ($row['tourism'] == 1) {
+				if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement']) {
 
-			if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement'] && $row['tourism'] == 1) {
-
-				$id_indexkey[] = $row['id'];
+					$id_indexkey[] = $row['id'];
+					// echo $row['charges'];
+					// echo $row['congenital_dis'];
+					// echo $row['province'];
+				}
 			}
+			// echo $row['congenital_dis'];
+
 		}
 
 		// เรียก Array ตำแหน่งที่ 81
 		// echo $id_indexkey[1];
 
 		print_r($id_indexkey);
-		// echo "<br>";
+		echo "<br>";
 
 		$arrlength = count($id_indexkey);
-		$mathtotal = 0;
-
-		$total = $arrlength;
+		// $arrlength เก็บเลขตำแหน่ง array ไม่ได้เก็บ id
+		echo $arrlength, 'เลขตำแหน่ง array <br>';
+		echo $row['congenital_dis'];
 
 		for ($i = 0; $i < $arrlength; $i++) {
-			// echo $id_indexkey[$i];
+			echo $id_indexkey[$i];
 			// echo "<br>";
 
-			if ($new_congenital_dis == $row['congenital_dis']) {
-				$summath1 = 9.0;
-				$mathtotal += $summath1;
-			} else {
-				$summath1 = 0;
-				$mathtotal += $summath1;
-			}
-			if ($new_body_movement == $row['body_movement']) {
-				$summath2 = 10.0;
-				$mathtotal += $summath2;
-			} else {
-				$summath2 = 0;
-				$mathtotal += $summath2;
-			}
-			if ($new_congenital_dis == $row['congenital_dis']) {
-				$summath1 = 3;
-				$mathtotal += $summath1;
-			} else {
-				$summath1 = 0;
-				$mathtotal += $summath1;
-			}
+			// อยากให้เอา id ที่อยีใน id index มาตรวจสอบ
+			if ($arrlength[$i] == $row['id']) {
+				/*
+					$a = $row['congenital_dis'];
+					echo $a;
+				*/
+				echo 'ออกมาสิครับ';
+				echo "<br>";
 
-			// เปรียบเทียบค่าหลังจาก query
-			if ($mathtotal >= $n1) {
-				if ($mathtotal >= $n2) {
-					if ($mathtotal >= $n3) {
-						if ($mathtotal >= $n4) {
-							if ($mathtotal >= $n5) {
-								$n1 = $n2;
-								$t1 = $t2;
-
-								$n2 = $n3;
-								$t2 = $t3;
-
-								$n3 = $n4;
-								$t3 = $t4;
-
-								$n4 = $n5;
-								$t4 = $t5;
-
-								$n5 = $mathtotal;
-								$t5 = $total;
-							} else {
-								$n1 = $n2;
-								$t1 = $t2;
-
-								$n2 = $n3;
-								$t2 = $t3;
-
-								$n3 = $n4;
-								$t3 = $t4;
-
-								$n3 = $mathtotal;
-								$t3 = $total;
-							}
-						} else {
-							$n1 = $n2;
-							$t1 = $t2;
-
-							$n2 = $n3;
-							$t2 = $t3;
-
-							$n2 = $mathtotal;
-							$t2 = $total;
-						}
-					} else {
-						$n1 = $n2;
-						$t1 = $t2;
-
-						$n2 = $mathtotal;
-						$t2 = $total;
-					}
-				} else {
-					$n1 = $mathtotal;
-					$t1 = $total;
-				}
 			}
 		}
+
 	}
 }
 
 indexkey($conn);
-
 ?>
