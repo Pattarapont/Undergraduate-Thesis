@@ -16,24 +16,137 @@ $new_camp = "รีสอร์ท";
 $new_money = "3,000 – 5,000 บาท";
 
 $oldcase_db = "SELECT * FROM oldcase ORDER BY `id` ASC ";
-$inkey = $conn->query($oldcase_db);
+$key = $conn->query($oldcase_db);
 // $id_oc = "";
-if ($inkey->num_rows > 0) {
+if ($key->num_rows > 0) {
 	// output data of each row
+	$new1 = 0;
+	$t1 = "";
 
-	while ($row = $inkey->fetch_assoc()) {
+	$new2 = 0;
+	$t2 = "";
+
+	$new3 = 0;
+	$t3 = "";
+
+	$new4 = 0;
+	$t4 = "";
+
+	$new5 = 0;
+	$t5 = "";
+	// เลือกที่คล้ายมากสุด
+	while ($row = $key->fetch_assoc()) {
+
+		$mathtotal = 0;
+
+		$id = $row['id'];
+
 		if ($row['tourism'] == 1) {
-			if ($new_congenital_dis == $row['congenital_dis']
-				&& $new_body_movement == $row['body_movement']) {
 
-				$id_oc[] = $row['id'];
-				// echo $row['charges'];
-				// echo $row['congenital_dis'];
-				// echo $row['province'];
+			if ($new_congenital_dis == $row['congenital_dis']) {
+				$summath1 = 3.0;
+				$mathtotal += $summath1;
+			} else {
+				$summath1 = 0;
+				$mathtotal += $summath1;
+			}
+			if ($new_body_movement == $row['body_movement']) {
+				$summath2 = 3.3;
+				$mathtotal += $summath2;
+			} else {
+				$summath2 = 0;
+				$mathtotal += $summath2;
+			}
+			if ($new_money == $row['charges']) {
+				$summath1 = 2.0;
+				$mathtotal += $summath1;
+			} else {
+				$summath1 = 0;
+				$mathtotal += $summath1;
+			}
+			if ($new_camp == $row['camp']) {
+				$summath1 = 2.0;
+				$mathtotal += $summath1;
+			} else {
+				$summath1 = 0;
+				$mathtotal += $summath1;
+			}
+			if ($new_travel == $row['travel_form']) {
+				$summath1 = 1.0;
+				$mathtotal += $summath1;
+			} else {
+				$summath1 = 0;
+				$mathtotal += $summath1;
 			}
 		}
-		// echo $row['congenital_dis'];
+
+		// เปรียบเทียบค่าหลังจาก query
+
+		if ($mathtotal >= $new1) {
+			if ($mathtotal >= $new2) {
+				if ($mathtotal >= $new3) {
+					if ($mathtotal >= $new4) {
+						if ($mathtotal >= $new5) {
+							$new1 = $new2;
+							$t1 = $t2;
+
+							$new2 = $new3;
+							$t2 = $t3;
+
+							$new3 = $new4;
+							$t3 = $t4;
+
+							$new4 = $new5;
+							$t4 = $t5;
+
+							$new5 = $mathtotal;
+							$t5 = $id;
+						} else {
+							$new1 = $new2;
+							$t1 = $t2;
+
+							$new2 = $new3;
+							$t2 = $t3;
+
+							$new3 = $new4;
+							$t3 = $t4;
+
+							$new3 = $mathtotal;
+							$t3 = $id;
+						}
+					} else {
+						$new1 = $new2;
+						$t1 = $t2;
+
+						$new2 = $new3;
+						$t2 = $t3;
+
+						$new2 = $mathtotal;
+						$t2 = $id;
+					}
+				} else {
+					$new1 = $new2;
+					$t1 = $t2;
+
+					$new2 = $mathtotal;
+					$t2 = $id;
+				}
+			} else {
+				$new1 = $mathtotal;
+				$t1 = $id;
+			}
+		}
+		// echo $row['travel_form'];
 	}
+
+	// โชว์คอลัมที่เลือก
+	// $id_oc = "SELECT * FROM data_oldcase WHERE id = '$t5'";
+	// $mathc = $conn->query($id_oc);
+	// $r = mysql_fetch_array($mathc);
+
 }
 
+// $id_oc = "SELECT * FROM data_oldcase WHERE id = '$t5'";
+// $mathc = mysql_query($id_oc) or die("Error Query ["$id_oc"]");
+// $a = mysql_fetch_array($mathc);
 ?>
