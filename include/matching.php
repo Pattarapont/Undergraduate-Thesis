@@ -79,6 +79,8 @@ if ($key->num_rows > 0) {
 				$mathtotal += $summath1;
 			}
 		}
+		// echo $id;
+		// echo "<br>";
 
 		// เปรียบเทียบค่าหลังจาก query
 
@@ -111,8 +113,8 @@ if ($key->num_rows > 0) {
 							$new3 = $new4;
 							$t3 = $t4;
 
-							$new3 = $mathtotal;
-							$t3 = $id;
+							$new4 = $mathtotal;
+							$t4 = $id;
 						}
 					} else {
 						$new1 = $new2;
@@ -121,8 +123,8 @@ if ($key->num_rows > 0) {
 						$new2 = $new3;
 						$t2 = $t3;
 
-						$new2 = $mathtotal;
-						$t2 = $id;
+						$new3 = $mathtotal;
+						$t3 = $id;
 					}
 				} else {
 					$new1 = $new2;
@@ -140,13 +142,23 @@ if ($key->num_rows > 0) {
 	}
 
 	// โชว์คอลัมที่เลือก
-	// $id_oc = "SELECT * FROM data_oldcase WHERE id = '$t5'";
+	// $id_oc = "SELECT * FROM oldcase WHERE id = '$t5'";
 	// $mathc = $conn->query($id_oc);
+	// $mathc->fetch_assoc();
 	// $r = mysql_fetch_array($mathc);
 
+	$id_oc = "SELECT * FROM oldcase WHERE id = '$t5'";
+	$mathc = $conn->query($oldcase_db);
+	$row = $mathc->fetch_assoc();
+
+	echo $row['location'];
+	// $idoc = "SELECT * FROM oldcase WHERE id = '$t5'";
+	// $mathc = mysql_query($idoc) or die("Error Query ["$idoc"]");
+	// $a = mysql_fetch_array($mathc);
+
+// 	$strSQL1 = "SELECT * FROM oldcase WHERE id = '$t5'";
+	// 	$objQuery1 = mysql_query($strSQL1) or die("Error Query [" . $strSQL1 . "]");
+	// 	$a = mysql_fetch_array($objQuery1);
 }
 
-// $id_oc = "SELECT * FROM data_oldcase WHERE id = '$t5'";
-// $mathc = mysql_query($id_oc) or die("Error Query ["$id_oc"]");
-// $a = mysql_fetch_array($mathc);
 ?>
