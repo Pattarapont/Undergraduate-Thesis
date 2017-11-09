@@ -2,136 +2,80 @@
 include 'db_connect.php';
 include 'getvariable.php';
 
-/*
-$sql_DataOldcase = "SELECT * FROM data_oldcase WHERE id_data_oldcase = 1";
+// function indexkey($conn) {
 
-$sql_DataPhitsanulok = "SELECT * FROM data_phitsanulok";
-$sql_DataPhetchabun  = "SELECT * FROM data_phetchabun";
-$sql_DataChiangMai   = "SELECT * FROM data_chiangmai ";
-$sql_DataChiangRai   = "SELECT * FROM data_chiangrai ";
- */
+$new_gender = "ชาย";
+$new_age = "50 - 60 ปี";
+$new_homeland = "พิษณุโลก";
+$new_career = "รับราชการ";
+$new_congenital_dis = "ไม่มี";
+$new_name_congenital_dis = "";
+$new_body_movement = "เดินได้ปกติ";
+$new_travel = "ครอบครัว";
+$new_car = "รถส่วนตัว";
+$new_traveltime = "2 - 3 วัน";
+$new_camp = "รีสอร์ท";
+$new_money = "3,000 – 5,000 บาท";
 
+$oldcase_db = "SELECT * FROM oldcase ORDER BY `id` ASC ";
+$inkey = $conn->query($oldcase_db);
+// $id_oc = "";
+if ($inkey->num_rows > 0) {
+	// output data of each row
+	$id_oc = array();
+	while ($row = $inkey->fetch_assoc()) {
+		if ($row['tourism'] == 1) {
+			if ($new_congenital_dis == $row['congenital_dis']
+				&& $new_body_movement == $row['body_movement']) {
 
-function indexkey($conn) {
-	/*
-	โรคประจำตัว = 9.0
-	การเคลื่อนไหวร่างกาย = 10.0
-	 */
-
-	$new_congenital_dis 	= "ไม่มี";
-	$new_body_movement 		= "เดินได้ปกติ";
-
-
-	$oldcase_db = "SELECT * FROM data_oldcase ORDER BY  `id_data_oldcase` ASC ";
-	$result     = $conn->query($oldcase_db);
-	$id_indexkey = "";
-	if ($result->num_rows > 0) {
-		// output data of each row
-	$id_indexkey = array();
-		while ($row = $result->fetch_assoc()) {
-
-			if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement']) {
-
-					$id_indexkey[] = $row['id_data_oldcase']; 
-					// echo $id_indexkey;
-					// echo "<br>";
-
-			} else {
-				// ไม่นำ id มาคำนวน
-			}	
+				$id_oc[] = $row['id'];
+				// echo $row['charges'];
+				// echo $row['congenital_dis'];
+				// echo $row['province'];
+			}
 		}
-		
-		
-		// เรียก Array ตำแหน่งที่ 81
-		
-		// echo $id_indexkey[1]; 
+		// echo $row['congenital_dis'];
 
-		// echo "<br>";
-		// print_r($id_indexkey);
-		
-		$arrlength = count($id_indexkey);
-
-		for ($i = 0; $i < $arrlength ; $i++) {
-			echo $id_indexkey[$i];
-    		echo "<br>";
-		}
-		
 	}
 
-/*
-// คำนวนค่า
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while ($row = $result->fetch_assoc()) {
+	// เรียก Array ตำแหน่งที่ 81
+	// echo $id_oc[1];
 
-			$result_indexkey = 0 ;
+	print_r($id_oc);
+	// echo "<br>";
 
-			// โรคประจำตัว = 9.0
-			if ($new_congenital_dis == $row['congenital_dis']) {
-				$summath1 = 9;
-				$result_indexkey += $summath1;
-			} else {
-				$summath1 = 0;
-				$result_indexkey += $summath1;
-			}
-			// การเคลื่อนไหวร่างกาย = 10.0
-			if ($new_body_movement == $row['body_movement']) {
-				$summath2 = 10;
-				$result_indexkey += $summath2;
-			} else {
-				$summath2 = 0;
-				$result_indexkey += $summath2;
-			}
-			// ฟังก์ชันคำนวน ??????????????
+	$arrlength = count($id_oc);
+	// $arrlength เก็บเลขตำแหน่ง array ไม่ได้เก็บ id
+	echo $arrlength, 'จำนวน array <br>';
+	// echo $row['congenital_dis'];
 
-			$n1 = 0;
-	        $t1 = "";
-
-	        $n2 = 0;
-	        $t2 = "";
-
-	        $n3 = 0;
-	        $t3 = "";
-
-			if ($result_indexkey >= $n1){
-                if ($result_indexkey >= $n2) {
-                      if ($result_indexkey >= $n3) {
-                          $n1 = $n2;
-                          $t1 = $t2;
-
-                          $n2 = $n3;
-                          $t2 = $t3;
-
-                          $n3 = $result_indexkey;
-                          $t3 = $num1;
-                        }else{
-                          $n1 = $n2;
-                          $t1 = $t2;
-
-                          $n2 = $result_indexkey;
-                          $t2 = $num1;
-                        }
-                  }else{
-                $n1 = $result_indexkey;
-                $t1 = $num1;
-                }  
-            }
-
-		}
-
-		// $keyindex = ;
-		// return $keyindex;
-
-	} 
-	// else {
-	// 	echo "0 results";
-	// }
 }
-*/
+// if ($inkey->num_rows > $arrlength) {
+// $ids = $id_oc[$i];
+$oc_db = "SELECT * FROM oldcase WHERE id = '$id_oc[1]' ";
+$conn_oc = $conn->query($oldcase_db);
+// echo $row['id'];
 
-	// return $id_indexkey;
+for ($i = 0; $i < $arrlength; $i++) {
+	// echo $id_oc[$i];
+	// echo "<br>";
+
+// อยากให้เอา id ที่อยีใน id index มาตรวจสอบ
+
+	if ($id_oc[$i] != $row['id']) {
+
+		// $a = $row['congenital_dis'];
+		// echo $a;
+
+		echo $id_oc[$i];
+		// echo 'ออกมาสิครับ';
+		echo "<br>";
+
+	}
+
 }
+// }
+// }
 
-indexkey($conn);
-
+// indexkey($conn);
 ?>

@@ -1,3 +1,17 @@
+SELECT * FROM data_oldcase
+JOIN data_phitsanulok ON data_phitsanulok.id_phitsanulok = data_oldcase.id_phitsanulok
+JOIN data_phetchabun ON data_phetchabun.id_phetchabun = data_phitsanulok.id_phetchabun
+JOIN data_chiangmai ON data_chiangmai.id_chiangmai = data_phetchabun.id_chiangmai
+JOIN data_chiangrai ON data_chiangrai.id_chiangrai = data_chiangmai.id_chiangrai
+WHERE id_data_oldcase
+
+
+SELECT * FROM t1 join t2 on t1.id1 = t2.id1
+JOIN data_phitsanulok on data_phitsanulok.id_phetchabun = 
+
+
+
+
 /* เรียกดูข้อมูลสองตาราง ที่ id = 1 */
 SELECT OC.gender, OC.career, DP.vehicle
 FROM data_oldcase AS OC
