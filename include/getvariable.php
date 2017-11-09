@@ -23,9 +23,11 @@ $new_career = "รับราชการ";
 $new_congenital_dis = "ไม่มี";
 $new_name_congenital_dis = "";
 $new_body_movement = "เดินได้ปกติ";
+$new_saving = "มี";
 $new_travel = "ครอบครัว";
 $new_car = "รถส่วนตัว";
 $new_traveltime = "2 - 3 วัน";
 $new_camp = "รีสอร์ท";
 $new_money = "3,000 – 5,000 บาท";
+
 ?>
