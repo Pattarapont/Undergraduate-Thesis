@@ -41,8 +41,8 @@ while ($row = $key->fetch_assoc()) {
 
 	$id = $row['id'];
 
-	if ($row['tourism'] == 1 && $row['score'] > 4) {
-		// && $row['tourism'] == จังหวัดที่อยากไป
+	if ($row['tourism'] == 1) {
+		// && $row['score'] > 4 && $row['tourism'] == จังหวัดที่อยากไป
 		if ($new_congenital_dis == $row['congenital_dis']) {
 			$summath1 = 1;
 			$mathtotal += $summath1;
@@ -138,7 +138,7 @@ $result = mysqli_query($conn, "SELECT * FROM oldcase WHERE id = '$t3'");
 mysqli_query($conn, "SET NAMES UTF8");
 $a = mysqli_fetch_assoc($result);
 
-// echo $a['location'];
+echo $a['location'];
 echo $a['id'];
 $mathtotal = 0;
 

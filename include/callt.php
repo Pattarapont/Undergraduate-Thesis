@@ -1,316 +1,276 @@
 <?php
 include 'db_connect.php';
-include 'getvariable.php';
+// include 'getvariable.php';
 
-// $new_congenital_dis     = "ไม่มี";
-// $new_body_movement         = "เดินได้ปกติ";
+// $new_gender              = "ชาย";
+// $new_age                 = "50 - 60 ปี";
+// $new_homeland            = "พิษณุโลก";
+// $new_career              = "ค้าขาย";
+// $new_congenital_dis      = "มี";
+// $new_name_congenital_dis = "";
+// $new_body_movement       = "เดินได้ปกติ";
+// $new_saving              = "มี";
+// $new_travel              = "ครอบครัว";
+// $new_car                 = "รถส่วนตัว";
+// $new_traveltime          = "2 - 3 วัน";
+// $new_camp                = "รีสอร์ท";
+// $new_money               = "มากกว่า 5,000 บาท";
 
-function indexkey($conn) {
-	/*
-		    โรคประจำตัว = 9.0p
-		    การเคลื่อนไหวร่างกาย = 10.0
-	*/
+$new_gender              = "หญิง";
+$new_age                 = "50 - 60 ปี";
+$new_homeland            = "พิษณุโลก";
+$new_career              = "อื่นๆ";
+$new_congenital_dis      = "ไม่มี";
+$new_name_congenital_dis = "";
+$new_body_movement       = "เดินได้ปกติ";
+$new_saving              = "มี";
+$new_travel              = "แพคเกจท่องเที่ยว";
+$new_car                 = "รถส่วนตัว";
+$new_traveltime          = "2 - 3 วัน";
+$new_camp                = "โรงแรม";
+$new_money               = "1,000 - 3,000 บาท";
 
-	$new_congenital_dis = "ไม่มี";
-	$new_body_movement = "เดินได้ปกติ";
+$oldcase_db = "SELECT * FROM testoldcase ORDER BY `id` ASC ";
+$key        = $conn->query($oldcase_db);
+// $key->num_rows > 0;
 
-	$oldcase_db = "SELECT * FROM oldcase ORDER BY `id` ASC ";
-	$inkey = $conn->query($oldcase_db);
-	// $id_indexkey = "";
-	if ($inkey->num_rows > 0) {
-		// output data of each row
-		$id_indexkey = array();
-		while ($row = $inkey->fetch_assoc()) {
+$n1 = 0;
+$t1 = "";
 
-			if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement'] && $row['tourism'] == 1) {
+$n2 = 0;
+$t2 = "";
 
-				$id_indexkey[] = $row['id'];
-			}
+$n3 = 0;
+$t3 = "";
+
+$n4 = 0;
+$t4 = "";
+
+$n5 = 0;
+$t5 = "";
+// เลือกที่คล้ายมากสุด
+while ($row = $key->fetch_assoc()) {
+
+	$mathtotal = 0;
+
+	$id = $row['id'];
+
+	if ($row['tourism'] == 1) {
+		// && $row['tourism'] == จังหวัดที่อยากไป
+		if ($new_congenital_dis == $row['congenital_dis']) {
+			$summath1 = 1;
+			$mathtotal += $summath1;
+			// echo $mathtotal;
+		} else {
+			$summath1 = 0;
+			$mathtotal += $summath1;
+			// echo $mathtotal;
 		}
-
-		// เรียก Array ตำแหน่งที่ 81
-		// echo $id_indexkey[1];
-
-		print_r($id_indexkey);
-		echo "<br>";
-
-		$arrlength = count($id_indexkey);
-
-		for ($i = 0; $i < $arrlength; $i++) {
-			echo $id_indexkey[$i];
-			echo "<br>";
+		if ($new_body_movement == $row['body_movement']) {
+			$summath2 = 1;
+			$mathtotal += $summath2;
+			// echo $mathtotal;
+		} else {
+			$summath2 = 0;
+			$mathtotal += $summath2;
+			// echo $mathtotal;
+		}
+		if ($new_money == $row['charges']) {
+			$summath3 = 1;
+			$mathtotal += $summath3;
+			// echo $mathtotal;
+		} else {
+			$summath3 = 0;
+			$mathtotal += $summath3;
+			// echo $mathtotal;
+		}
+		if ($new_camp == $row['camp']) {
+			$summath4 = 1;
+			$mathtotal += $summath4;
+			// echo $mathtotal;
+		} else {
+			$summath4 = 0;
+			$mathtotal += $summath4;
+			// echo $mathtotal;
+		}
+		if ($new_travel == $row['travel_form']) {
+			$summath5 = 1;
+			$mathtotal += $summath5;
+			// echo $mathtotal;
+		} else {
+			$summath5 = 0;
+			$mathtotal += $summath5;
+			// echo $mathtotal;
 		}
 	}
-}
+	// echo $id;
+	// echo "<br>";
 
-indexkey($conn);
+	// เปรียบเทียบค่าหลังจาก query
+	if ($mathtotal >= $n1) {
+		if ($mathtotal >= $n2) {
+			if ($mathtotal >= $n3) {
+				$n1 = $n2;
+				$t1 = $t2;
 
-function matching($conn) {
-	// SQL JOIN 5 TABLE
+				$n2 = $n3;
+				$t2 = $t3;
 
-	$jointable_db = "SELECT * FROM data_oldcase
-    JOIN data_phitsanulok ON data_phitsanulok.id_phitsanulok =
-        data_oldcase.id_phitsanulok
-    JOIN data_phetchabun ON data_phetchabun.id_phetchabun =
-        data_phitsanulok.id_phetchabun
-    JOIN data_chiangmai ON data_chiangmai.id_chiangmai =
-        data_phetchabun.id_chiangmai
-    JOIN data_chiangrai ON data_chiangrai.id_chiangrai =
-        data_chiangmai.id_chiangrai
-    WHERE id_data_oldcase";
-
-	// เรียกใช้ function indexkey($conn)
-	// indexkey($conn);
-
-	// วนลูปของแถว
-	$result = $conn->query($jointable_db);
-	if ($result->num_rows > 0) {
-		while ($row = $result->fetch_assoc()) {
-
-			// data_oldcase
-			// gender
-			if ($new_gender == $row['gender']) {
-				$summath1 = 3.0;
-				$mathtotal += $summath1;
+				$n3 = $mathtotal;
+				$t3 = $id;
 			} else {
-				$summath1 = 0;
-				$mathtotal += $summath1;
+				$n1 = $n2;
+				$t1 = $t2;
+
+				$n2 = $mathtotal;
+				$t2 = $id;
 			}
-
-			// age
-			if ($new_age == $row['age']) {
-				$summath2 = 6.3;
-				$mathtotal += $summath2;
-			} else {
-				$summath2 = 0;
-				$mathtotal += $summath2;
-			}
-
-			// province
-			if ($new_province == $row['province']) {
-				$summath3 = 4.0;
-				$mathtotal += $summath3;
-			} else {
-				$summath3 = 0;
-				$mathtotal += $summath3;
-			}
-
-			// career
-			if ($new_career == $row['career']) {
-				$summath4 = 3.7;
-				$mathtotal += $summath4;
-			} else {
-				$summath4 = 0;
-				$mathtotal += $summath4;
-			}
-
-			// congenital_dis
-			if ($new_congenital_dis == $row['congenital_dis']) {
-				$summath5 = 9.0;
-				$mathtotal += $summath5;
-			} else {
-				$summath5 = 0;
-				$mathtotal += $summath5;
-			}
-
-			/*
-				            // name_congenital_dis
-				            if ($new_name_congenital_dis == $row['name_congenital_dis']) {
-				                $summath6 = 9;
-				                $mathtotal += $summath6;
-				            } else {
-				                $summath6 = 0;
-				                $mathtotal += $summath6;
-				            }
-			*/
-
-			// body_movement
-			if ($new_body_movement == $row['body_movement']) {
-				$summath6 = 10.0;
-				$mathtotal += $summath6;
-			} else {
-				$summath6 = 0;
-				$mathtotal += $summath6;
-			}
-
-			// ตรวจสอบว่าเคยไปพิษณุโลกไหม
-			// 0 = ไม่เคย   1 = เคย
-
-			if ($row['tourism_PLK'] == 1) {
-
-				if ($new_travel == $row['travel_form_PLK']) {
-					$summath7 = 5.0;
-					$mathtotal += $summath7;
-				} else {
-					$summath7 = 0;
-					$mathtotal += $summath7;
-				}
-
-				if ($new_car == $row['vehicle_PLK']) {
-					$summath8 = 6.0;
-					$mathtotal += $summath8;
-				} else {
-					$summath8 = 0;
-					$mathtotal += $summath8;
-				}
-
-				if ($new_traveltime == $row['travel_time_PLK']) {
-					$summath9 = 5.5;
-					$mathtotal += $summath9;
-				} else {
-					$summath9 = 0;
-					$mathtotal += $summath9;
-				}
-
-				if ($new_camp == $row['camp_PLK']) {
-					$summath10 = 6.0;
-					$mathtotal += $summath10;
-				} else {
-					$summath10 = 0;
-					$mathtotal += $summath10;
-				}
-
-				if ($new_money == $row['charges_PLK']) {
-					$summath11 = 7.0;
-					$mathtotal += $summath11;
-				} else {
-					$summath11 = 0;
-					$mathtotal += $summath11;
-				}
-
-				// เก็บค่าในรูปแบบ Array 2 มิติ
-				// $response [x][y] = x คือ ตำแหน่งแถว y คือ ตำแหน่งคอลัมม์
-				for ($location_PLK = 0; $location_PLK < xxx; $location_PLK++) {
-
-					if ($row['score_WatYai'] > 3) {
-						$summath1 = 9;
-						$mathtotal += $summath1;
-
-						if ($row['facilities_WatYai']) {
-							$summath1 = 9;
-							$mathtotal += $summath1;
-						}
-					} else {
-						$summath1 = 0;
-						$mathtotal += $summath1;
-					}
-
-					if ($row['score_ThaweeFolkMuseum'] > 3) {
-						$summath1 = 9;
-						$mathtotal += $summath1;
-
-						if ($row['facilities_ThaweeFolkMuseum']) {
-							$summath1 = 9;
-							$mathtotal += $summath1;
-						}
-
-					} else {
-						$summath1 = 0;
-						$mathtotal += $summath1;
-					}
-
-					if ($row['score_WatChulamanee'] > 3) {
-						$summath1 = 9;
-						$mathtotal += $summath1;
-
-						if ($row['facilities_WatChulamanee']) {
-							$summath1 = 9;
-							$mathtotal += $summath1;
-						}
-
-					} else {
-						$summath1 = 0;
-						$mathtotal += $summath1;
-					}
-
-					if ($row['a'] > 3) {
-						$summath1 = 9;
-						$mathtotal += $summath1;
-
-						if ($row['score_SanSomdej']) {
-							$summath1 = 9;
-							$mathtotal += $summath1;
-						}
-
-					} else {
-						$summath1 = 0;
-						$mathtotal += $summath1;
-					}
-
-				}
-
-			} // จบการทำงานคำนวนสถานที่พิษณุโลกห
-
-			if ($row['tourism_phetchabun'] == 1) {
-
-			}
-
-			if ($row['tourism_chiangmai'] == 1) {
-
-			}
-
-			if ($row['tourism_chiangrai'] == 1) {
-
-			}
-
-			$mathtotal = 0;
-
-			// โรคประจำตัว = 9.0
-			if ($new_congenital_dis == $row['congenital_dis']) {
-				$summath1 = 9;
-				$mathtotal += $summath1;
-			} else {
-				$summath1 = 0;
-				$mathtotal += $summath1;
-			}
-			// การเคลื่อนไหวร่างกาย = 10.0
-			if ($new_body_movement == $row['body_movement']) {
-				$summath2 = 10;
-				$mathtotal += $summath2;
-			} else {
-				$summath2 = 0;
-				$mathtotal += $summath2;
-			}
-			// ฟังก์ชันคำนวน ??????????????
-
-			$n1 = 0;
-			$t1 = "";
-
-			$n2 = 0;
-			$t2 = "";
-
-			$n3 = 0;
-			$t3 = "";
-
-			if ($mathtotal >= $n1) {
-				if ($mathtotal >= $n2) {
-					if ($mathtotal >= $n3) {
-						$n1 = $n2;
-						$t1 = $t2;
-
-						$n2 = $n3;
-						$t2 = $t3;
-
-						$n3 = $mathtotal;
-						$t3 = $num1;
-					} else {
-						$n1 = $n2;
-						$t1 = $t2;
-
-						$n2 = $mathtotal;
-						$t2 = $num1;
-					}
-				} else {
-					$n1 = $mathtotal;
-					$t1 = $num1;
-				}
-			}
-
+		} else {
+			$n1 = $mathtotal;
+			$t1 = $id;
 		}
 
 	}
 
+	// echo $row['travel_form'];
+	// echo $row['location'];
+}
+// echo $t5;
+// โชว์คอลัมที่เลือก
+echo $t3;
+echo '<br>';
+// $id_oc = "SELECT * FROM oldcase WHERE id = '$t5'";
+// $mathc = $conn->query($oldcase_db);
+// $row = $mathc->fetch_assoc();
+
+// $conn = mysqli_connect('localhost', 'root', '12345678', 'et_cbr');
+// mysqli_set_charset($conn, "utf8");
+// if (!$conn) {
+// 	die('Could not connect: '.mysqli_connect_errno());
+// }
+$result = mysqli_query($conn, "SELECT * FROM testoldcase WHERE id = '$t3'");
+mysqli_query($conn, "SET NAMES UTF8");
+$a = mysqli_fetch_assoc($result);
+
+echo $a['location'];
+echo $a['id'];
+$mathtotal = 0;
+
+if ($new_gender == $a['gender']) {
+	$point1 = 3.0;
+	$mathtotal += $point1;
+} else {
+	$point1 = 0;
+	$mathtotal += $point1;
+}
+if ($new_age == $a['age']) {
+	$point2 = 6.3;
+	$mathtotal += $point2;
+} else {
+	$point2 = 0;
+	$mathtotal += $point2;
+}
+if ($new_homeland == $a['homeland']) {
+	$point3 = 4.0;
+	$mathtotal += $point3;
+} else {
+	$point3 = 0;
+	$mathtotal += $point3;
+}
+if ($new_career == $a['career']) {
+	$point4 = 3.7;
+	$mathtotal += $point4;
+} else {
+	$point4 = 0;
+	$mathtotal += $point4;
+}
+// if ($new_congenital_dis == $row['congenital_dis']) {
+// 	$point5 = 9.0;
+// 	$mathtotal += $point5;
+// } else {
+// 	$point5 = 0;
+// 	$mathtotal += $point5;
+// }
+if ($new_name_congenital_dis == $a['name_congenital_dis']) {
+	$point6 = 9.0;
+	$mathtotal += $point6;
+} else {
+	$point6 = 0;
+	$mathtotal += $point6;
+}
+if ($new_body_movement == $a['body_movement']) {
+	$point7 = 10.0;
+	$mathtotal += $point7;
+} else {
+	$point7 = 0;
+	$mathtotal += $point7;
+}
+// if ($new_saving == $row['saving']) {
+// 	$point8 = 10;
+// 	$mathtotal += $point8;
+// } else {
+// 	$point8 = 0;
+// 	$mathtotal += $point8;
+// }
+if ($new_travel == $a['travel_form']) {
+	$point9 = 5.0;
+	$mathtotal += $point9;
+} else {
+	$point9 = 0;
+	$mathtotal += $point9;
+}
+if ($new_car == $a['vehicle']) {
+	$point10 = 6.0;
+	$mathtotal += $point10;
+} else {
+	$point10 = 0;
+	$mathtotal += $point10;
+}
+if ($new_traveltime == $a['travel_time']) {
+	$point11 = 5.5;
+	$mathtotal += $point11;
+} else {
+	$point11 = 0;
+	$mathtotal += $point11;
+}
+if ($new_camp == $a['camp']) {
+	$point12 = 6.0;
+	$mathtotal += $point12;
+} else {
+	$point12 = 0;
+	$mathtotal += $point12;
+}
+if ($new_money == $a['charges']) {
+	$point13 = 7.0;
+	$mathtotal += $point13;
+} else {
+	$point13 = 0;
+	$mathtotal += $point13;
+}
+if ($a['score'] >= 4) {
+	$point14 = 7.5;
+	$mathtotal += $point14;
+} else {
+	$point14 = 0;
+	$mathtotal += $point14;
+}
+if ($a['facilities'] == 1) {
+	$point15 = 8.0;
+	$mathtotal += $point15;
+} else {
+	$point15 = 0;
+	$mathtotal += $point15;
 }
 
-matching($conn);
+// if (isset($_POST['Size'])) {
+// 	$x = $New_Size;
+// 	$y = $a['size'];
+// 	$sum = 1 - (abs($x - $y) / 3);
+// 	$point2 = $sum * 6;
+// 	$mathtotal += $point2;
+// }
+
+// $sim3 = ($mathtotal / 120) * 100;
+// }
+
 ?>
