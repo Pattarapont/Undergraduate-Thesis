@@ -1,0 +1,22 @@
+CREATE TABLE `oldcase` (
+  `id` int(11) NOT NULL,
+  `gender` text COLLATE utf8_unicode_ci NOT NULL,
+  `age` text COLLATE utf8_unicode_ci NOT NULL,
+  `homeland` text COLLATE utf8_unicode_ci NOT NULL,
+  `career` text COLLATE utf8_unicode_ci NOT NULL,
+  `congenital_dis` text COLLATE utf8_unicode_ci NOT NULL,
+  `name_congenital_dis` text COLLATE utf8_unicode_ci,
+  `body_movement` text COLLATE utf8_unicode_ci NOT NULL,
+  `saving` text COLLATE utf8_unicode_ci,
+  `tourism` int(3) DEFAULT NULL,
+  `code_province` int(6) DEFAULT NULL,
+  `travel_form` text COLLATE utf8_unicode_ci,
+  `vehicle` text COLLATE utf8_unicode_ci,
+  `travel_time` text COLLATE utf8_unicode_ci,
+  `camp` text COLLATE utf8_unicode_ci,
+  `charges` text COLLATE utf8_unicode_ci,
+  `score` int(5) DEFAULT NULL,
+  `facilities` text COLLATE utf8_unicode_ci,
+  `location` text COLLATE utf8_unicode_ci,
+  `province` text COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
