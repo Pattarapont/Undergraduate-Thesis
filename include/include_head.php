@@ -6,6 +6,7 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/map-icons.min.css">
     <link rel="stylesheet" type="text/css" href="./css/custom.css">
 
     <!-- <link rel="stylesheet" type="text/css" href="./css/style.css"> -->

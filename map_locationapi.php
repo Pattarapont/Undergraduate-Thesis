@@ -17,6 +17,13 @@ include 'include/include_head.php';
          width: 100%;
          /*background-color: grey;*/
         }
+/*.map-icon-label .map-icon {
+  font-size: 24px;
+  color: red;
+  line-height: 48px;
+  text-align: center;
+  white-space: nowrap;
+}*/
   </style>
   <title></title>
 </head>
@@ -26,6 +33,7 @@ include 'include/include_head.php';
       <div class="col-8" id="map"></div>
       <div class="col">
         2 of 3
+        <span class="map-icon map-icon-embassy"></span>
       </div>
     </div>
   </div>
@@ -38,10 +46,11 @@ include 'include/include_head.php';
            zoom: 7,
            center: uluru
          });
-
+          // var iconBase = './images/flag.png';
          var marker = new google.maps.Marker({
            position: uluru,
-           map: map
+           map: map,
+           // icon: iconBase
          });
 
        }
