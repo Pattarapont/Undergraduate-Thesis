@@ -2,11 +2,53 @@
 include 'db_connect.php';
 // include 'getvariable.php';
 
-$new_gender              = "หญิง";
+// $new_gender              = "ชาย";
+// $new_age                 = "50 - 60 ปี";
+// $new_homeland            = "พิษณุโลก";
+// $new_career              = "รับราชการ";
+// $new_congenital_dis      = "มี";
+// $new_name_congenital_dis = "";
+// $new_body_movement       = "เดินได้ปกติ";
+// $new_saving              = "ไม่มี";
+// $new_travel              = "ครอบครัว";
+// $new_car                 = "รถส่วนตัว";
+// $new_traveltime          = "2 - 3 วัน";
+// $new_camp                = "รีสอร์ท";
+// $new_money               = "3,000 – 5,000 บาท";
+
+// $new_gender = "หญิง";
+// $new_age = "50 - 60 ปี";
+// $new_homeland = "กำแพงเพชร";
+// $new_career = "ค้าขาย";
+// $new_congenital_dis = "ไม่มี";
+// $new_name_congenital_dis = "";
+// $new_body_movement = "เดินได้ปกติ";
+// $new_saving = "มี";
+// $new_travel = "ครอบครัว";
+// $new_car = "รถส่วนตัว";
+// $new_traveltime = "2 - 3 วัน";
+// $new_camp = "รีสอร์ท";
+// $new_money = "มากกว่า 5,000 บาท";
+
+// $new_gender              = "หญิง";
+// $new_age                 = "50 - 60 ปี";
+// $new_homeland            = "พิษณุโลก";
+// $new_career              = "อื่นๆ";
+// $new_congenital_dis      = "ไม่มี";
+// $new_name_congenital_dis = "";
+// $new_body_movement       = "เดินได้ปกติ";
+// $new_saving              = "มี";
+// $new_travel              = "แพคเกจท่องเที่ยว";
+// $new_car                 = "รถส่วนตัว";
+// $new_traveltime          = "2 - 3 วัน";
+// $new_camp                = "โรงแรม";
+// $new_money               = "1,000 - 3,000 บาท";
+
+$new_gender              = "ชาย";
 $new_age                 = "50 - 60 ปี";
-$new_homeland            = "กำแพงเพชร";
+$new_homeland            = "อุทัยธานี";
 $new_career              = "ค้าขาย";
-$new_congenital_dis      = "ไม่มี";
+$new_congenital_dis      = "มี";
 $new_name_congenital_dis = "";
 $new_body_movement       = "เดินได้ปกติ";
 $new_saving              = "มี";
@@ -42,9 +84,9 @@ while ($row = $key->fetch_assoc()) {
 	$id = $row['id'];
 
 	if ($row['tourism'] == 1) {
-		// && $row['score'] > 4 && $row['tourism'] == จังหวัดที่อยากไป
+		// && $row['appropriate'] > 4 && $row['tourism'] == จังหวัดที่อยากไป
 		if ($new_congenital_dis == $row['congenital_dis']) {
-			$summath1 = 1;
+			$summath1 = 3;
 			$mathtotal += $summath1;
 			// echo $mathtotal;
 		} else {
@@ -53,7 +95,7 @@ while ($row = $key->fetch_assoc()) {
 			// echo $mathtotal;
 		}
 		if ($new_body_movement == $row['body_movement']) {
-			$summath2 = 1;
+			$summath2 = 4;
 			$mathtotal += $summath2;
 			// echo $mathtotal;
 		} else {
@@ -62,7 +104,7 @@ while ($row = $key->fetch_assoc()) {
 			// echo $mathtotal;
 		}
 		if ($new_money == $row['charges']) {
-			$summath3 = 1;
+			$summath3 = 2;
 			$mathtotal += $summath3;
 			// echo $mathtotal;
 		} else {
@@ -80,7 +122,7 @@ while ($row = $key->fetch_assoc()) {
 			// echo $mathtotal;
 		}
 		if ($new_travel == $row['travel_form']) {
-			$summath5 = 1;
+			$summath5 = 2;
 			$mathtotal += $summath5;
 			// echo $mathtotal;
 		} else {
@@ -233,7 +275,7 @@ if ($new_money == $a['charges']) {
 	$point13 = 0;
 	$mathtotal += $point13;
 }
-if ($a['score'] >= 4) {
+if ($a['appropriate'] == 1) {
 	$point14 = 7.5;
 	$mathtotal += $point14;
 } else {
