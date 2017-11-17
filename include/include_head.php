@@ -13,8 +13,8 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-    <script src="../js/jquery-3.1.1.slim.min.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
 <!--<script src="./js/tether.min.js"></script>-->
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!--     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->

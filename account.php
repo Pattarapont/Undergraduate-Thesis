@@ -1,149 +1,139 @@
-<?php
-include './include/include_head.php';
-/* Main page with two forms: sign up and log in */
-require './include/db_conn.php';
-session_start();
-?>
 <!DOCTYPE html>
 <html>
-<?php include 'navbar.php';?>
+<head>
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (isset($_POST['login'])) {
-		//user logging in
-
-		require 'login.php';
-
-	} elseif (isset($_POST['register'])) {
-		//user registering
-
-		require 'register.php';
-
-	}
-}
+// include './include/include_head.php';
+// include 'navbar.php';
 ?>
-<link rel="stylesheet" type="text/css" href="./css/loginstyle.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.20/css/uikit.css">
+    <link rel="stylesheet" href="./jquery.Thailand.js/dist/jquery.Thailand.min.css">
+
+    <style>
+        a, h1, h2, .h2{
+            font-family: 'Kanit', sans-serif !important;
+            line-height: 1.6em;
+        }
+        a{
+            font-size: 1.4em;
+        }
+        label{
+            font-size: 1.6em;
+            display: block;
+        }
+    </style>
+
+   <!--  <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-33058582-1', 'auto', {
+            'name': 'Main'
+        });
+        ga('Main.send', 'event', 'jquery.Thailand.js', 'GitHub', 'Visit');
+    </script> -->
+
+</head>
 <body>
-  <div class="form">
 
-    <ul class="tab-group">
-      <li class="tab"><a href="#signup">สมัครสมาชิก</a></li>
-      <li class="tab active"><a href="#login">เข้าสู่ระบบ</a></li>
-    </ul>
+    <div class="uk-container uk-padding">
 
-    <div class="tab-content">
+        <!-- DEMO 1 -->
+        <h1>Auto Complete ที่อยู่ อย่างที่มันควรเป็น</h1>
 
-      <div id="login">
-        <h1>ยินดีต้อนรับกลับ!</h1>
+        <div id="loader">
+            <div uk-spinner></div> รอสักครู่ กำลังโหลดฐานข้อมูล...
+        </div>
 
-        <form action="account.php" method="post" autocomplete="off">
+        <form id="demo1" class="demo" style="display:none;" autocomplete="off" uk-grid >
 
-          <div class="field-wrap">
-            <label>
-              Email<span class="req">*</span>
-            </label>
-            <input type="email" required autocomplete="off" name="email"/>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              รหัสผ่าน<span class="req">*</span>
-            </label>
-            <input type="password" required autocomplete="off" name="password"/>
-          </div>
-
-          <p class="forgot"><a href="forgot.php">ลืมรหัสผ่าน?</a></p>
-
-          <button class="button button-block" name="login" />เข้าสู่ระบบ</button>
-
-        </form>
-
-      </div>
-
-      <div id="signup">
-        <h1>สมัครสมาชิก ฟรี!</h1>
-
-        <form action="account.php" method="post" autocomplete="off">
-
-          <div class="top-row">
-            <div class="field-wrap">
-              <label>
-                ชื่อ<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" name='firstname' />
+            <div class="uk-width-1-2@m">
+                <label class="h2">ตำบล / แขวง</label>
+                <input name="district" class="uk-input uk-width-1-1" type="text">
             </div>
 
-            <div class="field-wrap">
-              <label>
-                นามสกุล<span class="req">*</span>
-              </label>
-              <input type="text"required autocomplete="off" name='lastname' />
+            <div class="uk-width-1-2@m">
+				<label class="h2">อำเภอ / เขต</label>
+				<input name="amphoe" class="uk-input uk-width-1-1" type="text">
             </div>
-          </div>
 
-          <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off" name='email' />
-          </div>
+            <div class="uk-width-1-2@m">
+                <label class="h2">จังหวัด</label>
+                <input name="province" class="uk-input uk-width-1-1" type="text">
+            </div>
 
-          <div class="field-wrap">
-            <label>
-              รหัสผ่าน<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off" name='password'/>
-          </div>
-
-          <button type="submit" class="button button-block" name="register" />สมัครสมาชิก</button>
+            <div class="uk-width-1-2@m">
+                <label class="h2">รหัสไปรษณีย์</label>
+                <input name="zipcode" class="uk-input uk-width-1-1" type="text">
+            </div>
 
         </form>
+        <!-- END DEMO 1 -->
 
-      </div>
+    </div>
 
-    </div><!-- tab-content -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-  </div> <!-- /form -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.20/js/uikit.min.js"></script>
 
-<!-- <div class="container">
-		<div class="row justify-content-md-center">
-			<div class="col-xl-8 col-md-8">
+    <!-- dependencies for zip mode -->
+    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/zip.js/zip.js"></script>
+    <!-- / dependencies for zip mode -->
 
+    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/JQL.min.js"></script>
+    <script type="text/javascript" src="./jquery.Thailand.js/dependencies/typeahead.bundle.js"></script>
 
-			<div class="card bg-light mb-3 ">
-				<div class="card-header">เข้าสู่ระบบ</div>
-				<div class="card-body">
-					<form>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Username</label>
-							<input type="Username" class="form-control" id="exampleInputUsername" placeholder="Enter Username">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-						</div>
-						<div class="text-right">
-							<div class="form-check">
-								<label>
-									<a href="">
-										<span>ลืมรหัสผ่าน ?</span>
-									</a>
-								</label>
-							</div>
-							<button type="submit" class="btn btn-primary">เข้าสู่ระบบ</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			</div>
-		</div>
-	</div> -->
+    <script type="text/javascript" src="./jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
 
+    <script type="text/javascript">
+        /******************\
+         *     DEMO 1     *
+        \******************/
+        // demo 1: load database from json. if your server is support gzip. we recommended to use this rather than zip.
+        // for more info check README.md
 
-<!-- username : <input type="text" name="username">
+        $.Thailand({
+            database: './jquery.Thailand.js/database/db.json',
 
- -->
+            $district: $('#demo1 [name="district"]'),
+            $amphoe: $('#demo1 [name="amphoe"]'),
+            $province: $('#demo1 [name="province"]'),
+            $zipcode: $('#demo1 [name="zipcode"]'),
 
-<script src="./js/loginscript.js"></script>
+            onDataFill: function(data){
+                console.info('Data Filled', data);
+            },
+
+            onLoad: function(){
+                console.info('Autocomplete is ready!');
+                $('#loader, .demo').toggle();
+            }
+        });
+
+        // watch on change
+
+        $('#demo1 [name="district"]').change(function(){
+            console.log('ตำบล', this.value);
+        });
+        $('#demo1 [name="amphoe"]').change(function(){
+            console.log('อำเภอ', this.value);
+        });
+        $('#demo1 [name="province"]').change(function(){
+            console.log('จังหวัด', this.value);
+        });
+        $('#demo1 [name="zipcode"]').change(function(){
+            console.log('รหัสไปรษณีย์', this.value);
+        });
+
+    </script>
+
 </body>
 </html>
