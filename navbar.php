@@ -22,7 +22,7 @@
         <!-- Login -->
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item navbar-right">
-                <a class="nav-link" href="login.php">เข้าสู่ระบบ</a>
+                <a class="nav-link" href="check_login.php">เข้าสู่ระบบ</a>
             </li>
             <!-- <li class="nav-item navbar-right">
                 <a class="nav-link" href="sign_in.php">สมัครสมาชิก</a>
