@@ -33,7 +33,7 @@
 						</select>
 					</div>
 
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<p>ภูมิลำเนา</p>
 						<select class="custom-select d-block col" name="province" id="province" required>
 							<option value="" selected disabled hidden>-- ภูมิลำเนาของท่าน --</option>
@@ -45,7 +45,7 @@
 							<option value="6">กรุงเทพมหานคร</option>
 							<option value="7">อื่นๆ</option>
 						</select>
-					</div>
+					</div> -->
 
 
 					<div class="form-group">
