@@ -6,25 +6,7 @@ include './include/include_head.php';
 include 'navbar.php';
 ?>
 	<link href="./jquery.Thailand.js/dist/jquery.Thailand.min.css" rel="stylesheet">
-	<!--
-	<script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-33058582-1', 'auto', {
-            'name': 'Main'
-        });
-        ga('Main.send', 'event', 'jquery.Thailand.js', 'GitHub', 'Visit');
-    </script>
--->
 	<title></title>
 </head>
 <body>
@@ -37,7 +19,7 @@ include 'navbar.php';
 					ข้อมูลส่วนตัว
 				</div>
 				<div class="card-body">
-					<form action="./include/getvariable.php" class="was-validated" id="inputpersonal" method="post" name="inputpersonal">
+					<form action="./include/getvariable.php" class="was-validated" id="inputpersonal" method="POST" name="account">
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4 mb-4">
@@ -190,14 +172,14 @@ include 'navbar.php';
 									</select>
 								</div>
 							</div>
-						</div><button class="btn btn-primary" type="submit">Submit form</button>
+						</div><button class="btn btn-success" type="submit">Submit form</button>
 					</form>
 				</div>
 			</div>
 		</div>
 		<hr>
 	</section>
-    <script src="./js/jquery-3.2.1.min.js"></script>
+    <!-- <script src="./js/jquery-3.2.1.min.js"></script> -->
 
 	<script src="./jquery.Thailand.js/dependencies/zip.js/zip.js" type="text/javascript">
 	</script> <!-- / dependencies for zip mode -->
