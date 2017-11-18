@@ -13,7 +13,7 @@ include 'include/include_head.php';
          padding: 0;
        }*/
         #map {
-         height: 90%;
+         height: 85%;
          width: 100%;
          /*background-color: grey;*/
         }
@@ -30,13 +30,32 @@ include 'include/include_head.php';
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-8" id="map"></div>
-      <div class="col">
+      <div class="col-md-8 col-sm-8 col-xs-12" id="map"></div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
         2 of 3
         <span class="map-icon map-icon-embassy"></span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore quia, aperiam aut tempora distinctio repudiandae adipisci facilis, et in natus fugiat nam, molestias nihil maxime ut rerum recusandae iusto nostrum.</p>
+
       </div>
     </div>
   </div>
+  <script src="./js/locations.json"></script>
+  <script>
+            var htmlText = '';
+
+            for ( var key in datalocation ) {
+                htmlText += '<div class="div-conatiner">';
+                htmlText += '<p class="p-name"> id: ' + datalocation[key].id_location + '</p>';
+                htmlText += '<p class="p-loc"> สถานที่: ' + datalocation[key].name + '</p>';
+                htmlText += '<p class="p-desc"> จังหวัด: ' + datalocation[key].province + '</p>';
+                htmlText += '<p class="p-created"> lat: ' + datalocation[key].lat + '</p>';
+                htmlText += '<p class="p-uname"> lng: ' + datalocation[key].lng + '</p>';
+                htmlText += '</div>';
+            }
+
+            $('body').append(htmlText);
+  </script>
+
   <script>
        function initMap() {
          var uluru = {lat: 16.833942, lng: 100.262228 };

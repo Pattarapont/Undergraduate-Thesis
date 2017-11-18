@@ -1,209 +1,209 @@
 var datalocation = [
 {
-  "id_location": 1;
+  "id_location": 1,
   "name": "วัดพระศรีรัตนมหาธาตุฯ (วัดใหญ่)",
   "province": "พิษณุโลก",
   "lat": 16.823762,
   "lng": 100.262439
 },
 {
-  "id_location": 2;
+  "id_location": 2,
   "name": "พิพิธภัณฑ์พื้นบ้านจ่าทวี",
   "province": "พิษณุโลก",
   "lat": 16.806002,
   "lng": 100.267466
 },
 {
-  "id_location": 3;
+  "id_location": 3,
   "name": "วัดจุฬามณี",
   "province": "พิษณุโลก",
   "lat": 16.787483,
   "lng": 100.216875
 },
 {
-  "id_location": 4;
+  "id_location": 4,
   "name": "ศาลสมเด็จพระนเรศวรมหาราช",
   "province": "พิษณุโลก",
   "lat": 16.829885,
   "lng": 100.261380
 },
 {
-  "id_location": 5;
+  "id_location": 5,
   "name": "พิพิธภัณฑ์ทหารกองทัพภาคที่ 3",
   "province": "พิษณุโลก",
   "lat": 16.833942,
   "lng": 100.262228
 },
 {
-  "id_location": 6;
+  "id_location": 6,
   "name": "น้ำตกแก่งโสภา",
   "province": "พิษณุโลก",
   "lat": 16.870711,
   "lng": 100.833821
 },
 {
-  "id_location": 7;
+  "id_location": 7,
   "name": "อุทยานแห่งชาติภูหินร่องกล้า",
   "province": "พิษณุโลก",
   "lat": 17.003883,
   "lng": 100.994248
 },
 {
-  "id_location": 8;
+  "id_location": 8,
   "name": "วนอุทยานภูสอยดาว",
   "province": "พิษณุโลก",
   "lat": 17.695953,
   "lng": 100.947030
 },
 {
-  "id_location": 9;
+  "id_location": 9,
   "name": "วัดพระธาตุผาซ่อนแก้ว",
   "province": "เพชรบูรณ์",
   "lat": 16.789298,
   "lng": 101.050892
 },
 {
-  "id_location": 10;
+  "id_location": 10,
   "name": "พระตำหนักเขาค้อ",
   "province": "เพชรบูรณ์",
   "lat": 16.553007,
   "lng": 100.976017
 },
 {
-  "id_location": 11;
+  "id_location": 11,
   "name": "เจดีย์พระบรมสารีริกธาตุเขาค้อ",
   "province": "เพชรบูรณ์",
   "lat": 16.579280,
   "lng": 100.991382
 },
 {
-  "id_location": 12;
+  "id_location": 12,
   "name": "อนุสาวรีย์พ่อขุนผาเมือง",
   "province": "เพชรบูรณ์",
   "lat": 16.753196,
   "lng": 101.203016
 },
 {
-  "id_location": 13;
+  "id_location": 13,
   "name": "อุทยานแห่งชาติทุ่งแสลงหลวง",
   "province": "เพชรบูรณ์",
   "lat": 16.579056,
   "lng": 100.883030
 },
 {
-  "id_location": 14;
+  "id_location": 14,
   "name": "ภูทับเบิก",
   "province": "เพชรบูรณ์",
   "lat": 16.896943,
   "lng": 101.105678
 },
 {
-  "id_location": 15;
+  "id_location": 15,
   "name": "ไร่กำนันจุล",
   "province": "เพชรบูรณ์",
   "lat": 16.265864,
   "lng": 101.048350
 },
 {
-  "id_location": 16;
+  "id_location": 16,
   "name": "ไร่ บี.เอ็น",
   "province": "เพชรบูรณ์",
   "lat": 16.743253,
   "lng": 101.018112
 },
 {
-  "id_location": 17;
+  "id_location": 17,
   "name": "ภูแก้ว แอดเวนเจอร์ปาร์ค",
   "province": "เพชรบูรณ์",
   "lat": 16.781070,
   "lng": 101.006081
 },
 {
-  "id_location": 18;
+  "id_location": 18,
   "name": "อนุเสาวรีย์ครูบาเจ้าศรีวิชัย",
   "province": "เชียงใหม่",
   "lat": 18.812865,
   "lng": 98.946103
 },
 {
-  "id_location": 19;
+  "id_location": 19,
   "name": "พระบรมธาตุดอยสุเทพ",
   "province": "เชียงใหม่",
   "lat": 18.804882,
   "lng": 98.921571
 },
 {
-  "id_location": 20;
+  "id_location": 20,
   "name": "สวนสัตว์เชียงใหม่",
   "province": "เชียงใหม่",
   "lat": 18.809601,
   "lng": 98.947521
 },
 {
-  "id_location": 21;
+  "id_location": 21,
   "name": "สถานีเกษตรหลวงอินทนนท์",
   "province": "เชียงใหม่",
   "lat": 18.542556,
   "lng": 98.519353
 },
 {
-  "id_location": 22;
+  "id_location": 22,
   "name": "พระตำหนักภูพิงค์ราชนิเวศน์",
   "province": "เชียงใหม่",
   "lat": 18.806500,
   "lng": 98.899012
 },
 {
-  "id_location": 23;
+  "id_location": 23,
   "name": "ดอยอินทนนท์",
   "province": "เชียงใหม่",
   "lat": 18.588040,
   "lng": 98.487057
 },
 {
-  "id_location": 24;
+  "id_location": 24,
   "name": "วัดร่องขุ่น",
   "province": "เชียงราย",
   "lat": 19.824222,
   "lng": 99.763135
 },
 {
-  "id_location": 25;
+  "id_location": 25,
   "name": "พระตำหนักดอยตุง",
   "province": "เชียงราย",
   "lat": 20.287090,
   "lng": 99.809519
 },
 {
-  "id_location": 26;
+  "id_location": 26,
   "name": "วัดพระแก้ว",
   "province": "เชียงราย",
   "lat": 20.265893,
   "lng": 100.406355
 },
 {
-  "id_location": 27;
+  "id_location": 27,
   "name": "ตลาดแม่สาย",
   "province": "เชียงราย",
   "lat": 20.444419,
   "lng": 99.880465
 },
 {
-  "id_location": 28;
+  "id_location": 28,
   "name": "ไร่บุญรอด",
   "province": "เชียงราย",
   "lat": 19.852950,
   "lng": 99.743424
 },
 {
-  "id_location": 29;
+  "id_location": 29,
   "name": "พิพิธภัณฑ์บ้านดำ",
   "province": "เชียงราย",
   "lat": 19.992078,
   "lng": 99.860694
 },
 {
-  "id_location": 30;
+  "id_location": 30,
   "name": "สามเหลี่ยมทองคำ",
   "province": "เชียงราย",
   "lat": 20.352895,
