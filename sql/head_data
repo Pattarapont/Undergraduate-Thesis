@@ -2,101 +2,72 @@
 
 travel_type			ประเภทการท่องเที่ยว	// selecter
 
+#province
 1 = พิษณุโลก
 2 = เพชรบูรณ์
 3 = เชียงใหม่
 4 = เชียงราย
 
-
-##data_cases##
-gender			เพศ
-age			อายุ
-homeland		ภูมิลำเนา
-career			อาชีพ
-congenital_dis		มีโรคประจำตัวหรือไม่	
-name_congenital_dis	โรคประจำตัว
-body_movement		การเคลื่อนไหวร่างกาย
-saving			วางแผนเงินออม
-
-
-##พิษณุโลก-เชียงใหม่-เชียงราย-เพชรบูรณ์##
-tourism				การท่องเที่ยว / เคย = 0 / ไม่เคย = 1
-travel_form			รูปแบบการท่องเที่ยว
-vehicle				ยานพาหนะ
-travel_time			เวลาท่องเที่ยว
-camp				ที่พัก
-charges				ค่าใช้จ่ายห
+#oldcase
+gender					เพศ
+age					อายุ
+homeland				ภูมิลำเนา
+career					อาชีพ
+congenital_dis				มีโรคประจำตัวหรือไม่
+name_congenital_dis			โรคประจำตัว
+body_movement				การเคลื่อนไหวร่างกาย
+saving					วางแผนเงินออม
+tourism					การท่องเที่ยว / เคย = 0 / ไม่เคย = 1
+code_province
+travel_form				รูปแบบการท่องเที่ยว
+vehicle					ยานพาหนะ
+travel_time				เวลาท่องเที่ยว
+camp					ที่พัก
+charges					ค่าใช้จ่าย
+appropriate				ความเหมาะสม
+facilities				สิ่งอำนวยความสะดวก
+location				สถานที่
+province				จังหวัด
 
 		
 ##พิษณุโลก##
-score_WatYai				คะแนน [วัดพระศรีรัตนมหาธาตุฯ (วัดใหญ่)]
-score_ThaweeFolkMuseum			คะแนน [พิพิธภัณฑ์พื้นบ้านจ่าทวี]
-score_WatChulamanee			คะแนน [วัดจุฬามณี ]
-score_SanSomdej				คะแนน [ศาลสมเด็จพระนเรศวรมหาราช]
-score_MuseumThirdArmy			คะแนน [พิพิธภัณฑ์ ทหารกองทัพภาคที่ 3]
-score_KaengSopha 			คะแนน [น้ำตกแก่งโสภา]
-score_Phuhinrongkla			คะแนน [อุทยานแห่งชาติภูหินร่องกล้า]
-score_PhuSoiDao				คะแนน [วนอุทยานภูสอยดาว]
-facilities_WatYai			สิ่งอำนวยความสะดวก [วัดพระศรีรัตนมหาธาตุฯ (วัดใหญ่)]
-facilities_ThaweeFolkMuseum		สิ่งอำนวยความสะดวก [พิพิธภัณฑ์พื้นบ้านจ่าทวี]
-facilities_WatChulamanee		สิ่งอำนวยความสะดวก [วัดจุฬามณี ]
-facilities_SanSomdej			สิ่งอำนวยความสะดวก [ศาลสมเด็จพระนเรศวรมหาราช]
-facilities_MuseumThirdArmy		สิ่งอำนวยความสะดวก [พิพิธภัณฑ์ ทหารกองทัพภาคที่ 3]
-facilities_KaengSopha			สิ่งอำนวยความสะดวก [น้ำตกแก่งโสภา]
-facilities_Phuhinrongkla		สิ่งอำนวยความสะดวก [อุทยานแห่งชาติภูหินร่องกล้า]
-facilities_PhuSoiDao			สิ่งอำนวยความสะดวก [วนอุทยานภูสอยดาว]
+WatYai					[วัดพระศรีรัตนมหาธาตุฯ (วัดใหญ่)]
+ThaweeFolkMuseum			[พิพิธภัณฑ์พื้นบ้านจ่าทวี]
+WatChulamanee				[วัดจุฬามณี ]
+SanSomdej				[ศาลสมเด็จพระนเรศวรมหาราช]
+MuseumThirdArmy				[พิพิธภัณฑ์ ทหารกองทัพภาคที่ 3]
+KaengSopha 				[น้ำตกแก่งโสภา]
+Phuhinrongkla				[อุทยานแห่งชาติภูหินร่องกล้า]
+PhuSoiDao				[วนอุทยานภูสอยดาว]
 
 
 			##เพชรบูรณ์##
-score_WatPhaKaenKaew			คะแนน [วัดพระธาตุผาซ่อนแก้ว]
-score_KhaoKhoPalace			คะแนน [พระตำหนักเขาค้อ]
-score_JadeeKhaoKho			คะแนน[เจดีย์พระบรมสารีริกธาตุเขาค้อ]
-score_PhoKhunPhaMuang 			คะแนน [อนุสาวรีย์พ่อขุนผาเมือง]
-score_ThungSalaengLuang			คะแนน [อุทยานแห่งชาติทุ่งแสลงหลวง]
-score_PhuTubberk			คะแนน [ภูทับเบิก]
-score_RaiKunnanChul			คะแนน [ไร่กำนันจุล]
-score_BNFarm				คะแนน [ไร่ บี.เอ็น]
-score_PhuKaewAdven			คะแนน [ภูแก้ว แอดเวนเจอร์ปาร์ค]
-facilities_WatPhaKaenKaew		สิ่งอำนวยความสะดวก [วัดพระธาตุผาซ่อนแก้ว]
-facilities_KhaoKhoPalace		สิ่งอำนวยความสะดวก [พระตำหนักเขาค้อ]
-facilities_JadeeKhaoKho			สิ่งอำนวยความสะดวก[เจดีย์พระบรมสารีริกธาตุเขาค้อ]
-facilities_PhoKhunPhaMuang		สิ่งอำนวยความสะดวก [อนุสาวรีย์พ่อขุนผาเมือง]
-facilities_ThungSalaengLuan		สิ่งอำนวยความสะดวก [อุทยานแห่งชาติทุ่งแสลงหลวง]
-facilities_PhuTubberk			สิ่งอำนวยความสะดวก [ภูทับเบิก]
-facilities_RaiKunnanChul		สิ่งอำนวยความสะดวก [ไร่กำนันจุล]
-facilities_B.N.Farm			สิ่งอำนวยความสะดวก [ไร่ บี.เอ็น]
-facilities_PhuKaewAdven			สิ่งอำนวยความสะดวก [ภูแก้ว แอดเวนเจอร์ปาร์ค]
+WatPhaKaenKaew				[วัดพระธาตุผาซ่อนแก้ว]
+KhaoKhoPalace				[พระตำหนักเขาค้อ]
+JadeeKhaoKho				เจดีย์พระบรมสารีริกธาตุเขาค้อ]
+PhoKhunPhaMuang 			[อนุสาวรีย์พ่อขุนผาเมือง]
+ThungSalaengLuang			[อุทยานแห่งชาติทุ่งแสลงหลวง]
+PhuTubberk				[ภูทับเบิก]
+RaiKunnanChul				[ไร่กำนันจุล]
+BNFarm					[ไร่ บี.เอ็น]
+PhuKaewAdven				[ภูแก้ว แอดเวนเจอร์ปาร์ค]
 
 
 			##เชียงใหม่##
-score_KrubaSrivichai 			คะแนน [อนุเสาวรีย์ครูบาเจ้าศรีวิชัย]
-score_DoiSuthep				คะแนน [พระบรมธาตุดอยสุเทพ]
-score_ChiangMaiZoo			คะแนน [สวนสัตว์เชียงใหม่]
-score_InthanonAgrRoyal 			คะแนน [สถานีเกษตรหลวงอินทนนท์]
-score_BhubingPalace			คะแนน [พระตำหนักภูพิงค์ราชนิเวศน์]
-score_DoiInthanon			คะแนน [ดอยอินทนนท์ ]
-facilities_KrubaSrivichai		สิ่งอำนวยความสะดวก [อนุเสาวรีย์ครูบาเจ้าศรีวิชัย]
-facilities_DoiSuthep			สิ่งอำนวยความสะดวก [พระบรมธาตุดอยสุเทพ]
-facilities_ChiangMaiZoo			สิ่งอำนวยความสะดวก [สวนสัตว์เชียงใหม่]
-facilities_InthanonAgrRoyal		สิ่งอำนวยความสะดวก [สถานีเกษตรหลวงอินทนนท์]
-facilities_BhubingPalace		สิ่งอำนวยความสะดวก [พระตำหนักภูพิงค์ราชนิเวศน์]
-facilities_DoiInthanon			สิ่งอำนวยความสะดวก [ดอยอินทนนท์ ]
-
+KrubaSrivichai 				[อนุเสาวรีย์ครูบาเจ้าศรีวิชัย]
+DoiSuthep				[พระบรมธาตุดอยสุเทพ]
+ChiangMaiZoo				[สวนสัตว์เชียงใหม่]
+InthanonAgrRoyal 			[สถานีเกษตรหลวงอินทนนท์]
+BhubingPalace				[พระตำหนักภูพิงค์ราชนิเวศน์]
+DoiInthanon				[ดอยอินทนนท์ ]
 
 			##เชียงราย##
-score_WatRongKhun		คะแนน [วัดร่องขุ่น]
-score_DoiTungRoyal		คะแนน [พระตำหนักดอยตุง]
-score_WatPhraKaew		คะแนน [วัดพระแก้ว เชียงราย ]
-score_MaesaiMarket		คะแนน [ตลาดแม่สาย]
-score_BoonRawdFarm		คะแนน [ไร่บุญรอด]
-score_BlackHouse		คะแนน [พิพิธภัณฑ์บ้านดำ ]
-score_GoldenTriangle		คะแนน [สามเหลี่ยมทองคำ]
-facilities_WatRongKhun		สิ่งอำนวยความสะดวก [วัดร่องขุ่น]
-facilities_DoiTungRoyal		สิ่งอำนวยความสะดวก [พระตำหนักดอยตุง]
-facilities_WatPhraKaew		สิ่งอำนวยความสะดวก [วัดพระแก้ว เชียงราย ]
-facilities_MaesaiMarket		สิ่งอำนวยความสะดวก [ตลาดแม่สาย]
-facilities_BoonRawdFarm		สิ่งอำนวยความสะดวก [ไร่บุญรอด]
-facilities_BlackHouse		สิ่งอำนวยความสะดวก [พิพิธภัณฑ์บ้านดำ ]
-facilities_GoldenTriangle	สิ่งอำนวยความสะดวก [สามเหลี่ยมทองคำ]
+WatRongKhun				[วัดร่องขุ่น]
+DoiTungRoyal				[พระตำหนักดอยตุง]
+WatPhraKaew				[วัดพระแก้ว]
+MaesaiMarket				[ตลาดแม่สาย]
+BoonRawdFarm				[ไร่บุญรอด]
+BlackHouse				[พิพิธภัณฑ์บ้านดำ ]
+GoldenTriangle				[สามเหลี่ยมทองคำ]
 
 
