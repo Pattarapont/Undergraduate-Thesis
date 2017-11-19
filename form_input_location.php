@@ -11,22 +11,22 @@
 					<div class="form-group">
 						<p>จังหวัดที่ต้องการท่องเที่ยว</p>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="option1" required>
+							<input type="checkbox" class="custom-control-input" value="1" name="check_province" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">พิษณุโลก</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="option2" required>
+							<input type="checkbox" class="custom-control-input" value="2" name="check_province" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เพชรบูรณ์</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="option3" required>
+							<input type="checkbox" class="custom-control-input" value="3" name="check_province" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชียงใหม่</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="option4" required>
+							<input type="checkbox" class="custom-control-input" value="4" name="check_province" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชียงราย</span>
 						</label>
@@ -36,17 +36,17 @@
 					<div class="form-group">
 						<p>ประเภทการท่องเที่ยว</p>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="option1" required>
+							<input type="checkbox" class="custom-control-input" value="1" name="check_location" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชิงธรรมชาติ</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="option2" required>
+							<input type="checkbox" class="custom-control-input" value="2" name="check_location" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">เชิงวัฒนธรรม</span>
 						</label>
 						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="option3" required>
+							<input type="checkbox" class="custom-control-input" value="3" name="check_location" required>
 							<span class="custom-control-indicator"></span>
 							<span class="custom-control-description">ความสนใจส่วนบุคคล</span>
 						</label>
@@ -102,10 +102,10 @@
 						<p>งบประมาณ</p>
 						<select class="custom-select d-block col" name="money" id="money" required>
 							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
-							<option value="1">1000 บาท </option>
-							<option value="2">1000 - 3000 บาท</option>
-							<option value="3">3000 - 5000 บาท</option>
-							<option value="4">มากกว่า 5000 บาท</option>
+							<option value="1">น้อยกว่า 1,000 บาท </option>
+							<option value="2">1,000 - 3,000 บาท</option>
+							<option value="3">3,000 - 5,000 บาท</option>
+							<option value="4">มากกว่า 5,000 บาท</option>
 						</select>
 					</div>
 					<div class="text-right">
