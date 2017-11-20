@@ -1,119 +1,138 @@
-<div class="container">
-<h1>กรุณากรอกข้อมูลการท่องเที่ยว</h1>
-<div class="row">
-	<div class="col">
-		<div class="card">
-			<div class="card-header">
-				ข้อมูลการท่องเทื่ยว
-			</div>
-			<div class="card-body ">
-				<form id="#" class="was-validated" action="./include/getvariable.php" method="POST">
-					<div class="form-group">
-						<p>จังหวัดที่ต้องการท่องเที่ยว</p>
-						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="1" name="check_province" required>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">พิษณุโลก</span>
-						</label>
-						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="2" name="check_province" required>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">เพชรบูรณ์</span>
-						</label>
-						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="3" name="check_province" required>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">เชียงใหม่</span>
-						</label>
-						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="4" name="check_province" required>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">เชียงราย</span>
-						</label>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="container">
+		<h1>กรุณากรอกข้อมูลการท่องเที่ยว</h1>
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<div class="card-header">
+						ข้อมูลการท่องเทื่ยว
 					</div>
-
-
-					<div class="form-group">
-						<p>ประเภทการท่องเที่ยว</p>
-						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="1" name="check_location" required>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">เชิงธรรมชาติ</span>
-						</label>
-						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="2" name="check_location" required>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">เชิงวัฒนธรรม</span>
-						</label>
-						<label class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" value="3" name="check_location" required>
-							<span class="custom-control-indicator"></span>
-							<span class="custom-control-description">ความสนใจส่วนบุคคล</span>
-						</label>
+					<div class="card-body">
+						<form action="./include/getvariable.php" class="was-validated" id="#" method="post" name="#">
+							<div class="form-row">
+								<div class="form-group col-md-12">
+									<p>จังหวัดที่ต้องการท่องเที่ยว</p>
+									<label class="custom-control custom-radio">
+										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="พิษณุโลก">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">พิษณุโลก</span>
+									</label> <label class="custom-control custom-radio">
+										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="เพชรบูรณ์">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">เพชรบูรณ์</span>
+									</label> <label class="custom-control custom-radio">
+										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="เชียงใหม่">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">เชียงใหม่</span>
+									</label> <label class="custom-control custom-radio">
+										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="เชียงราย">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">เชียงราย</span>
+									</label>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<p>ยานพาหนะในการเดินทาง</p><select class="custom-select d-block col" id="car" name="car" required="">
+										<option disabled hidden="" selected value="">
+											-- โปรดเลือก --
+										</option>
+										<option value="รถส่วนตัว">
+											รถส่วนตัว
+										</option>
+										<option value="รถประจำทาง">
+											รถประจำทาง
+										</option>
+										<option value="รถบัส">
+											รถบัส
+										</option>
+										<option value="รถตู้">
+											รถตู้
+										</option>
+										<option value="รถเช่า">
+											รถเช่า
+										</option>
+										<option value="อื่นๆ">
+											อื่นๆ
+										</option>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<p>ระยะเวลาที่ท่านท่องเที่ยว</p><select class="custom-select d-block col" id="traveltime" name="traveltime" required="">
+										<option disabled hidden="" selected value="">
+											-- โปรดเลือก --
+										</option>
+										<option value="ไปเช้าเย็นกลับ">
+											ไปเช้าเย็นกลับ
+										</option>
+										<option value="2 - 3 วัน">
+											2 - 3 วัน
+										</option>
+										<option value="4 – 5 วัน">
+											4 – 5 วัน
+										</option>
+										<option value="1 - 2 อาทิตย์">
+											1 - 2 อาทิตย์
+										</option>
+										<option value="มากกว่า 2 อาทิตย์">
+											มากกว่า 2 อาทิตย์
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<p>ที่พัก</p><select class="custom-select d-block col" id="camp" name="camp" required="">
+										<option disabled hidden="" selected value="">
+											-- โปรดเลือก --
+										</option>
+										<option value="บ้านตนเอง">
+											บ้านตนเอง
+										</option>
+										<option value="บ้านญาติ">
+											บ้านญาติ
+										</option>
+										<option value="โรงแรม">
+											โรงแรม
+										</option>
+										<option value="รีสอร์ท">
+											รีสอร์ท
+										</option>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<p>งบประมาณ</p><select class="custom-select d-block col" id="money" name="money" required="">
+										<option disabled hidden="" selected value="">
+											-- โปรดเลือก --
+										</option>
+										<option value="น้อยกว่า 1,000 บาท">
+											น้อยกว่า 1,000 บาท
+										</option>
+										<option value="1,000 - 3,000 บาท">
+											1,000 - 3,000 บาท
+										</option>
+										<option value="3,000 - 5,000 บาท">
+											3,000 - 5,000 บาท
+										</option>
+										<option value="มากกว่า 5,000 บาท">
+											มากกว่า 5,000 บาท
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="text-right">
+								<button class="btn btn-outline-primary" type="submit">ค้นหาสถานที่</button>
+							</div>
+						</form>
 					</div>
-
-					<div class="form-group">
-						<p>ท่านต้องการท่องเที่ยวรูปแบบ</p>
-						<select class="custom-select d-block col" name="travel" id="travel" required>
-							<option value="" selected disabled hidden>-- รูปแบบการท่องเที่ยว --</option>
-							<option value="">ครอบครัว</option>
-							<option value="1">กลุ่มเพื่อน</option>
-							<option value="2">แพคเกจท่องเที่ยว </option>
-							<option value="3">อื่นๆ </option>
-						</select>
-					</div>
-
-					<div class="form-group">
-						<p>ยานพาหนะในการเดินทาง</p>
-						<select class="custom-select d-block col" name="car" id="car" required>
-							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
-							<option value="1">รถส่วนตัว </option>
-							<option value="2">รถประจำทาง</option>
-							<option value="3">รถบัส</option>
-							<option value="4">รถตู้</option>
-							<option value="5">รถเช่า</option>
-							<option value="6">อื่นๆ</option>
-						</select>
-					</div>
-
-					<div class="form-group">
-						<p>ระยะเวลาที่ท่านท่องเที่ยว</p>
-						<select class="custom-select d-block col" name="traveltime" id="traveltime" required>
-							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
-							<option value="1">ไปเช้าเย็นกลับ </option>
-							<option value="2">2 - 3 วัน</option>
-							<option value="3">4 – 5 วัน</option>
-							<option value="4">1 - 2 อาทิตย์</option>
-							<option value="5">มากกว่า 2 อาทิตย์</option>
-						</select>
-					</div>
-
-					<div class="form-group">
-						<p>ที่พัก</p>
-						<select class="custom-select d-block col" name="camp" id="camp" required>
-							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
-							<option value="1">บ้านตนเอง</option>
-							<option value="2">บ้านญาติ</option>
-							<option value="3">โรงแรม</option>
-							<option value="4">รีสอร์ท</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<p>งบประมาณ</p>
-						<select class="custom-select d-block col" name="money" id="money" required>
-							<option value="" selected disabled hidden>-- โปรดเลือก --</option>
-							<option value="1">น้อยกว่า 1,000 บาท </option>
-							<option value="2">1,000 - 3,000 บาท</option>
-							<option value="3">3,000 - 5,000 บาท</option>
-							<option value="4">มากกว่า 5,000 บาท</option>
-						</select>
-					</div>
-					<div class="text-right">
-						<button type="button" class="btn btn-outline-primary">ค้นหาสถานที่</button>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
+</body>
+</html>
