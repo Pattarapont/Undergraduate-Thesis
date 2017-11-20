@@ -18,19 +18,19 @@
 								<div class="form-group col-md-12">
 									<p>จังหวัดที่ต้องการท่องเที่ยว</p>
 									<label class="custom-control custom-radio">
-										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="พิษณุโลก">
+										<input class="custom-control-input" id="check_province" name="check_province" required="" type="radio" value="1">
 										<span class="custom-control-indicator"></span>
 										<span class="custom-control-description">พิษณุโลก</span>
 									</label> <label class="custom-control custom-radio">
-										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="เพชรบูรณ์">
+										<input class="custom-control-input" id="check_province" name="check_province" required="" type="radio" value="2">
 										<span class="custom-control-indicator"></span>
 										<span class="custom-control-description">เพชรบูรณ์</span>
 									</label> <label class="custom-control custom-radio">
-										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="เชียงใหม่">
+										<input class="custom-control-input" id="check_province" name="check_province" required="" type="radio" value="3">
 										<span class="custom-control-indicator"></span>
 										<span class="custom-control-description">เชียงใหม่</span>
 									</label> <label class="custom-control custom-radio">
-										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="เชียงราย">
+										<input class="custom-control-input" id="check_province" name="check_province" required="" type="radio" value="4">
 										<span class="custom-control-indicator"></span>
 										<span class="custom-control-description">เชียงราย</span>
 									</label>
