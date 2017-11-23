@@ -1,16 +1,16 @@
 <?php
-/* Displays all successful messages */
+/* Displays all error messages */
 session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Success</title>
+  <title>Error</title>
 <?php include 'css/css.html';?>
 </head>
 <body>
 <div class="form">
-    <h1><?='Success';?></h1>
+    <h1>ผิดพลาด!!</h1>
     <p>
 <?php
 if (isset($_SESSION['message']) AND !empty($_SESSION['message'])):

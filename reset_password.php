@@ -1,6 +1,6 @@
 <?php
 /* Password reset process, updates database with new user password */
-require '../include/db_connect.php';
+require './include/db_connect.php';
 session_start();
 
 // Make sure the form is being submitted with method="post"
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if ($conn->query($sql)) {
 
-			$_SESSION['message'] = "Your password has been reset successfully!";
+			$_SESSION['message'] = "รหัสผ่านของคุณถูกรีเซ็ทเรียบร้อยแล้ว !";
 			header("location: success.php");
 
 		}

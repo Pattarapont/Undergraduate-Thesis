@@ -57,6 +57,21 @@ include 'include/include_head.php';
   </script>
 
   <script>
+
+$.getJSON("/js/locations.json", function(json1) {
+    $.each(json1, function(key, data) {
+        var latLng = new google.maps.LatLng(data.lat, data.lng);
+        // Creating a marker and putting it on the map
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            title: data.title
+        });
+    });
+});
+
+
+
        function initMap() {
          var uluru = {lat: 16.833942, lng: 100.262228 };
          // var uluru = {lat: 16.789298, lng: 101.050892};

@@ -6,13 +6,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">หน้าหลัก <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="home.php">หน้าหลัก <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">ข้อมูลสถานที่</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">ประวัติการท่องเที่ยว</a>
+                <a class="nav-link" href="history.php">ประวัติการท่องเที่ยว</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="form_main.php">เลือกสถานที่ท่องเที่ยว</a>
@@ -22,7 +22,7 @@
         <!-- Login -->
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item navbar-right">
-                <a class="nav-link" href="check_login.php">เข้าสู่ระบบ</a>
+                <a class="nav-link" href="singin.php">เข้าสู่ระบบ</a>
             </li>
             <!-- <li class="nav-item navbar-right">
                 <a class="nav-link" href="sign_in.php">สมัครสมาชิก</a>

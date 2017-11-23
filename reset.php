@@ -2,7 +2,7 @@
 /* The password reset form, the link to this page is included
 from the forgot.php email message
  */
-require '../include/db_connect.php';
+require './include/db_connect.php';
 session_start();
 
 // Make sure email and hash variables aren't empty
@@ -14,7 +14,7 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
 	$result = $conn->query("SELECT * FROM users WHERE email='$email' AND hash='$hash'");
 
 	if ($result->num_rows == 0) {
-		$_SESSION['message'] = "You have entered invalid URL for password reset!";
+		$_SESSION['message'] = "ฟฟฟฟYou have entered invalid URL for password reset!";
 		header("location: error.php");
 	}
 } else {
@@ -60,8 +60,8 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
           </form>
 
     </div>
-    <script src="../js/jquery-3.2.1.min.js"></script>
-<script src="js/login.js"></script>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/login.js"></script>
 
 </body>
 </html>

@@ -1,13 +1,17 @@
 <?php
 /* Main page with two forms: sign up and log in */
-require '../include/db_connect.php';
+require './include/db_connect.php';
 session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Sign-Up/Login Form</title>
-<?php include 'css/css.html';?>
+<?php
+include './include/include_head.php';
+include './css/css.html';
+include 'navbar.php';
+?>
 </head>
 
 <?php
@@ -106,8 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div><!-- tab-content -->
 
 </div> <!-- /form -->
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="js/login.js"></script>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/login.js"></script>
 
 </body>
 </html>

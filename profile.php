@@ -19,7 +19,10 @@ if ($_SESSION['logged_in'] != 1) {
 <head>
   <meta charset="UTF-8">
   <title>Welcome <?=$first_name.' '.$last_name?></title>
-<?php include 'css/css.html';?>
+<?php
+include 'include/include_head.php';
+include 'css/css.html';
+?>
 </head>
 
 <body>
@@ -27,7 +30,7 @@ if ($_SESSION['logged_in'] != 1) {
 
           <h1>Welcome</h1>
 
-          <p>เข้าสู่ระบบสำเร็จ</p>
+          <p>
 <?php
 
 // Display message about account verification link only once
@@ -39,7 +42,7 @@ if (isset($_SESSION['message'])) {
 }
 
 ?>
-
+</p>
 
 <?php
 
@@ -60,8 +63,8 @@ if (!$active) {
 
     </div>
 
-    <script src="../js/jquery-3.2.1.min.js"></script>
-<script src="js/login.js"></script>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/login.js"></script>
 
 </body>
 </html>

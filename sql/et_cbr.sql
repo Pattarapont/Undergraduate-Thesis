@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2017 at 08:14 PM
+-- Generation Time: Nov 20, 2017 at 10:56 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `et_cbr`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `info_users`
+--
+
+CREATE TABLE `info_users` (
+  `id_infouser` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `gender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `age` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `career` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `subdistrict` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `district` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `county` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `zipcode` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `congenital_dis` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name_congenital_dis` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `body_movement` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -3530,7 +3551,7 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `first_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `tel` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telephone` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `hash` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
@@ -3540,6 +3561,13 @@ CREATE TABLE `users` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `info_users`
+--
+ALTER TABLE `info_users`
+  ADD PRIMARY KEY (`id_infouser`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `location`
@@ -3582,6 +3610,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `info_users`
+--
+ALTER TABLE `info_users`
+  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `oldcase`

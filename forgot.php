@@ -1,6 +1,6 @@
 <?php
 /* Reset your password form, sends reset.php password link */
-require '../include/db_connect.php'
+require './include/db_connect.php'
 ;
 session_start();
 
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	if ($result->num_rows == 0)// User doesn't exist
 	{
-		$_SESSION['message'] = "User with that email doesn't exist!";
+		$_SESSION['message'] = "อีเมลนี้ไม่มีอยู่ในระบบ!!";
 		header("location: error.php");
 	} else {
 		// User exists (num_rows != 0)
@@ -23,12 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$first_name = $user['first_name'];
 
 		// Session message to display on success.php
-		$_SESSION['message'] = "<p>Please check your email <span>$email</span>"
-		 ." for a confirmation link to complete your password reset!</p>";
+		$_SESSION['message'] = "<p>ได้โปรดตรวจสอบเมล์ของคุณ <span>$email</span>"
+		 ." สำหรับยืนยันการรีเซ็ทรหัสผ่านใหม่!</p>";
 
 		// Send registration confirmation link (reset.php)
 		$to           = $email;
-		$subject      = 'Password Reset Link ( clevertechie.com )';
+		$subject      = 'Password Reset Link ( pattarapon.me )';
 		$message_body = '
         Hello '.$first_name.',
 
@@ -48,7 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
   <title>Reset Your Password</title>
-<?php include 'css/css.html';?>
+<?php
+include 'include/include_head.php';
+include 'css/css.html';?>
 </head>
 
 <body>
@@ -68,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
   </div>
 
-    <script src="../js/jquery-3.2.1.min.js"></script>
-<script src="js/login.js"></script>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+	<script src="./js/login.js"></script>
 </body>
 
 </html>
