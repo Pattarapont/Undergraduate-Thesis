@@ -27,7 +27,7 @@ if ($_SESSION['logged_in'] != 1) {
 
           <h1>Welcome</h1>
 
-          <p>
+          <p>เข้าสู่ระบบสำเร็จ</p>
 <?php
 
 // Display message about account verification link only once
@@ -39,7 +39,7 @@ if (isset($_SESSION['message'])) {
 }
 
 ?>
-</p>
+
 
 <?php
 
@@ -60,7 +60,7 @@ if (!$active) {
 
     </div>
 
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="js/login.js"></script>
 
 </body>
