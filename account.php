@@ -18,10 +18,18 @@ include 'navbar.php';
 					ข้อมูลส่วนตัว
 				</div>
 				<div class="card-body">
-					<form action="./include/getvariable.php" class="was-validated" id="inputpersonal" method="POST" name="form_user">
+					<form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="POST" name="form_user">
 						<div class="form-row">
 							<div class="form-group col-md-4">
-								<p>เพศ</p><label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ชาย</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span> <span class="custom-control-description">หญิง</span></label>
+								<p>เพศ</p>
+								<label class="custom-control custom-radio">
+									<input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย">
+									<span class="custom-control-indicator"></span>
+									<span class="custom-control-description">ชาย</span>
+								</label> <label class="custom-control custom-radio">
+									<input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span>
+									<span class="custom-control-description">หญิง</span>
+								</label>
 							</div>
 							<div class="form-group col-md-4">
 								<label for="validationDefault02">อายุ</label> <select class="custom-select d-block col" id="age" name="age" required="">
