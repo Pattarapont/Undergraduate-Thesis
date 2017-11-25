@@ -13,7 +13,7 @@
 						ข้อมูลการท่องเทื่ยว
 					</div>
 					<div class="card-body">
-						<form action="./include/getvariable.php" class="was-validated" id="#" method="post" name="#">
+						<form action="./include/matching.php" class="was-validated" id="#" method="POST" name="#">
 							<div class="form-row">
 								<div class="form-group col-md-12">
 									<p>จังหวัดที่ต้องการท่องเที่ยว</p>
@@ -37,6 +37,47 @@
 								</div>
 							</div>
 							<div class="form-row">
+								<div class="form-group col-md-6">
+									<p>การเก็บเงินสำหรับท่องเที่ยว</p><select class="custom-select d-block col" id="car" name="travel_form" required="">
+										<option disabled hidden="" selected value="">
+											-- โปรดเลือก --
+										</option>
+										<option value="มี">มี</option>
+										<option value="ไม่มี">ไม่มี</option>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<p>งบประมาณ</p><select class="custom-select d-block col" id="money" name="money" required="">
+										<option disabled hidden="" selected value="">
+											-- โปรดเลือก --
+										</option>
+										<option value="น้อยกว่า 1,000 บาท">
+											น้อยกว่า 1,000 บาท
+										</option>
+										<option value="1,000 - 3,000 บาท">
+											1,000 - 3,000 บาท
+										</option>
+										<option value="3,000 - 5,000 บาท">
+											3,000 - 5,000 บาท
+										</option>
+										<option value="มากกว่า 5,000 บาท">
+											มากกว่า 5,000 บาท
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<p>รูปแบบการท่องเที่ยว</p><select class="custom-select d-block col" id="car" name="travel_form" required="">
+										<option disabled hidden="" selected value="">
+											-- โปรดเลือก --
+										</option>
+										<option value="ครอบครัว">ครอบครัว</option>
+										<option value="กลุ่มเพื่อน">กลุ่มเพื่อน</option>
+										<option value="แพคเกจท่องเที่ยว">แพคเกจท่องเที่ยว </option>
+										<option value="อื่นๆ">อื่นๆ </option>
+									</select>
+								</div>
 								<div class="form-group col-md-6">
 									<p>ยานพาหนะในการเดินทาง</p><select class="custom-select d-block col" id="car" name="car" required="">
 										<option disabled hidden="" selected value="">
@@ -62,6 +103,8 @@
 										</option>
 									</select>
 								</div>
+								</div>
+								<div class="form-row">
 								<div class="form-group col-md-6">
 									<p>ระยะเวลาที่ท่านท่องเที่ยว</p><select class="custom-select d-block col" id="traveltime" name="traveltime" required="">
 										<option disabled hidden="" selected value="">
@@ -84,8 +127,8 @@
 										</option>
 									</select>
 								</div>
-							</div>
-							<div class="form-row">
+
+
 								<div class="form-group col-md-6">
 									<p>ที่พัก</p><select class="custom-select d-block col" id="camp" name="camp" required="">
 										<option disabled hidden="" selected value="">
@@ -105,25 +148,7 @@
 										</option>
 									</select>
 								</div>
-								<div class="form-group col-md-6">
-									<p>งบประมาณ</p><select class="custom-select d-block col" id="money" name="money" required="">
-										<option disabled hidden="" selected value="">
-											-- โปรดเลือก --
-										</option>
-										<option value="น้อยกว่า 1,000 บาท">
-											น้อยกว่า 1,000 บาท
-										</option>
-										<option value="1,000 - 3,000 บาท">
-											1,000 - 3,000 บาท
-										</option>
-										<option value="3,000 - 5,000 บาท">
-											3,000 - 5,000 บาท
-										</option>
-										<option value="มากกว่า 5,000 บาท">
-											มากกว่า 5,000 บาท
-										</option>
-									</select>
-								</div>
+
 							</div>
 							<div class="text-right">
 								<button class="btn btn-outline-primary" type="submit">ค้นหาสถานที่</button>

@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php include './include/include_head.php';?>
+<?php
+include './include/include_head.php';
+// สงวนสิทธิ์เฉพาะสมาชิก
+/*
+session_start();
+if ($_SESSION['logged_in'] !== true) {
+header("location: singin.php");
+}
+ */
+?>
 </head>
 <body>
 <?php
