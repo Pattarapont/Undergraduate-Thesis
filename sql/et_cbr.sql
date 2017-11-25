@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 20, 2017 at 10:56 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: Nov 25, 2017 at 11:44 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,14 +34,39 @@ CREATE TABLE `info_users` (
   `gender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `age` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `career` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `subdistrict` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `district` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `amphoe` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `county` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `zipcode` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `congenital_dis` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name_congenital_dis` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `body_movement` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `info_users`
+--
+
+INSERT INTO `info_users` (`id_infouser`, `id_user`, `gender`, `age`, `career`, `district`, `amphoe`, `county`, `zipcode`, `congenital_dis`, `name_congenital_dis`, `body_movement`) VALUES
+(1, 12, 'หญิง', '50 - 60 ปี', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 12, 'หญิง', '50 - 60 ปี', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', NULL, NULL, NULL, NULL, NULL),
+(4, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', NULL, NULL, NULL, NULL, NULL),
+(5, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(6, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(7, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(8, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(9, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(10, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(11, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(12, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(13, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(14, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(15, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(16, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL),
+(17, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL),
+(18, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL),
+(19, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3559,6 +3584,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `first_name`, `last_name`, `telephone`, `email`, `password`, `hash`, `active`) VALUES
+(1, 'a', 'a', NULL, 'a@a', '$2y$10$J1mdz5TC/X6IodmnF9LeP.vGjcdtvV2FcQaM8BOAc9XAReKtgaFSS', '13fe9d84310e77f13a6d184dbf1232f3', 0),
+(2, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(3, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(4, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(5, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -3566,8 +3602,7 @@ CREATE TABLE `users` (
 -- Indexes for table `info_users`
 --
 ALTER TABLE `info_users`
-  ADD PRIMARY KEY (`id_infouser`),
-  ADD KEY `id_user` (`id_user`);
+  ADD PRIMARY KEY (`id_infouser`);
 
 --
 -- Indexes for table `location`
@@ -3615,7 +3650,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `info_users`
 --
 ALTER TABLE `info_users`
-  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `oldcase`
@@ -3639,7 +3674,7 @@ ALTER TABLE `transcript`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -3649,8 +3684,7 @@ ALTER TABLE `users`
 -- Constraints for table `transcript`
 --
 ALTER TABLE `transcript`
-  ADD CONSTRAINT `transcript_ibfk_2` FOREIGN KEY (`id_location`) REFERENCES `location` (`id_location`),
-  ADD CONSTRAINT `transcript_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `transcript_ibfk_2` FOREIGN KEY (`id_location`) REFERENCES `location` (`id_location`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
