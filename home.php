@@ -1,11 +1,22 @@
+<?php
+// session_start();
+// if ($_SESSION['logged_in'] === true) {
+// 	include 'menu_unauth.php';
+// } else {
+// 	include 'menu.php';
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>ระบบแนะนำสถานที่ท่องเที่ยวสำหรับผู้สูงอายุ</title>
-<?php include './include/include_head.php';?>
+<?php
+include './include/include_head.php';
+include 'menu.php';
+?>
 </head>
 <body>
-<?php include 'navbar.php';?>
+
 <section>
 	<div class="container">
 		<div class="row">

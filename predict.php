@@ -1,13 +1,12 @@
 <?php
 include "include/include_pre.php";
 /*
-session_start();
 if (!isSignin()) {
 header("location: singin.php");
 }
  */
 include 'include/include_head.php';
-include 'navbar.php';
+include 'menu.php';
 
 $new_car        = $_POST['car'];
 $new_traveltime = $_POST['traveltime'];

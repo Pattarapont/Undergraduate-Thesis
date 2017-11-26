@@ -15,7 +15,7 @@ header("location: singin.php");
 }
  */
 include './include/include_head.php';
-include 'navbar.php';
+include 'menu.php';
 ?>
 	<link href="./jquery.Thailand.js/dist/jquery.Thailand.min.css" rel="stylesheet">
 	<title></title>

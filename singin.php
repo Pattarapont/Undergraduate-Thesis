@@ -1,7 +1,7 @@
 <?php
 /* Main page with two forms: sign up and log in */
 require './include/db_connect.php';
-session_start();
+// session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@ session_start();
 <?php
 include './include/include_head.php';
 include './css/css.html';
-include 'navbar.php';
+include 'menu.php';
 ?>
 </head>
 

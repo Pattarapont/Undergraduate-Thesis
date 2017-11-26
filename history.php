@@ -1,8 +1,8 @@
 <?php
+include "include/db_connect.php";
 include 'include/include_head.php';
-
+include "menu.php";
 // สงวนสิทธิ์เฉพาะสมาชิก
-include "include/include_pre.php";
 /*
 if (!isSignin()) {
 header("location: singin.php");
@@ -14,6 +14,14 @@ if (isSignin() !== TRUE) {
 header("location: singin.php");
 }
  */
+
+$con_db = "SELECT * FROM transcript WHERE id_user = 1";
+$key    = $conn->query($con_db);
+// $row    = $key->fetch_assoc();
+
+while ($row = $key->fetch_assoc()) {
+	echo $row['id_location'], "<br>";
+}
 
 ?>
 <!DOCTYPE html>
