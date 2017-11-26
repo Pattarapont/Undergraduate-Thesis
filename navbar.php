@@ -1,3 +1,8 @@
+<?php
+include "include/include_pre.php";
+session_start();
+
+?>
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="#">ระบบแนะนำสถานที่ท่องเที่ยว</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,3 +35,14 @@
         </ul>
     </div>
 </nav>
+
+
+<?php
+/*
+if (!isSignin()) {
+
+} else {
+
+}
+ */
+?>

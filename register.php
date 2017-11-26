@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
 
 		// Send registration confirmation link (verify.php)
 		$to           = $email;
-		$subject      = 'Account Verification ( clevertechie.com )';
+		$subject      = 'Account Verification ( Pattarapon )';
 		$message_body = '
         Hello '.$first_name.',
 
@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
 
         Please click this link to activate your account:
 
-        http://localhost:8080/et_cbr/login/verify.php?email='.$email.'&hash='.$hash;
+        http://localhost:8080/et_cbr/verify.php?email='.$email.'&hash='.$hash;
 
 		mail($to, $subject, $message_body);
 

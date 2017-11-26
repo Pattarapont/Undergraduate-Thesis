@@ -1,3 +1,13 @@
+<?php
+// สงวนสิทธิ์เฉพาะสมาชิก
+include "include/include_pre.php";
+
+session_start();
+if (!isSignin()) {
+	header("location: singin.php");
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +23,7 @@
 						ข้อมูลการท่องเทื่ยว
 					</div>
 					<div class="card-body">
-						<form action="./include/matching.php" class="was-validated" id="#" method="POST" name="#">
+						<form action="predict.php" class="was-validated" id="#" method="POST" name="#">
 							<div class="form-row">
 								<div class="form-group col-md-12">
 									<p>จังหวัดที่ต้องการท่องเที่ยว</p>
@@ -38,7 +48,7 @@
 							</div>
 							<div class="form-row">
 								<div class="form-group col-md-6">
-									<p>การเก็บเงินสำหรับท่องเที่ยว</p><select class="custom-select d-block col" id="car" name="travel_form" required="">
+									<p>การเก็บเงินสำหรับท่องเที่ยว</p><select class="custom-select d-block col" id="saving" name="saving" required="">
 										<option disabled hidden="" selected value="">
 											-- โปรดเลือก --
 										</option>

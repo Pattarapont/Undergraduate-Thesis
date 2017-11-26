@@ -20,7 +20,7 @@ if ($_SESSION['logged_in'] != 1) {
   <meta charset="UTF-8">
   <title>Welcome <?=$first_name.' '.$last_name?></title>
 <?php
-include 'include/include_head.php';
+// include 'include/include_head.php';
 include 'css/css.html';
 ?>
 </head>

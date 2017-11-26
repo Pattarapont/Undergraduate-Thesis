@@ -1,5 +1,14 @@
 <?php
 include 'include/include_head.php';
+
+include "include/include_pre.php";
+// สงวนสิทธิ์เฉพาะสมาชิก
+/*
+session_start();
+if (!isSignin()) {
+header("location: singin.php");
+}
+ */
 ?>
 <!DOCTYPE html>
 <html>

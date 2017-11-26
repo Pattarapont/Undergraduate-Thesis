@@ -14,7 +14,7 @@ if (isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && 
 	$result = $conn->query("SELECT * FROM users WHERE email='$email' AND hash='$hash'");
 
 	if ($result->num_rows == 0) {
-		$_SESSION['message'] = "ฟฟฟฟYou have entered invalid URL for password reset!";
+		$_SESSION['message'] = "You have entered invalid URL for password reset!";
 		header("location: error.php");
 	}
 } else {

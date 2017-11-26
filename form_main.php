@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
 <?php
 include './include/include_head.php';
+
 // สงวนสิทธิ์เฉพาะสมาชิก
+include "include/include_pre.php";
 /*
 session_start();
-if ($_SESSION['logged_in'] !== true) {
+if (!isSignin()) {
 header("location: singin.php");
 }
  */
 ?>
+<!DOCTYPE html>
+<html>
+<head>
 </head>
 <body>
 <?php

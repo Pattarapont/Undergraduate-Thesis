@@ -2,6 +2,13 @@
 <html>
 <head>
 <?php
+include "include/include_pre.php";
+/*
+session_start();
+if (!isSignin()) {
+header("location: singin.php");
+}
+ */
 include './include/include_head.php';
 include 'navbar.php';
 ?>
@@ -127,7 +134,7 @@ include 'navbar.php';
 					ข้อมูลด้านสุขภาพ
 				</div>
 				<div class="card-body">
-					<form action="./include/getvariable.php" class="was-validated" id="inputpersonal" method="post" name="form_infouser">
+					<form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="post" name="form_infouser">
 						<div class="form-row">
 							<div class="form-group col-md-4">
 								<p>โรคประจำตัว</p><label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ไม่มี</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="1"> <span class="custom-control-indicator"></span> <span class="custom-control-description">มี</span></label>

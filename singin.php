@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <label>
                 นามสกุล<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off" name='lastname' />
+              <input type="text" required autocomplete="off" name='lastname' />
             </div>
           </div>
 
@@ -91,14 +91,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label>
               Email<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off" name='email' />
+            <input type="email" required autocomplete="off" name='email' />
           </div>
 
           <div class="field-wrap">
             <label>
               รหัสผ่าน<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name='password'/>
+            <input type="password" required autocomplete="off" name='password'/>
           </div>
 
           <button type="submit" class="button button-block" name="register" />สมัครสมาชิก</button>
