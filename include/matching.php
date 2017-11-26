@@ -1,6 +1,29 @@
 <?php
 require 'db_connect.php';
 
+// session_start(); ไม่จำเป็นต้นใช้ เพราะรับค่ามาเรื่อยๆ
+// session_start();
+// session_start(); ไม่จำเป็นต้นใช้ เพราะรับค่ามาเรื่อยๆ
+
+/*
+$id_user   = $_SESSION['id_user'];
+$conn_user = "SELECT * FROM info_users WHERE id_user = $id_user";
+$conn_u    = $conn->query($conn_user);
+$conUser   = $conn_u->fetch_assoc();
+
+echo $conUser['id_user'];
+echo $conUser['amphoe'];
+
+$new_gender              = $conUser['gender'];
+$new_age                 = $conUser['age'];
+$new_homeland            = $conUser['county'];
+$new_career              = $conUser['career'];
+$new_congenital_dis      = $conUser['congenital_dis'];
+$new_name_congenital_dis = $conUser['name_congenital_dis'];
+$new_body_movement       = $conUser['body_movement'];
+
+ */
+
 /*
 $new_gender              = "ชาย";
 $new_age                 = "70 ปีขึ้นไป	";
@@ -40,13 +63,13 @@ $new_career              = "รับราชการ";
 $new_congenital_dis      = "ไม่มี";
 $new_name_congenital_dis = "";
 $new_body_movement       = "เดินได้ปกติ";
-// $new_saving              = "มี";
-// $new_travel              = "แพคเกจท่องเที่ยว";
-// $new_car                 = "รถส่วนตัว";
-// $new_traveltime          = "2 - 3 วัน";
-// $new_camp                = "โรงแรม";
-// $new_money               = "1,000 - 3,000 บาท";
-// $province                = '1';
+$new_saving              = "มี";
+$new_travel              = "แพคเกจท่องเที่ยว";
+$new_car                 = "รถส่วนตัว";
+$new_traveltime          = "2 - 3 วัน";
+$new_camp                = "โรงแรม";
+$new_money               = "1,000 - 3,000 บาท";
+$province                = '1';
 
 /*
 $new_gender              = "ชาย";
@@ -78,11 +101,12 @@ $t2 = "";
 $n3 = 0;
 $t3 = "";
 
-$n4 = 0;
-$t4 = "";
+// $n4 = 0;
+// $t4 = "";
 
-$n5 = 0;
-$t5 = "";
+// $n5 = 0;
+// $t5 = "";
+
 // เลือกที่คล้ายมากสุด
 while ($row = $key->fetch_assoc()) {
 
