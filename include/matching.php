@@ -1,66 +1,69 @@
 <?php
-include 'db_connect.php';
-// include 'getvariable.php';
+require 'db_connect.php';
 
-// $new_gender              = "ชาย";
-// $new_age                 = "70 ปีขึ้นไป	";
-// $new_homeland            = "พิษณุโลก";
-// $new_career              = "รับราชการ";
-// $new_congenital_dis      = "มี";
-// $new_name_congenital_dis = "";
-// $new_body_movement       = "เดินได้ปกติ";
-// $new_saving              = "ไม่มี";
-// $new_travel              = "ครอบครัว";
-// $new_car                 = "รถส่วนตัว";
-// $new_traveltime          = "2 - 3 วัน";
-// $new_camp                = "รีสอร์ท";
-// $new_money               = "3,000 – 5,000 บาท";
-// $province                = '3';
-
-// $new_gender              = "หญิง";
-// $new_age                 = "50 - 60 ปี";
-// $new_homeland            = "กำแพงเพชร";
-// $new_career              = "ค้าขาย";
-// $new_congenital_dis      = "ไม่มี";
-// $new_name_congenital_dis = "";
-// $new_body_movement       = "เดินได้ปกติ";
-// $new_saving              = "มี";
-// $new_travel              = "ครอบครัว";
-// $new_car                 = "รถส่วนตัว";
-// $new_traveltime          = "2 - 3 วัน";
-// $new_camp                = "รีสอร์ท";
-// $new_money               = "มากกว่า 5,000 บาท";
-// $province                = '4';
+/*
+$new_gender              = "ชาย";
+$new_age                 = "70 ปีขึ้นไป	";
+$new_homeland            = "พิษณุโลก";
+$new_career              = "รับราชการ";
+$new_congenital_dis      = "มี";
+$new_name_congenital_dis = "";
+$new_body_movement       = "เดินได้ปกติ";
+$new_saving              = "ไม่มี";
+$new_travel              = "ครอบครัว";
+$new_car                 = "รถส่วนตัว";
+$new_traveltime          = "2 - 3 วัน";
+$new_camp                = "รีสอร์ท";
+$new_money               = "3,000 – 5,000 บาท";
+$province                = '3';
 
 $new_gender              = "หญิง";
 $new_age                 = "50 - 60 ปี";
-$new_homeland            = "พิษณุโลก";
-$new_career              = "อื่นๆ";
+$new_homeland            = "กำแพงเพชร";
+$new_career              = "ค้าขาย";
 $new_congenital_dis      = "ไม่มี";
 $new_name_congenital_dis = "";
 $new_body_movement       = "เดินได้ปกติ";
 $new_saving              = "มี";
-$new_travel              = "แพคเกจท่องเที่ยว";
+$new_travel              = "ครอบครัว";
 $new_car                 = "รถส่วนตัว";
 $new_traveltime          = "2 - 3 วัน";
-$new_camp                = "โรงแรม";
-$new_money               = "1,000 - 3,000 บาท";
-$province                = '1';
+$new_camp                = "รีสอร์ท";
+$new_money               = "มากกว่า 5,000 บาท";
+$province                = '4';
+ */
 
-// $new_gender              = "ชาย";
-// $new_age                 = "50 - 60 ปี";
-// $new_homeland            = "อุทัยธานี";
-// $new_career              = "ค้าขาย";
-// $new_congenital_dis      = "มี";
-// $new_name_congenital_dis = "";
-// $new_body_movement       = "เดินได้ปกติ";
+$new_gender              = "หญิง";
+$new_age                 = "50 - 60 ปี";
+$new_homeland            = "อุทัยธานี";
+$new_career              = "รับราชการ";
+$new_congenital_dis      = "ไม่มี";
+$new_name_congenital_dis = "";
+$new_body_movement       = "เดินได้ปกติ";
 // $new_saving              = "มี";
-// $new_travel              = "ครอบครัว";
+// $new_travel              = "แพคเกจท่องเที่ยว";
 // $new_car                 = "รถส่วนตัว";
 // $new_traveltime          = "2 - 3 วัน";
-// $new_camp                = "รีสอร์ท";
-// $new_money               = "มากกว่า 5,000 บาท";
+// $new_camp                = "โรงแรม";
+// $new_money               = "1,000 - 3,000 บาท";
 // $province                = '1';
+
+/*
+$new_gender              = "ชาย";
+$new_age                 = "50 - 60 ปี";
+$new_homeland            = "อุทัยธานี";
+$new_career              = "ค้าขาย";
+$new_congenital_dis      = "มี";
+$new_name_congenital_dis = "";
+$new_body_movement       = "เดินได้ปกติ";
+$new_saving              = "มี";
+$new_travel              = "ครอบครัว";
+$new_car                 = "รถส่วนตัว";
+$new_traveltime          = "2 - 3 วัน";
+$new_camp                = "รีสอร์ท";
+$new_money               = "มากกว่า 5,000 บาท";
+$province                = '1';
+ */
 
 $oldcase_db = "SELECT * FROM oldcase ORDER BY `id` ASC ";
 $key        = $conn->query($oldcase_db);
@@ -253,16 +256,12 @@ while ($row = $key->fetch_assoc()) {
 
 	}
 }
-echo $t3;
-echo '<br>';
+// echo $t3;
+// echo '<br>';
 
 $result = "SELECT * FROM oldcase WHERE id = '$t3'";
 $key    = $conn->query($result);
 $answer = $key->fetch_assoc();
-
-echo "สถานที่ : ", $answer['location'], "<br>";
-echo "เคสที่ : ", $answer['id'], "<br>";
-echo "จังหวัด : ", $answer['id_province'], "<br>";
 
 // if (isset($_POST['Size'])) {
 // 	$	x = $New_Size;

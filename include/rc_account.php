@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php';
+include 'include_pre.php';
 // Escape user inputs for security
 $first_name = $conn->real_escape_string($_REQUEST['first_name']);
 $last_name  = $conn->real_escape_string($_REQUEST['last_name']);
@@ -35,6 +35,6 @@ if ($conn->query($insert_info_user) === true) {
 
 $conn->close();
 
-header("Location: ..\predict.php");
+header("Location: /et_cbr/form_main.php");
 die();
 ?>
