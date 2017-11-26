@@ -17,11 +17,11 @@ header("location: singin.php");
 
 $con_db = "SELECT * FROM transcript WHERE id_user = 1";
 $key    = $conn->query($con_db);
-// $row    = $key->fetch_assoc();
+$row    = $key->fetch_assoc();
 
-while ($row = $key->fetch_assoc()) {
-	echo $row['id_location'], "<br>";
-}
+// while ($row = $key->fetch_assoc()) {
+// 	echo $row['id_location'], "<br>";
+// }
 
 ?>
 <!DOCTYPE html>
@@ -48,6 +48,9 @@ while ($row = $key->fetch_assoc()) {
   white-space: nowrap;
 }*/
   </style>
+  <script type="text/javascript">
+    var idLocation = "<?php echo $row['id_location'];?>";
+</script>
   <title></title>
 </head>
 <body>
@@ -66,7 +69,11 @@ while ($row = $key->fetch_assoc()) {
   <script>
             var htmlText = '';
 
-            for ( var key in datalocation ) {
+            for ( var key in datalocation) {
+              if( idLocation == datalocation[key].id_location)
+              {
+                var aaaa = datalocation[key].lat;
+                var bbbb = datalocation[key].lng;
                 htmlText += '<div class="div-conatiner">';
                 htmlText += '<p class="p-name"> id: ' + datalocation[key].id_location + '</p>';
                 htmlText += '<p class="p-loc"> สถานที่: ' + datalocation[key].name + '</p>';
@@ -74,13 +81,13 @@ while ($row = $key->fetch_assoc()) {
                 htmlText += '<p class="p-created"> lat: ' + datalocation[key].lat + '</p>';
                 htmlText += '<p class="p-uname"> lng: ' + datalocation[key].lng + '</p>';
                 htmlText += '</div>';
-            }
-
+              }
+              }
             $('body').append(htmlText);
   </script>
 
   <script>
-
+/*
 $.getJSON("/js/locations.json", function(json1) {
     $.each(json1, function(key, data) {
         var latLng = new google.maps.LatLng(data.lat, data.lng);
@@ -92,11 +99,10 @@ $.getJSON("/js/locations.json", function(json1) {
         });
     });
 });
-
-
+*/
 
        function initMap() {
-         var uluru = {lat: 16.833942, lng: 100.262228 };
+         var uluru = {lat: aaaa, lng: bbbb };
          // var uluru = {lat: 16.789298, lng: 101.050892};
          // 17.8806018,101.4711614,7z
          var map = new google.maps.Map(document.getElementById('map'), {
