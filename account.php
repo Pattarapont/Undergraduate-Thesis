@@ -4,8 +4,13 @@
 <?php
 include "include/include_pre.php";
 /*
-session_start();
 if (!isSignin()) {
+header("location: singin.php");
+}
+ */
+
+/*
+if (isSignin() !== TRUE) {
 header("location: singin.php");
 }
  */
