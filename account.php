@@ -2,7 +2,7 @@
 <html>
 <head>
 <?php
-include "include/include_pre.php";
+include "include/db_connect.php";
 /*
 if (!isSignin()) {
 header("location: singin.php");
@@ -23,27 +23,19 @@ include 'menu.php';
 <body>
 	<section>
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
-		<div class="container">
-			<h1>กรุณากรอกข้อมูลของท่าน</h1>
-			<div class="card">
-				<div class="card-header">
-					ข้อมูลส่วนตัว
-				</div>
-				<div class="card-body">
-					<form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="POST" name="form_user">
+		<form action="./include/edit_account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
+			<div class="container">
+				<h1>กรุณากรอกข้อมูลของท่าน</h1>
+				<div class="card">
+					<div class="card-header">
+						ข้อมูลส่วนตัว
+					</div>
+					<div class="card-body">
 						<div class="form-row">
-							<div class="form-group col-md-4">
-								<p>เพศ</p>
-								<label class="custom-control custom-radio">
-									<input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย">
-									<span class="custom-control-indicator"></span>
-									<span class="custom-control-description">ชาย</span>
-								</label> <label class="custom-control custom-radio">
-									<input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span>
-									<span class="custom-control-description">หญิง</span>
-								</label>
-							</div>
-							<div class="form-group col-md-4">
+							<!-- <div class="form-group col-md-4">
+								<p>เพศ</p><label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ชาย</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span> <span class="custom-control-description">หญิง</span></label>
+							</div> -->
+							<div class="form-group col-md-6">
 								<label for="validationDefault02">อายุ</label> <select class="custom-select d-block col" id="age" name="age" required="">
 									<option disabled hidden="" selected value="">
 										-- อายุ --
@@ -59,7 +51,7 @@ include 'menu.php';
 									</option>
 								</select>
 							</div>
-							<div class="form-group col-md-4">
+							<div class="form-group col-md-6">
 								<label for="validationDefault02">อาชีพ</label> <select class="custom-select d-block col" id="career" name="career" required="">
 									<option disabled hidden="" selected value="">
 										-- โปรดเลือกอาชีพ --
@@ -98,8 +90,7 @@ include 'menu.php';
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="validationDefault01">Email</label>
-								<input class="form-control" id="validationDefault01" name="email" placeholder="กรุณากรอก E-mail" required="" type="email">
+								<label for="validationDefault01">Email</label> <input class="form-control" id="validationDefault01" name="email" placeholder="กรุณากรอก E-mail" required="" type="email">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="validationDefault02">เบอร์โทรศัพท์ (Username)</label> <input class="form-control" id="validationDefault02" name="telephone" placeholder="xxx-xxxxxxx" required="" type="text">
@@ -121,25 +112,15 @@ include 'menu.php';
 								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" required="" type="text">
 							</div>
 						</div>
-						<div class="text-right">
-							<button class="btn btn-outline-success" type="submit">Submit form</button>
-						</div>
-					</form>
+					</div>
 				</div>
-			</div>
-		</div>
-
-		<!-- สิ้นสุดการกรอกข้อมูลส่วนตัว -->
-		<hr>
-
-		<!-- เริ่มกรอกข้อมูลสุขภาพ -->
-		<div class="container">
-			<div class="card">
-				<div class="card-header">
-					ข้อมูลด้านสุขภาพ
-				</div>
-				<div class="card-body">
-					<form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="post" name="form_infouser">
+				<hr>
+				<div class="card">
+					<div class="card-header">
+						ข้อมูลด้านสุขภาพ
+					</div>
+					<div class="card-body">
+						<!-- <form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="post" name="form_infouser"> -->
 						<div class="form-row">
 							<div class="form-group col-md-4">
 								<p>โรคประจำตัว</p><label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ไม่มี</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="1"> <span class="custom-control-indicator"></span> <span class="custom-control-description">มี</span></label>
@@ -192,15 +173,27 @@ include 'menu.php';
 									</option>
 								</select>
 							</div>
-						</div>
-						<div class="text-right">
-							<button class="btn btn-outline-success" type="submit">Submit form</button>
-						</div>
-					</form>
+						</div><!-- <div class="text-right">
+                            <button class="btn btn-outline-success" type="submit">Submit form</button>
+                        </div> -->
+						<!-- </form> -->
+					</div>
+				</div>
+				<hr>
+			</div>
+			<div class="container">
+				<div class="text-right">
+					<button class="btn btn-outline-success" type="submit">Submit form</button>
 				</div>
 			</div>
-		</div>
-		<hr>
+		</form>
+		<footer>
+			<div class="container">
+				<p></p>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+				<p></p>
+			</div>
+		</footer>
 	</section>
 	<script src="./jquery.Thailand.js/dependencies/zip.js/zip.js" type="text/javascript">
 	</script> <!-- / dependencies for zip mode -->
@@ -212,45 +205,45 @@ include 'menu.php';
 	<script src="./jquery.Thailand.js/dist/jquery.Thailand.min.js" type="text/javascript">
 	</script>
 	<script type="text/javascript">
-/******************\
-		 *     DEMO 1     *
-		\******************/
-		// demo 1: load database from json. if your server is support gzip. we recommended to use this rather than zip.
-		// for more info check README.md
-		$.Thailand(
-		{
-			database: './jquery.Thailand.js/database/db.json',
-			$district: $('#autoprovince [name="district"]'),
-			$amphoe: $('#autoprovince [name="amphoe"]'),
-			$province: $('#autoprovince [name="province"]'),
-			$zipcode: $('#autoprovince [name="zipcode"]'),
-			onDataFill: function(data)
-			{
-				console.info('Data Filled', data);
-			},
-			onLoad: function()
-			{
-				console.info('Autocomplete is ready!');
-				$('#loader, .demo').toggle();
-			}
-		});
-	// watch on change
-	$('#autoprovince [name="district"]').change(function()
-	{
-		console.log('ตำบล', this.value);
-	});
-	$('#autoprovince [name="amphoe"]').change(function()
-	{
-		console.log('อำเภอ', this.value);
-	});
-	$('#autoprovince [name="province"]').change(function()
-	{
-		console.log('จังหวัด', this.value);
-	});
-	$('#autoprovince [name="zipcode"]').change(function()
-	{
-		console.log('รหัสไปรษณีย์', this.value);
-	});
+	/******************\
+	        *     DEMO 1     *
+	       \******************/
+	       // demo 1: load database from json. if your server is support gzip. we recommended to use this rather than zip.
+	       // for more info check README.md
+	       $.Thailand(
+	       {
+	           database: './jquery.Thailand.js/database/db.json',
+	           $district: $('#autoprovince [name="district"]'),
+	           $amphoe: $('#autoprovince [name="amphoe"]'),
+	           $province: $('#autoprovince [name="province"]'),
+	           $zipcode: $('#autoprovince [name="zipcode"]'),
+	           onDataFill: function(data)
+	           {
+	               console.info('Data Filled', data);
+	           },
+	           onLoad: function()
+	           {
+	               console.info('Autocomplete is ready!');
+	               $('#loader, .demo').toggle();
+	           }
+	       });
+	   // watch on change
+	   $('#autoprovince [name="district"]').change(function()
+	   {
+	       console.log('ตำบล', this.value);
+	   });
+	   $('#autoprovince [name="amphoe"]').change(function()
+	   {
+	       console.log('อำเภอ', this.value);
+	   });
+	   $('#autoprovince [name="province"]').change(function()
+	   {
+	       console.log('จังหวัด', this.value);
+	   });
+	   $('#autoprovince [name="zipcode"]').change(function()
+	   {
+	       console.log('รหัสไปรษณีย์', this.value);
+	   });
 	</script>
 </body>
 </html>
