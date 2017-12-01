@@ -1,5 +1,4 @@
 <?php
-
 // server should keep session data for AT LEAST 30 minute
 ini_set('session.gc_maxlifetime', 1800);
 

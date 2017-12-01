@@ -7,14 +7,14 @@ $result = $conn->query("SELECT * FROM users WHERE email='$email'");
 
 if ($result->num_rows == 0) {
 	// User doesn't exist
-	$_SESSION['message'] = "User with that email doesn't exist!";
+	$_SESSION['message'] = "email นี้ไม่มีในระบบ";
 	header("location: error.php");
 } else {
 	// User exists
 	$user = $result->fetch_assoc();
 
 	if (password_verify($_POST['password'], $user['password'])) {
-
+		$_SESSION['id_user']    = $user['id_user'];
 		$_SESSION['email']      = $user['email'];
 		$_SESSION['first_name'] = $user['first_name'];
 		$_SESSION['last_name']  = $user['last_name'];
@@ -25,7 +25,7 @@ if ($result->num_rows == 0) {
 
 		header("location: profile.php");
 	} else {
-		$_SESSION['message'] = "You have entered wrong password, try again!";
+		$_SESSION['message'] = "คุณป้อนรหัสผ่านไม่ถูกต้อง, กรุณาลองอีกครั้ง!";
 		header("location: error.php");
 	}
 }

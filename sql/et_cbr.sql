@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 25, 2017 at 11:44 AM
+-- Generation Time: Dec 01, 2017 at 07:13 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -48,17 +48,17 @@ CREATE TABLE `info_users` (
 --
 
 INSERT INTO `info_users` (`id_infouser`, `id_user`, `gender`, `age`, `career`, `district`, `amphoe`, `county`, `zipcode`, `congenital_dis`, `name_congenital_dis`, `body_movement`) VALUES
-(1, 12, 'หญิง', '50 - 60 ปี', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1, 2, 'หญิง', '50 - 60 ปี', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 12, 'หญิง', '50 - 60 ปี', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', NULL, NULL, NULL, NULL, NULL),
 (4, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', NULL, NULL, NULL, NULL, NULL),
 (5, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', 'อุทัยธานี', '61160', NULL, NULL, NULL),
-(6, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(6, 11, 'หญิง', '50 - 60 ปี', 'รับราชการ', NULL, 'ประดู่ยืน', 'อุทัยธานี', '61160', NULL, NULL, NULL),
 (7, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
 (8, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
 (9, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
 (10, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
-(11, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(11, 1, '', '50 - 60 ปี', 'ธุรกิจส่วนตัว', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'ข้อเข่าเสื่อม', 'เดินได้เล็กน้อย/ใช้ไม้เท้า'),
 (12, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
 (13, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
 (14, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'ประดู่ยืน', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
@@ -66,7 +66,43 @@ INSERT INTO `info_users` (`id_infouser`, `id_user`, `gender`, `age`, `career`, `
 (16, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL),
 (17, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL),
 (18, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL),
-(19, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL);
+(19, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'วังชะพลู', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', NULL, NULL, NULL),
+(20, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(21, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(22, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(23, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(24, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(25, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(26, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(27, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(28, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(29, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(30, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(31, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(32, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(33, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(34, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(35, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(36, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(37, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(38, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(39, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(40, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(41, 12, '', '', '', '', '', '', '', NULL, NULL, NULL),
+(42, 12, 'ชาย', '50 - 60 ปี', 'รับราชการ', 's', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(43, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(44, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(45, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(46, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(47, 12, 'หญิง', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', NULL, NULL, NULL),
+(48, 0, 'ชาย', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'เบาหวาน', 'เดินได้ปกติ'),
+(49, 0, 'ชาย', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'เบาหวาน', 'เดินได้ปกติ'),
+(50, 0, 'ชาย', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'เบาหวาน', 'เดินได้ปกติ'),
+(51, 0, 'ชาย', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'เบาหวาน', 'เดินได้ปกติ'),
+(52, 0, 'ชาย', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'เบาหวาน', 'เดินได้ปกติ'),
+(53, 0, 'ชาย', '50 - 60 ปี', 'รับราชการ', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'เบาหวาน', 'เดินได้ปกติ'),
+(54, 0, 'หญิง', '50 - 60 ปี', 'ธุรกิจส่วนตัว', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'จอประสาทตาเสื่อม', 'เดินได้ปกติ'),
+(55, 0, 'ชาย', '50 - 60 ปี', 'ธุรกิจส่วนตัว', 'ดอนแตง', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62140', '0', 'จอประสาทตาเสื่อม', 'เดินได้เล็กน้อย/ใช้รถเข็น');
 
 -- --------------------------------------------------------
 
@@ -3560,11 +3596,20 @@ INSERT INTO `testoldcase` (`id`, `gender`, `age`, `homeland`, `career`, `congeni
 CREATE TABLE `transcript` (
   `id_transcript` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_location` int(11) DEFAULT NULL,
+  `id_location` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `memo_detail` text COLLATE utf8_unicode_ci NOT NULL,
   `date` datetime NOT NULL,
   `year` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `transcript`
+--
+
+INSERT INTO `transcript` (`id_transcript`, `id_user`, `id_location`, `memo_detail`, `date`, `year`) VALUES
+(1, 1, '6', 'aaaa', '2017-11-14 00:00:00', 2017),
+(3, 1, '25', 'aaaa', '2017-11-14 00:00:00', 2017),
+(4, 1, '14', 'bbbb', '2017-11-14 00:00:00', 2017);
 
 -- --------------------------------------------------------
 
@@ -3588,11 +3633,40 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `first_name`, `last_name`, `telephone`, `email`, `password`, `hash`, `active`) VALUES
-(1, 'a', 'a', NULL, 'a@a', '$2y$10$J1mdz5TC/X6IodmnF9LeP.vGjcdtvV2FcQaM8BOAc9XAReKtgaFSS', '13fe9d84310e77f13a6d184dbf1232f3', 0),
+(1, 'ภัทรพล', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', '$2y$10$J1mdz5TC/X6IodmnF9LeP.vGjcdtvV2FcQaM8BOAc9XAReKtgaFSS', '13fe9d84310e77f13a6d184dbf1232f3', 1),
 (2, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
 (3, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
 (4, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
-(5, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0);
+(5, 'THEANTHONG', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(6, '', '', '', '', NULL, '', 0),
+(7, '', '', '', '', NULL, '', 0),
+(8, '', '', '', '', NULL, '', 0),
+(9, '', '', '', '', NULL, '', 0),
+(10, '', '', '', '', NULL, '', 0),
+(11, '', '', '', '', NULL, '', 0),
+(12, '', '', '', '', NULL, '', 0),
+(13, '', '', '', '', NULL, '', 0),
+(14, '', '', '', '', NULL, '', 0),
+(15, '', '', '', '', NULL, '', 0),
+(16, '', '', '', '', NULL, '', 0),
+(17, '', '', '', '', NULL, '', 0),
+(18, '', '', '', '', NULL, '', 0),
+(19, '', '', '', '', NULL, '', 0),
+(20, '', '', '', '', NULL, '', 0),
+(21, '', '', '', '', NULL, '', 0),
+(22, '', '', '', '', NULL, '', 0),
+(23, '', '', '', '', NULL, '', 0),
+(24, '', '', '', '', NULL, '', 0),
+(25, '', '', '', '', NULL, '', 0),
+(26, '', '', '', '', NULL, '', 0),
+(27, '', '', '', '', NULL, '', 0),
+(28, 'ภัทรพล', 'ds', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(29, 'ภัทรพล', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(30, 'ภัทรพล', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(31, 'ภัทรพล', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(32, 'ภัทรพล', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(33, 'ภัทรพล', 'เทียนทอง', '081 044 51', 'pattarapont96@gmail.com', NULL, '', 0),
+(34, 'feryh', 'yu6', NULL, 'a@a', '$2y$10$YMumDrhBmFB2Aoqy/rWh/u38fLZtNYXoEz0kvbEHyh2XmRJZvHDmS', '61b4a64be663682e8cb037d9719ad8cd', 0);
 
 --
 -- Indexes for dumped tables
@@ -3614,7 +3688,9 @@ ALTER TABLE `location`
 -- Indexes for table `oldcase`
 --
 ALTER TABLE `oldcase`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_province` (`id_province`),
+  ADD KEY `id_location` (`id_location`);
 
 --
 -- Indexes for table `province`
@@ -3650,7 +3726,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `info_users`
 --
 ALTER TABLE `info_users`
-  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `oldcase`
@@ -3668,23 +3744,24 @@ ALTER TABLE `testoldcase`
 -- AUTO_INCREMENT for table `transcript`
 --
 ALTER TABLE `transcript`
-  MODIFY `id_transcript` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transcript` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `transcript`
+-- Constraints for table `oldcase`
 --
-ALTER TABLE `transcript`
-  ADD CONSTRAINT `transcript_ibfk_2` FOREIGN KEY (`id_location`) REFERENCES `location` (`id_location`);
+ALTER TABLE `oldcase`
+  ADD CONSTRAINT `oldcase_ibfk_1` FOREIGN KEY (`id_province`) REFERENCES `province` (`id_province`),
+  ADD CONSTRAINT `oldcase_ibfk_2` FOREIGN KEY (`id_location`) REFERENCES `location` (`id_location`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

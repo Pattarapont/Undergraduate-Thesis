@@ -1,13 +1,15 @@
 <?php
-include "include/include_pre.php";
+// include "include/include_pre.php";
+include 'include/include_head.php';
+include 'menu.php';
 /*
 if (!isSignin()) {
 header("location: singin.php");
 }
  */
-include 'include/include_head.php';
-include 'menu.php';
 
+// acction จาก form_main.php
+/*
 $new_car        = $_POST['car'];
 $new_traveltime = $_POST['traveltime'];
 $new_camp       = $_POST['camp'];
@@ -15,8 +17,9 @@ $new_money      = $_POST['money'];
 $new_travel     = $_POST['travel_form'];
 $new_saving     = $_POST['saving'];
 $province       = $_POST['check_province'];
-
+ */
 require 'include/matching.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,8 +34,8 @@ echo "จังหวัด : ", $answer['id_province'], "<br>";
 ?>
   <div class="container">
     <div class="row">
-      <div class="col-md">
-        <div class="card mb-3" style="max-width: 90%;">
+<div class="col-md">
+        <div class="card mb-3" style="max-width: 100%;">
           <img alt="Card image cap" class="card-img-top" src="images/mysql.png">
           <div class="card-body">
             <h4 class="card-title"><?php

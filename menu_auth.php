@@ -21,8 +21,20 @@
 							        </ul>
 							        <!-- Login -->
 							        <ul class="nav navbar-nav navbar-right">
+							        	<li>
+
+							        	</li>
+							        	<li class="nav-item navbar-right">
+							                <div class="nav-link">
+							                	ยินดีต้อนรับ คุณ
+<?php echo $_SESSION['first_name'];?>
+							                </div>
+							            </li>
 							            <li class="nav-item navbar-right">
-							                <a class="nav-link" href="singin.php">เข้าสู่ระบบ</a>
+							                <a class="nav-link" href="account.php">บัญชีผู้ใช้</a>
+							            </li>
+							            <li class="nav-item navbar-right">
+							                <a class="nav-link" href="logout.php">ออกจากระบบ</a>
 							            </li>
 							            <!-- <li class="nav-item navbar-right">
 							                <a class="nav-link" href="sign_in.php">สมัครสมาชิก</a>

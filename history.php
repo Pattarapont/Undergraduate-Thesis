@@ -3,11 +3,10 @@ include "include/db_connect.php";
 include 'include/include_head.php';
 include "menu.php";
 // สงวนสิทธิ์เฉพาะสมาชิก
-/*
+
 if (!isSignin()) {
-header("location: singin.php");
+	header("location: singin.php");
 }
- */
 
 /*
 if (isSignin() !== TRUE) {
@@ -15,14 +14,28 @@ header("location: singin.php");
 }
  */
 
-$con_db = "SELECT * FROM transcript WHERE id_user = 1";
-$key    = $conn->query($con_db);
-$row    = $key->fetch_assoc();
+// รอเรียกใช้ secsion id_user
+/*
+$id_user       = $_SESSION['id_user'];
+$conn_location = "SELECT * FROM transcript WHERE id_user = $id_user";
+ */
+$conn_location = "SELECT * FROM transcript WHERE id_user = 1";
+$connect       = $conn->query($conn_location);
+// $row           = $connect->fetch_assoc();
+$id_location = "";
+$count       = 0;
+while ($row = $connect->fetch_assoc()) {
+	// 	echo $row['id_location'], "<br>";
+	if ($count == 0) {
+		$id_location = $id_location.$row['id_location'];
+	} else if ($count > 0) {
+		$id_location = $id_location.",".$row['id_location'];
+	}
+	// $id_location = $id_location.$row['id_location'].",";
+	$count = $count+1;
+}
 
-// while ($row = $key->fetch_assoc()) {
-// 	echo $row['id_location'], "<br>";
-// }
-
+echo "Location is ", $id_location;
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,7 +62,7 @@ $row    = $key->fetch_assoc();
 }*/
   </style>
   <script type="text/javascript">
-    var idLocation = "<?php echo $row['id_location'];?>";
+    var idLocation = "<?php echo $id_location;?>";
 </script>
   <title></title>
 </head>
@@ -68,22 +81,43 @@ $row    = $key->fetch_assoc();
   <script src="./js/locations.json"></script>
   <script>
             var htmlText = '';
-
-            for ( var key in datalocation) {
-              if( idLocation == datalocation[key].id_location)
+            var res = idLocation.split(",");
+            //window.alert("array is " + alert(res[1]));
+            for (i = 0; i < res.length; i++) {
+              //alert(res[i])
+              for ( var key in datalocation) {
+              if( res[i] == datalocation[key].id_location)
               {
                 var aaaa = datalocation[key].lat;
                 var bbbb = datalocation[key].lng;
-                htmlText += '<div class="div-conatiner">';
+                // htmlText += '<div class="div-conatiner">';
                 htmlText += '<p class="p-name"> id: ' + datalocation[key].id_location + '</p>';
-                htmlText += '<p class="p-loc"> สถานที่: ' + datalocation[key].name + '</p>';
-                htmlText += '<p class="p-desc"> จังหวัด: ' + datalocation[key].province + '</p>';
-                htmlText += '<p class="p-created"> lat: ' + datalocation[key].lat + '</p>';
-                htmlText += '<p class="p-uname"> lng: ' + datalocation[key].lng + '</p>';
-                htmlText += '</div>';
+                 htmlText += '<p class="p-loc"> สถานที่: ' + datalocation[key].name + '</p>';
+                 htmlText += '<p class="p-desc"> จังหวัด: ' + datalocation[key].province + '</p>';
+                 htmlText += '<p class="p-created"> lat: ' + datalocation[key].lat + '</p>';
+                 htmlText += '<p class="p-uname"> lng: ' + datalocation[key].lng + '</p>';
+                 htmlText += '</div>';
               }
               }
-            $('body').append(htmlText);
+              $('body').append(htmlText);
+            }
+            /*
+            for ( var key in datalocation) {
+              if( res[key] == datalocation[key].id_location)
+              {
+                var aaaa = datalocation[key].lat;
+                var bbbb = datalocation[key].lng;
+                // htmlText += '<div class="div-conatiner">';
+                htmlText += '<p class="p-name"> id: ' + datalocation[key].id_location + '</p>';
+                // htmlText += '<p class="p-loc"> สถานที่: ' + datalocation[key].name + '</p>';
+                // htmlText += '<p class="p-desc"> จังหวัด: ' + datalocation[key].province + '</p>';
+                // htmlText += '<p class="p-created"> lat: ' + datalocation[key].lat + '</p>';
+                // htmlText += '<p class="p-uname"> lng: ' + datalocation[key].lng + '</p>';
+                // htmlText += '</div>';
+              }
+              }
+              */
+
   </script>
 
   <script>

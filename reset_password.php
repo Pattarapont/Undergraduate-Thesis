@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 
 	} else {
-		$_SESSION['message'] = "Two passwords you entered don't match, try again!";
+		$_SESSION['message'] = "รหัสผ่านของคุณไม่ตรงกัน, กรุณาลองอีกครั้ง!";
 		header("location: error.php");
 	}
 
