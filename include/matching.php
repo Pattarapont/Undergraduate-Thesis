@@ -88,8 +88,11 @@ $new_money               = "มากกว่า 5,000 บาท";
 $province                = '1';
  */
 
-$oldcase_db = "SELECT * FROM oldcase ORDER BY `id` ASC ";
-$key        = $conn->query($oldcase_db);
+$oldcase_db = "SELECT * FROM oldcase as oc
+				INNER JOIN location as lc on oc.id_location = lc.id_location
+				INNER JOIN province as pv on lc.id_province = pv.id_province
+				ORDER BY `id` ASC ";
+$key = $conn->query($oldcase_db);
 // $key->num_rows > 0;
 
 $n1 = 0;
@@ -158,20 +161,16 @@ while ($row = $key->fetch_assoc()) {
 							$summath4 = 0;
 							$mathtotal += $summath4;
 						}
-						if ($new_congenital_dis == $row['congenital_dis']) {
-							$summath5 = 9;
-							$mathtotal += $summath5;
+						if ($new_congenital_dis == 1) {
+							if ($new_name_congenital_dis == $row['name_congenital_dis']) {
+								$summath5 = 9;
+								$mathtotal += $summath5;
+							}
 						} else {
 							$summath5 = 0;
 							$mathtotal += $summath5;
 						}
-						if ($new_name_congenital_dis == $row['name_congenital_dis']) {
-							$summath6 = 4;
-							$mathtotal += $summath6;
-						} else {
-							$summath6 = 0;
-							$mathtotal += $summath6;
-						}
+
 						if ($new_body_movement == $row['body_movement']) {
 							$summath7 = 10;
 							$mathtotal += $summath7;
@@ -283,7 +282,10 @@ while ($row = $key->fetch_assoc()) {
 // echo $t3;
 // echo '<br>';
 
-$result = "SELECT * FROM oldcase WHERE id = '$t3'";
+$result = "SELECT * FROM oldcase as oc
+				INNER JOIN location as lc on oc.id_location = lc.id_location
+				INNER JOIN province as pv on lc.id_province = pv.id_province
+				WHERE id = '$t3'";
 $key    = $conn->query($result);
 $answer = $key->fetch_assoc();
 

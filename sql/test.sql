@@ -18,6 +18,17 @@ FROM data_oldcase AS OC
 	join data_phitsanulok AS DP on OC.id_phitsanulok = DP.id_phitsanulok
 WHERE OC.id_data_oldcase = 1
 
+
+SELECT * FROM oldcase AS oc 
+join location AS lo on oc.id_location = lo.id_location
+
+
+SELECT *
+FROM oldcase as oc
+INNER JOIN location lc
+    on oc.id_location = lc.id_location
+INNER JOIN province pv
+    on lc.id_province = pv.id_province
 ------------------------------------------------------
 /* เพิ่มข้อมูลลงตาราง data_member */
 INSERT INTO data_member (username, password, email, name, lastname)

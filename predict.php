@@ -28,9 +28,9 @@ require 'include/matching.php';
 </head>
 <body>
 <?php
-echo "สถานที่ : ", $answer['location'], "<br>";
+echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
-echo "จังหวัด : ", $answer['id_province'], "<br>";
+echo "จังหวัด : ", $answer['name_province'], "<br>";
 ?>
   <div class="container">
     <div class="row">
@@ -39,7 +39,7 @@ echo "จังหวัด : ", $answer['id_province'], "<br>";
           <img alt="Card image cap" class="card-img-top" src="images/mysql.png">
           <div class="card-body">
             <h4 class="card-title"><?php
-echo $answer['location'];
+echo $answer['name_location'];
 ?></h4>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
