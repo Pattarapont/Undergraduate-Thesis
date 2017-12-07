@@ -32,11 +32,14 @@ include 'menu.php';
 					</div>
 					<div class="card-body">
 						<div class="form-row">
-							<!-- <div class="form-group col-md-4">
+							<div class="form-group col-md-3">
 								<p>เพศ</p><label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ชาย</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span> <span class="custom-control-description">หญิง</span></label>
-							</div> -->
-							<div class="form-group col-md-6">
-								<label for="validationDefault02">อายุ</label> <select class="custom-select d-block col" id="age" name="age" required="">
+							</div>
+							<div class="form-group col-md-4">
+								<label for="validationDefault04">อายุ</label> <input class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุ" required="" type="number">
+
+
+							<!-- 	<label for="validationDefault02">อายุ</label> <select class="custom-select d-block col" id="age" name="age" required="">
 									<option disabled hidden="" selected value="">
 										-- อายุ --
 									</option>
@@ -49,9 +52,9 @@ include 'menu.php';
 									<option value="มากกว่า 70 ปี">
 										มากกว่า 70 ปี
 									</option>
-								</select>
+								</select> -->
 							</div>
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-5">
 								<label for="validationDefault02">อาชีพ</label> <select class="custom-select d-block col" id="career" name="career" required="">
 									<option disabled hidden="" selected value="">
 										-- โปรดเลือกอาชีพ --
@@ -93,7 +96,9 @@ include 'menu.php';
 								<label for="validationDefault01">Email</label> <input class="form-control" id="validationDefault01" name="email" placeholder="กรุณากรอก E-mail" required="" type="email">
 							</div>
 							<div class="form-group col-md-6">
-								<label for="validationDefault02">เบอร์โทรศัพท์ (Username)</label> <input class="form-control" id="validationDefault02" name="telephone" placeholder="xxx-xxxxxxx" required="" type="text">
+								<label for="validationDefault02">เบอร์โทรศัพท์ (Username)</label>
+								<input class="form-control" id="validationDefault02" name="telephone" maxlength=
+            "10" placeholder="xxx-xxxxxxx" required="" type="text">
 							</div>
 						</div>
 						<div class="form-row">
@@ -123,7 +128,16 @@ include 'menu.php';
 						<!-- <form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="post" name="form_infouser"> -->
 						<div class="form-row">
 							<div class="form-group col-md-4">
-								<p>โรคประจำตัว</p><label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ไม่มี</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="1"> <span class="custom-control-indicator"></span> <span class="custom-control-description">มี</span></label>
+								<p>โรคประจำตัว</p>
+								<label class="custom-control custom-radio">
+									<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span>
+									<span class="custom-control-description">ไม่มี</span>
+								</label>
+									<label class="custom-control custom-radio">
+										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="1">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">มี</span>
+								</label>
 							</div>
 							<div class="form-group col-md-4">
 								<label>โรคประจำตัว</label> <select class="custom-select d-block col" id="name_congenital_dis" name="name_congenital_dis" required="">
@@ -146,7 +160,7 @@ include 'menu.php';
 									<option value="จอประสาทตาเสื่อม">
 										จอประสาทตาเสื่อม
 									</option>
-									<option value="โรคอื่นๆ">
+									<option value="">
 										โรคอื่นๆ
 									</option>
 								</select>
@@ -183,16 +197,12 @@ include 'menu.php';
 			</div>
 			<div class="container">
 				<div class="text-right">
-					<button class="btn btn-outline-success" type="submit">Submit form</button>
+					<button class="btn btn-outline-success" type="submit">บันทึกข้อมูล</button>
 				</div>
 			</div>
 		</form>
 		<footer>
-			<div class="container">
-				<p></p>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-				<p></p>
-			</div>
+<br>
 		</footer>
 	</section>
 	<script src="./jquery.Thailand.js/dependencies/zip.js/zip.js" type="text/javascript">

@@ -59,8 +59,8 @@ header("location: singin.php");
 										<option disabled hidden="" selected value="">
 											-- โปรดเลือก --
 										</option>
-										<option value="มี">มี</option>
-										<option value="ไม่มี">ไม่มี</option>
+										<option value="0">ไม่มี</option>
+										<option value="1">มี</option>
 									</select>
 								</div>
 								<div class="form-group col-md-6">
@@ -68,16 +68,16 @@ header("location: singin.php");
 										<option disabled hidden="" selected value="">
 											-- โปรดเลือก --
 										</option>
-										<option value="น้อยกว่า 1,000 บาท">
+										<option value="1">
 											น้อยกว่า 1,000 บาท
 										</option>
-										<option value="1,000 - 3,000 บาท">
+										<option value="2">
 											1,000 - 3,000 บาท
 										</option>
-										<option value="3,000 - 5,000 บาท">
+										<option value="3">
 											3,000 - 5,000 บาท
 										</option>
-										<option value="มากกว่า 5,000 บาท">
+										<option value="4">
 											มากกว่า 5,000 บาท
 										</option>
 									</select>
@@ -127,21 +127,22 @@ header("location: singin.php");
 										<option disabled hidden="" selected value="">
 											-- โปรดเลือก --
 										</option>
-										<option value="ไปเช้าเย็นกลับ">
+										<option value="1">
 											ไปเช้าเย็นกลับ
 										</option>
-										<option value="2 - 3 วัน">
+										<option value="2">
 											2 - 3 วัน
 										</option>
-										<option value="4 – 5 วัน">
+										<option value="3">
 											4 – 5 วัน
 										</option>
-										<option value="1 - 2 อาทิตย์">
-											1 - 2 อาทิตย์
+										<option value="4">
+											6-7 วัน
 										</option>
-										<option value="มากกว่า 2 อาทิตย์">
-											มากกว่า 2 อาทิตย์
+										<option value="5">
+											1 อาทิตย์ขึ้นไป
 										</option>
+
 									</select>
 								</div>
 

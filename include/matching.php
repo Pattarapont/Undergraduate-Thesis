@@ -24,74 +24,26 @@ $new_body_movement       = $conUser['body_movement'];
 
  */
 
-/*
-$new_gender              = "ชาย";
-$new_age                 = "70 ปีขึ้นไป	";
-$new_homeland            = "พิษณุโลก";
-$new_career              = "รับราชการ";
-$new_congenital_dis      = "มี";
-$new_name_congenital_dis = "";
-$new_body_movement       = "เดินได้ปกติ";
-$new_saving              = "ไม่มี";
-$new_travel              = "ครอบครัว";
-$new_car                 = "รถส่วนตัว";
-$new_traveltime          = "2 - 3 วัน";
-$new_camp                = "รีสอร์ท";
-$new_money               = "3,000 – 5,000 บาท";
-$province                = '3';
-
 $new_gender              = "หญิง";
-$new_age                 = "50 - 60 ปี";
+$new_age                 = "50";
 $new_homeland            = "กำแพงเพชร";
 $new_career              = "ค้าขาย";
-$new_congenital_dis      = "ไม่มี";
-$new_name_congenital_dis = "";
+$new_congenital_dis      = "1";
+$new_name_congenital_dis = "เบาหวาน";
 $new_body_movement       = "เดินได้ปกติ";
-$new_saving              = "มี";
+$new_saving              = "1";
 $new_travel              = "ครอบครัว";
 $new_car                 = "รถส่วนตัว";
-$new_traveltime          = "2 - 3 วัน";
+$new_traveltime          = "2";
 $new_camp                = "รีสอร์ท";
-$new_money               = "มากกว่า 5,000 บาท";
-$province                = '4';
- */
-
-$new_gender              = "หญิง";
-$new_age                 = "50 - 60 ปี";
-$new_homeland            = "อุทัยธานี";
-$new_career              = "รับราชการ";
-$new_congenital_dis      = "ไม่มี";
-$new_name_congenital_dis = "";
-$new_body_movement       = "เดินได้ปกติ";
-$new_saving              = "มี";
-$new_travel              = "แพคเกจท่องเที่ยว";
-$new_car                 = "รถส่วนตัว";
-$new_traveltime          = "2 - 3 วัน";
-$new_camp                = "โรงแรม";
-$new_money               = "1,000 - 3,000 บาท";
+$new_money               = "4";
 $province                = '1';
-
-/*
-$new_gender              = "ชาย";
-$new_age                 = "50 - 60 ปี";
-$new_homeland            = "อุทัยธานี";
-$new_career              = "ค้าขาย";
-$new_congenital_dis      = "มี";
-$new_name_congenital_dis = "";
-$new_body_movement       = "เดินได้ปกติ";
-$new_saving              = "มี";
-$new_travel              = "ครอบครัว";
-$new_car                 = "รถส่วนตัว";
-$new_traveltime          = "2 - 3 วัน";
-$new_camp                = "รีสอร์ท";
-$new_money               = "มากกว่า 5,000 บาท";
-$province                = '1';
- */
 
 $oldcase_db = "SELECT * FROM oldcase as oc
 				INNER JOIN location as lc on oc.id_location = lc.id_location
 				INNER JOIN province as pv on lc.id_province = pv.id_province
-				ORDER BY `id` ASC ";
+				ORDER BY oc.id ASC ";
+
 $key = $conn->query($oldcase_db);
 // $key->num_rows > 0;
 
@@ -104,33 +56,28 @@ $t2 = "";
 $n3 = 0;
 $t3 = "";
 
-// $n4 = 0;
-// $t4 = "";
-
-// $n5 = 0;
-// $t5 = "";
-
 // เลือกที่คล้ายมากสุด
-while ($row = $key->fetch_assoc()) {
+{
+	while ($row = $key->fetch_assoc()) {
 
-	$mathtotal = 0;
-	$id        = $row['id'];
+		$mathtotal = 0;
+		$id        = $row['id'];
 
-	// $row['id_province'] == จังหวัดที่อยากไป
+		// $row['id_province'] == จังหวัดที่อยากไป
+		if ($row['province'] == $province) {
 
-	if ($row['id_province'] == $province) {
+			//row['tourism'] == 1 ตรวจสอบจังหวัดที่เคยไป
+			if ($row['tourism'] == 1) {
 
-		//row['tourism'] == 1 ตรวจสอบจังหวัดที่เคยไป
-		if ($row['tourism'] == 1) {
+				// เปรียบเทียบ ถ้าโรคประจำตัวและ การเคลื่อนไหวร่างกายตรงกับข้อมูลใน DB จะทำงาน
+				if ($new_congenital_dis == $row['congenital_dis'] OR
+					$new_name_congenital_dis == $row['name_congenital_dis'] AND
+					$new_body_movement == $row['body_movement']) {
 
-			// เปรียบเทียบ ถ้าโรคประจำตัวและการเคลื่อนไหวร่างกายตรงกับข้อมูลใน db จะทำงาน
-			if ($new_congenital_dis == $row['congenital_dis'] && $new_body_movement == $row['body_movement']) {
-
-				// $row['appropriate'] == 4 || $row['appropriate'] == 5 ตรวจสอบความเหมาะสมเท่ากับ 4 หรือ 5 คะแนน
-				if ($row['appropriate'] == 4 || $row['appropriate'] == 5) {
-
+					// $row['appropriate'] == 4 || $row['appropriate'] == 5 ตรวจสอบความเหมาะสมเท่ากับ 4 หรือ 5 คะแนน
 					// $row['facilities'] == 1 ตรวจสอบสิ่งอำนวยความสะดวก
-					if ($row['facilities'] == 1) {
+					if ($row['appropriate'] == 4 OR $row['appropriate'] == 5
+						 AND $row['facilities'] == 1) {
 
 						if ($new_gender == $row['gender']) {
 							$summath1 = 3;
@@ -140,11 +87,20 @@ while ($row = $key->fetch_assoc()) {
 							$summath1 = 0;
 							$mathtotal += $summath1;
 						}
-						if ($new_age == $row['age']) {
-							$summath2 = 6.3;
-							$mathtotal += $summath2;
-						} else {
-							$summath2 = 0;
+						if ($new_age) {
+							if ($new_age >= 1 && $new_age <= 59) {
+								$x = 1;
+							} elseif ($new_age >= 60 && $new_age <= 69) {
+								$x = 2;
+							} elseif ($new_age >= 70) {
+								$x = 3;
+							} else {
+								$x = 0;
+							}
+							$y = 2;
+							// $y        = $row['age'];
+							$sumage   = 1-(abs($x-$y)/3);
+							$summath2 = $sumage*6.3;
 							$mathtotal += $summath2;
 						}
 						if ($new_homeland == $row['homeland']) {
@@ -165,127 +121,106 @@ while ($row = $key->fetch_assoc()) {
 							if ($new_name_congenital_dis == $row['name_congenital_dis']) {
 								$summath5 = 9;
 								$mathtotal += $summath5;
+							} else {
+								$summath5 = 0;
+								$mathtotal += $summath5;
 							}
-						} else {
-							$summath5 = 0;
-							$mathtotal += $summath5;
 						}
-
 						if ($new_body_movement == $row['body_movement']) {
-							$summath7 = 10;
+							$summath6 = 10;
+							$mathtotal += $summath6;
+						} else {
+							$summath6 = 0;
+							$mathtotal += $summath6;
+						}
+						if ($new_saving == $row['saving']) {
+							$summath7 = 2.5;
 							$mathtotal += $summath7;
 						} else {
 							$summath7 = 0;
 							$mathtotal += $summath7;
 						}
-						if ($new_saving == $row['saving']) {
-							$summath8 = 2.5;
+						if ($new_travel == $row['travel_form']) {
+							$summath8 = 5;
 							$mathtotal += $summath8;
 						} else {
 							$summath8 = 0;
 							$mathtotal += $summath8;
 						}
-						if ($new_travel == $row['travel_form']) {
-							$summath9 = 5;
+						if ($new_car == $row['vehicle']) {
+							$summath9 = 6;
 							$mathtotal += $summath9;
 						} else {
 							$summath9 = 0;
 							$mathtotal += $summath9;
 						}
-						if ($new_car == $row['vehicle']) {
-							$summath10 = 6;
-							$mathtotal += $summath10;
-						} else {
-							$summath10 = 0;
+						if ($new_traveltime) {
+							$x = $new_traveltime;
+							$y = 2;
+							// $y        = $row['travel_time'];
+							$sumtraveltime = 1-(abs($x-$y)/5);
+							$summath10     = $sumtraveltime*5.5;
 							$mathtotal += $summath10;
 						}
-						if ($new_traveltime == $row['travel_time']) {
-							$summath11 = 5.5;
+						if ($new_camp == $row['camp']) {
+							$summath11 = 6;
 							$mathtotal += $summath11;
 						} else {
 							$summath11 = 0;
 							$mathtotal += $summath11;
 						}
-						if ($new_camp == $row['camp']) {
-							$summath12 = 6;
+						if ($new_money) {
+							$x = $new_money;
+							$y = 2;
+							// $y        = $row['charges'];
+							$sumtraveltime = 1-(abs($x-$y)/4);
+							$summath12     = $sumtraveltime*7;
 							$mathtotal += $summath12;
-						} else {
-							$summath12 = 0;
-							$mathtotal += $summath12;
-						}
-						if ($new_money == $row['charges']) {
-							$summath13 = 7;
-							$mathtotal += $summath13;
-						} else {
-							$summath13 = 0;
-							$mathtotal += $summath13;
-						}
-						if ($row['appropriate'] == 4) {
-							$summath14 = 6;
-							$mathtotal += $summath14;
-						} else {
-							$summath14 = 0;
-							$mathtotal += $summath14;
-						}
-						if ($row['appropriate'] == 5) {
-							$summath15 = 7.5;
-							$mathtotal += $summath15;
-						} else {
-							$summath15 = 0;
-							$mathtotal += $summath15;
-						}
-						if ($row['facilities'] == 1) {
-							$summath16 = 8;
-							$mathtotal += $summath16;
-						} else {
-							$summath16 = 0;
-							$mathtotal += $summath16;
 						}
 					}
 				}
-
 			}
 
 		}
 
-	}
+		// echo $id;
+		// echo "<br>";
 
-	// echo $id;
-	// echo "<br>";
+		// เปรียบเทียบค่าหลังจาก query
+		if ($mathtotal >= $n1) {
+			if ($mathtotal >= $n2) {
+				if ($mathtotal >= $n3) {
+					$n1 = $n2;
+					$t1 = $t2;
 
-	// เปรียบเทียบค่าหลังจาก query
-	if ($mathtotal >= $n1) {
-		if ($mathtotal >= $n2) {
-			if ($mathtotal >= $n3) {
-				$n1 = $n2;
-				$t1 = $t2;
+					$n2 = $n3;
+					$t2 = $t3;
 
-				$n2 = $n3;
-				$t2 = $t3;
+					$n3 = $mathtotal;
+					$t3 = $id;
+				} else {
+					$n1 = $n2;
+					$t1 = $t2;
 
-				$n3 = $mathtotal;
-				$t3 = $id;
+					$n2 = $mathtotal;
+					$t2 = $id;
+				}
 			} else {
-				$n1 = $n2;
-				$t1 = $t2;
-
-				$n2 = $mathtotal;
-				$t2 = $id;
+				$n1 = $mathtotal;
+				$t1 = $id;
 			}
-		} else {
-			$n1 = $mathtotal;
-			$t1 = $id;
-		}
 
+		}
 	}
 }
+
 // echo $t3;
 // echo '<br>';
 
 $result = "SELECT * FROM oldcase as oc
 				INNER JOIN location as lc on oc.id_location = lc.id_location
 				INNER JOIN province as pv on lc.id_province = pv.id_province
-				WHERE id = '$t3'";
+				WHERE oc.id = $t3";
 $key    = $conn->query($result);
 $answer = $key->fetch_assoc();
 
@@ -300,4 +235,7 @@ $answer = $key->fetch_assoc();
 // $sim3 = ($mathtotal / 120) * 100;
 // }
 
+echo "สถานที่ : ", $answer['name_location'], "<br>";
+echo "เคสที่ : ", $answer['id'], "<br>";
+echo "จังหวัด : ", $answer['name_province'], "<br>";
 ?>
