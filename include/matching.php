@@ -82,7 +82,6 @@ $t3 = "";
 						if ($new_gender == $row['gender']) {
 							$summath1 = 3;
 							$mathtotal += $summath1;
-							// echo $mathtotal;
 						} else {
 							$summath1 = 0;
 							$mathtotal += $summath1;
@@ -97,8 +96,7 @@ $t3 = "";
 							} else {
 								$x = 0;
 							}
-							$y = 2;
-							// $y        = $row['age'];
+							$y        = $row['age'];
 							$sumage   = 1-(abs($x-$y)/3);
 							$summath2 = $sumage*6.3;
 							$mathtotal += $summath2;
@@ -155,9 +153,8 @@ $t3 = "";
 							$mathtotal += $summath9;
 						}
 						if ($new_traveltime) {
-							$x = $new_traveltime;
-							$y = 2;
-							// $y        = $row['travel_time'];
+							$x             = $new_traveltime;
+							$y             = $row['travel_time'];
 							$sumtraveltime = 1-(abs($x-$y)/5);
 							$summath10     = $sumtraveltime*5.5;
 							$mathtotal += $summath10;
@@ -170,9 +167,8 @@ $t3 = "";
 							$mathtotal += $summath11;
 						}
 						if ($new_money) {
-							$x = $new_money;
-							$y = 2;
-							// $y        = $row['charges'];
+							$x             = $new_money;
+							$y             = $row['charges'];
 							$sumtraveltime = 1-(abs($x-$y)/4);
 							$summath12     = $sumtraveltime*7;
 							$mathtotal += $summath12;
@@ -217,24 +213,87 @@ $t3 = "";
 // echo $t3;
 // echo '<br>';
 
-$result = "SELECT * FROM oldcase as oc
+$casemath = "SELECT * FROM oldcase as oc
 				INNER JOIN location as lc on oc.id_location = lc.id_location
 				INNER JOIN province as pv on lc.id_province = pv.id_province
 				WHERE oc.id = $t3";
-$key    = $conn->query($result);
+$key    = $conn->query($casemath);
 $answer = $key->fetch_assoc();
 
-// if (isset($_POST['Size'])) {
-// 	$	x = $New_Size;
-// 	$y = $a['size'];
-// 	$sum = 1 - (abs($x - $y) / 3);
-// 	$point2 = $sum * 6;
-// 	$mathtotal += $point2;
-// }
+$resultmath = 0;
 
-// $sim3 = ($mathtotal / 120) * 100;
-// }
+if ($new_gender == $answer['gender']) {
+	$summath1 = 3;
+	$resultmath += $summath1;
+}
+if ($new_age) {
+	if ($new_age >= 1 && $new_age <= 59) {
+		$x = 1;
+	} elseif ($new_age >= 60 && $new_age <= 69) {
+		$x = 2;
+	} elseif ($new_age >= 70) {
+		$x = 3;
+	} else {
+		$x = 0;
+	}
+	$y        = $answer['age'];
+	$sumage   = 1-(abs($x-$y)/3);
+	$summath2 = $sumage*6.3;
+	$resultmath += $summath2;
+}
+if ($new_homeland == $answer['homeland']) {
+	$summath3 = 4;
+	$resultmath += $summath3;
+}
+if ($new_career == $answer['career']) {
+	$summath4 = 3.7;
+	$resultmath += $summath4;
+}
+if ($new_congenital_dis == 1) {
+	if ($new_name_congenital_dis == $answer['name_congenital_dis']) {
+		$summath5 = 9;
+		$resultmath += $summath5;
+	}
+}
+if ($new_body_movement == $answer['body_movement']) {
+	$summath6 = 10;
+	$resultmath += $summath6;
+}
+if ($new_saving == $answer['saving']) {
+	$summath7 = 2.5;
+	$resultmath += $summath7;
+}
+if ($new_travel == $answer['travel_form']) {
+	$summath8 = 5;
+	$resultmath += $summath8;
+}
+if ($new_car == $answer['vehicle']) {
+	$summath9 = 6;
+	$resultmath += $summath9;
+}
+if ($new_traveltime) {
+	$x             = $new_traveltime;
+	$y             = $answer['travel_time'];
+	$sumtraveltime = 1-(abs($x-$y)/5);
+	$summath10     = $sumtraveltime*5.5;
+	$resultmath += $summath10;
+}
+if ($new_camp == $answer['camp']) {
+	$summath11 = 6;
+	$resultmath += $summath11;
+}
+if ($new_money) {
+	$x             = $new_money;
+	$y             = $answer['charges'];
+	$sumtraveltime = 1-(abs($x-$y)/4);
+	$summath12     = $sumtraveltime*7;
+	$resultmath += $summath12;
+}
 
+$result = ($resultmath/68)*100;
+echo $result;
+
+echo "<br>";
 echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
