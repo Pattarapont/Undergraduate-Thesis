@@ -1,13 +1,16 @@
 <?php
 require 'db_connect.php';
 
+//
+// session_start();
+
 // session_start(); ไม่จำเป็นต้นใช้ เพราะรับค่ามาเรื่อยๆ
 // session_start();
 // session_start(); ไม่จำเป็นต้นใช้ เพราะรับค่ามาเรื่อยๆ
 
 /*
-$id_user   = $_SESSION['id_user'];
-$conn_user = "SELECT * FROM info_users WHERE id_user = $id_user";
+// $id_user   = $_SESSION['id_user'];
+$conn_user = "SELECT * FROM info_users WHERE id_user = 1";
 $conn_u    = $conn->query($conn_user);
 $conUser   = $conn_u->fetch_assoc();
 
@@ -21,7 +24,6 @@ $new_career              = $conUser['career'];
 $new_congenital_dis      = $conUser['congenital_dis'];
 $new_name_congenital_dis = $conUser['name_congenital_dis'];
 $new_body_movement       = $conUser['body_movement'];
-
  */
 
 $new_gender              = "หญิง";
@@ -298,4 +300,5 @@ echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
  */
+
 ?>

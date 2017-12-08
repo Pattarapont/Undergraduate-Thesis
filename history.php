@@ -3,15 +3,12 @@ include "include/db_connect.php";
 include 'include/include_head.php';
 include "menu.php";
 // สงวนสิทธิ์เฉพาะสมาชิก
-// session_start();
 /*
+session_start();
+
 if (!isSignin()) {
 header("location: singin.php");
-}
- */
-/*
-if (isSignin() !== TRUE) {
-header("location: singin.php");
+die();
 }
  */
 

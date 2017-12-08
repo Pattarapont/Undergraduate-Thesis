@@ -1,5 +1,7 @@
 <?php
-include 'include_pre.php';
+// session_start();
+// include 'include_pre.php';
+require 'db_connect.php';
 
 // $new_car        = $_POST['car'];
 // $new_traveltime = $_POST['traveltime'];
@@ -16,7 +18,9 @@ $new_money      = $conn->real_escape_string($_REQUEST['money']);
 $new_travel     = $conn->real_escape_string($_REQUEST['travel_form']);
 $new_saving     = $conn->real_escape_string($_REQUEST['saving']);
 $province       = $conn->real_escape_string($_REQUEST['check_province']);
-//
-header("Location: /et_cbr/predict.php");
-die();
+
+echo $new_car."<br>";
+echo $new_saving;
+echo $_SESSION['new_traveltime'];
+echo $_SESSION['new_travel'];
 ?>

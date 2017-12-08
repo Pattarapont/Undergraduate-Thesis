@@ -18,6 +18,22 @@ if ($_SESSION['logged_in'] != 1) {
 	$active     = $_SESSION['active'];
 }
 ?>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (isset($_POST['profile'])) {
+		//user logging in
+
+		require 'include/save_profile.php';
+
+	} elseif (isset($_POST['register'])) {
+		//user registering
+
+		require 'register.php';
+
+	}
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +47,7 @@ if ($_SESSION['logged_in'] != 1) {
 <body>
 	<section>
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
-		<form action="./include/save_profile.php" class="was-validated" id="profile" method="post" name="profile">
+		<form action="profile.php" class="was-validated" id="profile" method="post" name="profile">
 			<div class="container">
 				<h1>กรุณากรอกข้อมูลของท่าน</h1>
 				<div class="card">
@@ -40,28 +56,13 @@ if ($_SESSION['logged_in'] != 1) {
 					</div>
 					<div class="card-body">
 						<div class="form-row">
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-3">
 								<p>เพศ</p><label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ชาย</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span> <span class="custom-control-description">หญิง</span></label>
 							</div>
-							<div class="form-group col-md-6">
-								<label for="validationDefault02">อายุ</label> <select class="custom-select d-block col" id="age" name="age" required="">
-									<option disabled hidden="" selected value="">
-										-- อายุ --
-									</option>
-									<option value="50 - 60 ปี">
-										50 - 60 ปี
-									</option>
-									<option value="60 - 70 ปี">
-										60 - 70 ปี
-									</option>
-									<option value="มากกว่า 70 ปี">
-										มากกว่า 70 ปี
-									</option>
-								</select>
+							<div class="form-group col-md-4">
+								<label for="validationDefault04">อายุ</label> <input class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุ" required="" type="number">
 							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-5">
 								<label for="validationDefault02">อาชีพ</label> <select class="custom-select d-block col" id="career" name="career" required="">
 									<option disabled hidden="" selected value="">
 										-- โปรดเลือกอาชีพ --
@@ -89,24 +90,31 @@ if ($_SESSION['logged_in'] != 1) {
 									</option>
 								</select>
 							</div>
-							<div class="form-group col-md-6" id="autoprovince">
-								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="validationDefault01">Email</label> <input class="form-control" id="validationDefault01" name="email" placeholder="กรุณากรอก E-mail" required="" type="email">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="validationDefault02">เบอร์โทรศัพท์ (Username)</label>
+								<input class="form-control" id="validationDefault02" name="telephone" maxlength=
+            "10" placeholder="xxx-xxxxxxx" required="" type="text">
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="form-group col-md-6" id="autoprovince">
+							<div class="form-group col-md-6" id="autodistrict">
+								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text">
+							</div>
+							<div class="form-group col-md-6" id="autoamphoe">
 								<label for="validationDefault04">อำเภอ</label> <input class="form-control" id="validationDefault04" name="amphoe" placeholder="กรุณากรอกอำเภอ" required="" type="text">
 							</div>
+						</div>
+						<div class="form-row">
 							<div class="form-group col-md-6" id="autoprovince">
 								<label for="validationDefault04">จังหวัด</label> <input class="form-control" id="validationDefault04" name="county" placeholder="กรุณากรอกจังหวัด" required="" type="text">
 							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6" id="autoprovince">
+							<div class="form-group col-md-6" id="autozipcode">
 								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" required="" type="text">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="validationDefault02">เบอร์โทรศัพท์ (Username)</label> <input class="form-control" id="validationDefault02" name="telephone" placeholder="xxx-xxxxxxx" required="" type="text">
 							</div>
 						</div>
 					</div>
@@ -117,10 +125,18 @@ if ($_SESSION['logged_in'] != 1) {
 						ข้อมูลด้านสุขภาพ
 					</div>
 					<div class="card-body">
-						<!-- <form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="post" name="form_infouser"> -->
 						<div class="form-row">
 							<div class="form-group col-md-4">
-								<p>โรคประจำตัว</p><label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ไม่มี</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="1"> <span class="custom-control-indicator"></span> <span class="custom-control-description">มี</span></label>
+								<p>โรคประจำตัว</p>
+								<label class="custom-control custom-radio">
+									<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span>
+									<span class="custom-control-description">ไม่มี</span>
+								</label>
+									<label class="custom-control custom-radio">
+										<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="1">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">มี</span>
+								</label>
 							</div>
 							<div class="form-group col-md-4">
 								<label>โรคประจำตัว</label> <select class="custom-select d-block col" id="name_congenital_dis" name="name_congenital_dis" required="">
@@ -143,7 +159,7 @@ if ($_SESSION['logged_in'] != 1) {
 									<option value="จอประสาทตาเสื่อม">
 										จอประสาทตาเสื่อม
 									</option>
-									<option value="โรคอื่นๆ">
+									<option value="">
 										โรคอื่นๆ
 									</option>
 								</select>
@@ -180,7 +196,7 @@ if ($_SESSION['logged_in'] != 1) {
 			</div>
 			<div class="container">
 				<div class="text-right">
-					<button class="btn btn-outline-success" type="submit">Submit form</button>
+					<button class="btn btn-outline-success" type="submit" name="account">บันทึกข้อมูล</button>
 				</div>
 			</div>
 		</form>
@@ -208,10 +224,10 @@ if ($_SESSION['logged_in'] != 1) {
 	          $.Thailand(
 	          {
 	              database: './jquery.Thailand.js/database/db.json',
-	              $district: $('#autoprovince [name="district"]'),
-	              $amphoe: $('#autoprovince [name="amphoe"]'),
-	              $province: $('#autoprovince [name="province"]'),
-	              $zipcode: $('#autoprovince [name="zipcode"]'),
+	              $district: $('#autodistrict [name="district"]'),
+	              $amphoe: $('#autoamphoe [name="amphoe"]'),
+	              $province: $('#autoprovince [name="county"]'),
+	              $zipcode: $('#autozipcode [name="zipcode"]'),
 	              onDataFill: function(data)
 	              {
 	                  console.info('Data Filled', data);
@@ -223,6 +239,7 @@ if ($_SESSION['logged_in'] != 1) {
 	              }
 	          });
 	      // watch on change
+	      /*
 	      $('#autoprovince [name="district"]').change(function()
 	      {
 	          console.log('ตำบล', this.value);
@@ -239,6 +256,7 @@ if ($_SESSION['logged_in'] != 1) {
 	      {
 	          console.log('รหัสไปรษณีย์', this.value);
 	      });
+	      */
 	</script>
 </body>
 </html>

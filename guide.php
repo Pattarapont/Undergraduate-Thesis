@@ -9,11 +9,6 @@ header("location: singin.php");
 }
  */
 
-/*
-if (isSignin() !== TRUE) {
-header("location: singin.php");
-}
- */
 ?>
 <!DOCTYPE html>
 <html>
@@ -169,7 +164,7 @@ header("location: singin.php");
 
 							</div>
 							<div class="text-right">
-								<button class="btn btn-outline-primary" type="submit">ค้นหาสถานที่</button>
+								<button class="btn btn-outline-primary" type="submit" name="guide">ค้นหาสถานที่</button>
 							</div>
 						</form>
 					</div>

@@ -21,7 +21,7 @@ $result = $conn->query("SELECT * FROM users WHERE email='$email'") or die($conn-
 // We know user email exists if the rows returned are more than 0
 if ($result->num_rows > 0) {
 
-	$_SESSION['message'] = 'User with this email already exists!';
+	$_SESSION['message'] = 'E-mail นี้มีในระบบแล้ว';
 	header("location: error.php");
 
 } else {

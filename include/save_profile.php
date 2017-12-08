@@ -20,7 +20,7 @@ $insert_info_user = "INSERT INTO info_users (gender, age, career, district, amph
 
 if ($conn->query($insert_info_user) === true) {
 	// echo "Records inserted successfully.";
-	header("Location: /et_cbr/form_main.php");
+	header("Location: /et_cbr/guide.php");
 	die();
 } else {
 	echo "ERROR: Could not able to execute $sql. " .$mysqli->error;

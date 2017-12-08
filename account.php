@@ -9,11 +9,14 @@ header("location: singin.php");
 }
  */
 
-/*
-if (isSignin() !== TRUE) {
-header("location: singin.php");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (isset($_POST['account'])) {
+
+		require 'include/edit_account.php';
+
+	}
 }
- */
+
 include './include/include_head.php';
 include 'menu.php';
 ?>
@@ -23,7 +26,7 @@ include 'menu.php';
 <body>
 	<section>
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
-		<form action="./include/edit_account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
+		<form action="account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
 			<div class="container">
 				<h1>กรุณากรอกข้อมูลของท่าน</h1>
 				<div class="card">
@@ -37,22 +40,6 @@ include 'menu.php';
 							</div>
 							<div class="form-group col-md-4">
 								<label for="validationDefault04">อายุ</label> <input class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุ" required="" type="number">
-
-
-							<!-- 	<label for="validationDefault02">อายุ</label> <select class="custom-select d-block col" id="age" name="age" required="">
-									<option disabled hidden="" selected value="">
-										-- อายุ --
-									</option>
-									<option value="50 - 60 ปี">
-										50 - 60 ปี
-									</option>
-									<option value="60 - 70 ปี">
-										60 - 70 ปี
-									</option>
-									<option value="มากกว่า 70 ปี">
-										มากกว่า 70 ปี
-									</option>
-								</select> -->
 							</div>
 							<div class="form-group col-md-5">
 								<label for="validationDefault02">อาชีพ</label> <select class="custom-select d-block col" id="career" name="career" required="">
@@ -102,10 +89,10 @@ include 'menu.php';
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="form-group col-md-6" id="autoprovince">
+							<div class="form-group col-md-6" id="autodistrict">
 								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text">
 							</div>
-							<div class="form-group col-md-6" id="autoprovince">
+							<div class="form-group col-md-6" id="autoamphoe">
 								<label for="validationDefault04">อำเภอ</label> <input class="form-control" id="validationDefault04" name="amphoe" placeholder="กรุณากรอกอำเภอ" required="" type="text">
 							</div>
 						</div>
@@ -113,7 +100,7 @@ include 'menu.php';
 							<div class="form-group col-md-6" id="autoprovince">
 								<label for="validationDefault04">จังหวัด</label> <input class="form-control" id="validationDefault04" name="county" placeholder="กรุณากรอกจังหวัด" required="" type="text">
 							</div>
-							<div class="form-group col-md-6" id="autoprovince">
+							<div class="form-group col-md-6" id="autozipcode">
 								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" required="" type="text">
 							</div>
 						</div>
@@ -125,7 +112,6 @@ include 'menu.php';
 						ข้อมูลด้านสุขภาพ
 					</div>
 					<div class="card-body">
-						<!-- <form action="./include/rc_account.php" class="was-validated" id="inputpersonal" method="post" name="form_infouser"> -->
 						<div class="form-row">
 							<div class="form-group col-md-4">
 								<p>โรคประจำตัว</p>
@@ -197,7 +183,7 @@ include 'menu.php';
 			</div>
 			<div class="container">
 				<div class="text-right">
-					<button class="btn btn-outline-success" type="submit">บันทึกข้อมูล</button>
+					<button class="btn btn-outline-success" type="submit" name="account">บันทึกข้อมูล</button>
 				</div>
 			</div>
 		</form>
@@ -223,20 +209,22 @@ include 'menu.php';
 	       $.Thailand(
 	       {
 	           database: './jquery.Thailand.js/database/db.json',
-	           $district: $('#autoprovince [name="district"]'),
-	           $amphoe: $('#autoprovince [name="amphoe"]'),
-	           $province: $('#autoprovince [name="province"]'),
-	           $zipcode: $('#autoprovince [name="zipcode"]'),
-	           onDataFill: function(data)
-	           {
-	               console.info('Data Filled', data);
-	           },
-	           onLoad: function()
-	           {
-	               console.info('Autocomplete is ready!');
-	               $('#loader, .demo').toggle();
-	           }
-	       });
+	              $district: $('#autodistrict [name="district"]'),
+	              $amphoe: $('#autoamphoe [name="amphoe"]'),
+	              $province: $('#autoprovince [name="county"]'),
+	              $zipcode: $('#autozipcode [name="zipcode"]'),
+	              onDataFill: function(data)
+	              {
+	                  console.info('Data Filled', data);
+	              },
+	              onLoad: function()
+	              {
+	                  console.info('Autocomplete is ready!');
+	                  $('#loader, .demo').toggle();
+	              }
+	          });
+
+	       /*
 	   // watch on change
 	   $('#autoprovince [name="district"]').change(function()
 	   {
@@ -254,6 +242,7 @@ include 'menu.php';
 	   {
 	       console.log('รหัสไปรษณีย์', this.value);
 	   });
+	   */
 	</script>
 </body>
 </html>
