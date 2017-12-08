@@ -15,7 +15,7 @@
 							                <a class="nav-link" href="history.php">ประวัติการท่องเที่ยว</a>
 							            </li>
 							            <li class="nav-item">
-							                <a class="nav-link" href="form_main.php">ค้นหาสถานที่ท่องเที่ยว</a>
+							                <a class="nav-link" href="guide.php">ค้นหาสถานที่ท่องเที่ยว</a>
 							            </li>
 
 							        </ul>

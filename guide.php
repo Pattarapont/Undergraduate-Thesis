@@ -152,8 +152,8 @@ header("location: singin.php");
 										<option disabled hidden="" selected value="">
 											-- โปรดเลือก --
 										</option>
-										<option value="บ้านตนเอง">
-											บ้านตนเอง
+										<option value="ไม่พัก">
+											ไม่พัก
 										</option>
 										<option value="บ้านญาติ">
 											บ้านญาติ

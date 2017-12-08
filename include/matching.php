@@ -291,10 +291,11 @@ if ($new_money) {
 }
 
 $result = ($resultmath/68)*100;
+/*
 echo $result;
-
 echo "<br>";
 echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
+ */
 ?>

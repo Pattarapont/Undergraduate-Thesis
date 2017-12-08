@@ -28,11 +28,12 @@ require 'include/matching.php';
 </head>
 <body>
 <?php
-/*
+
+echo $result;
+echo "<br>";
 echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
- */
 ?>
   <section style="padding: 10px 0px">
     <div class="container">
