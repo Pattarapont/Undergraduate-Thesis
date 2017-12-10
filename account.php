@@ -1,5 +1,7 @@
 <?php
 include "include/db_connect.php";
+include "control_user.php";
+// session_start();
 /*
 if (!isSignin()) {
 header("location: singin.php");
@@ -45,7 +47,9 @@ WHERE us.id_user = 1";
 
 $user = "SELECT * FROM users as us
 INNER JOIN info_users as info on us.id_user = info.id_user
-WHERE us.id_user = 1";
+WHERE us.id_user = 4";
+// WHERE us.id_user = 'idUser()'";
+// WHERE info.id_user = '".$_SESSION['id_user']."'";
 $db  = $conn->query($user);
 $row = $db->fetch_assoc();
 
@@ -74,6 +78,11 @@ var body_movement = <?php echo $row['body_movement'];
 </head>
 <body>
 <?php
+// echo $row['id_user'];
+// echo $_SESSION['id_user'];
+// echo $_SESSION['active'];
+// echo $row['active'];
+// echo "<br>";
 echo $row['first_name'];
 echo $row['age'];
 echo $row['gender'];
@@ -335,6 +344,8 @@ $( "#name_congenital_dis").val([ "โรคหัวใจ"]);
 $( "#body_movement").val([ "เดินได้เล็กน้อย" ]);
 
 </script>
-
+<?php
+$conn->close();
+?>
 </body>
 </html>

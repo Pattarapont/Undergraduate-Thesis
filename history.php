@@ -19,7 +19,7 @@ $conn_location = "SELECT * FROM transcript WHERE id_user = $id_user";
 $conn_location = "SELECT * FROM transcript as ts
                   INNER JOIN location as lc on ts.id_location = lc.id_location
                   INNER JOIN province as pv on lc.id_province = pv.id_province
-                  WHERE id_user = 1";
+                  WHERE id_user = 'idUser()'";
 
 $connect     = $conn->query($conn_location);
 $row         = $connect->fetch_assoc();
