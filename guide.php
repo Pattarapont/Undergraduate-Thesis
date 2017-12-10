@@ -3,11 +3,10 @@
 
 include './include/include_head.php';
 include 'menu.php';
-/*
+
 if (!isSignin()) {
-header("location: singin.php");
+	header("location: singin.php");
 }
- */
 
 ?>
 <!DOCTYPE html>

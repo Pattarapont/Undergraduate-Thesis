@@ -9,8 +9,8 @@ if (!isSignin()) {
 header("location: singin.php");
 }
  */
-// acction จาก form_main.php
-
+// acction จาก guide.php
+/*
 $new_car        = $_REQUEST['car'];
 $new_traveltime = $_REQUEST['traveltime'];
 $new_camp       = $_REQUEST['camp'];
@@ -31,8 +31,8 @@ $new_career              = $conUser['career'];
 $new_congenital_dis      = $conUser['congenital_dis'];
 $new_name_congenital_dis = $conUser['name_congenital_dis'];
 $new_body_movement       = $conUser['body_movement'];
+ */
 
-/*
 $new_gender              = "หญิง";
 $new_age                 = "50";
 $new_homeland            = "กำแพงเพชร";
@@ -40,14 +40,13 @@ $new_career              = "ค้าขาย";
 $new_congenital_dis      = "1";
 $new_name_congenital_dis = "เบาหวาน";
 $new_body_movement       = "เดินได้ปกติ";
-$new_saving     = "1";
-$new_travel     = "ครอบครัว";
-$new_car        = "รถส่วนตัว";
-$new_traveltime = "2";
-$new_camp       = "รีสอร์ท";
-$new_money      = "4";
-$province       = '1';
- */
+$new_saving              = "1";
+$new_travel              = "ครอบครัว";
+$new_car                 = "รถส่วนตัว";
+$new_traveltime          = "2";
+$new_camp                = "รีสอร์ท";
+$new_money               = "4";
+$province                = '1';
 
 $oldcase_db = "SELECT * FROM oldcase as oc
         INNER JOIN location as lc on oc.id_location = lc.id_location
@@ -336,6 +335,7 @@ echo "จังหวัด : ", $answer['name_province'], "<br>";
 <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="card mb-3">
           <img alt="Card image cap" class="card-img-top" src="images/watyai.jpg">
+                    <!-- <img alt="Card image cap" class="card-img-top" src="images/location/<?php echo $answer['img'];?>"> -->
           <div class="card-body">
             <h4 class="card-title"><?php
 echo $answer['name_location'];
@@ -345,7 +345,9 @@ echo $answer['name_location'];
 echo "จังหวัด : ", $answer['name_province'];?></p>
            <p>
              <button type="button" class="btn btn-outline-primary">ค้นหาสถานที่ใหม่</button>
-<button type="button" class="btn btn-outline-warning">เลือกสถานที่</button>
+<a href="">
+	<button type="button" class="btn btn-outline-warning">เลือกสถานที่</button>
+</a>
            </p>
           </div>
         </div>

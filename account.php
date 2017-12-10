@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
 <?php
 include "include/db_connect.php";
 /*
@@ -10,39 +7,112 @@ header("location: singin.php");
  */
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (isset($_POST['account'])) {
+	if (isset($_POST['edit_account'])) {
 
-		require 'include/edit_account.php';
+		require 'edit_account.php';
 
 	}
 }
+/*
+$user = "SELECT * FROM users as us
+INNER JOIN info_users as info on us.id_user = info.id_user
+WHERE us.id_user = '".$_GET["id_user"]."'";
+$db  = $conn->query($user);
+$row = $db->fetch_assoc();
+ */
+/*
+$user = "SELECT * FROM users as us
+INNER JOIN info_users as info on us.id_user = info.id_user
+WHERE us.id_user = '".$_GET["id_user"]."'";
+
+$db  = $conn->query($user);
+$row = $db->fetch_assoc();
+ */
+/*
+$user = "SELECT * FROM users as us
+INNER JOIN info_users as inf on us.id_user = inf.info_users
+WHERE us.id_user = 1";
+ */
+
+// $user = "SELECT * FROM info_users as inf
+// INNER JOIN users as us on us.id_user = inf.info_users
+// WHERE us.id_user = 1";
+// $db  = $conn->query($user);
+// $row = $db->fetch_assoc();
+
+// $key = mysqli_query($conn, $user);
+// $row = mysqli_fetch_array($key);
+
+$user = "SELECT * FROM users as us
+INNER JOIN info_users as info on us.id_user = info.id_user
+WHERE us.id_user = 1";
+$db  = $conn->query($user);
+$row = $db->fetch_assoc();
 
 include './include/include_head.php';
 include 'menu.php';
 ?>
+<script type="text/javascript">
+var agender = <?php echo $row['gender'];
+?>;
+var career = <?php echo $row['career'];
+?>;
+var congenital_dis = <?php echo $row['congenital_dis'];
+?>;
+var name_congenital_dis = <?php echo $row['name_congenital_dis'];
+?>;
+var body_movement = <?php echo $row['body_movement'];
+?>;
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+
 	<link href="./jquery.Thailand.js/dist/jquery.Thailand.min.css" rel="stylesheet">
-	<title></title>
+	<title>Account <?=$first_name?></title>
 </head>
 <body>
+<?php
+echo $row['first_name'];
+echo $row['age'];
+echo $row['gender'];
+?>
 	<section>
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
-		<form action="account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
+		<form action="edit_account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
 			<div class="container">
-				<h1>กรุณากรอกข้อมูลของท่าน</h1>
+				<div style="font-size:3em; color:Tomato">
+  <i class="fas fa-camera-retro"></i>
+</div>
+				<h1>กรุณากรอกข้อมูลของท่าน </h1>
 				<div class="card">
 					<div class="card-header">
-						ข้อมูลส่วนตัว
+ข้อมูลส่วนตัว
+
 					</div>
 					<div class="card-body">
 						<div class="form-row">
 							<div class="form-group col-md-3">
-								<p>เพศ</p><label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ชาย</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span> <span class="custom-control-description">หญิง</span></label>
+								<p>เพศ</p>
+								<label class="custom-control custom-radio">
+									<input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="ชาย">
+									<span class="custom-control-indicator"></span> <span class="custom-control-description">ชาย</span>
+								</label>
+								<label class="custom-control custom-radio">
+									<input class="custom-control-input" id="gender" name="gender" required="" type="radio" value="หญิง"> <span class="custom-control-indicator"></span>
+									<span class="custom-control-description">หญิง</span>
+								</label>
 							</div>
 							<div class="form-group col-md-4">
-								<label for="validationDefault04">อายุ</label> <input class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุ" required="" type="number">
+								<label for="validationDefault04">อายุ</label>
+								<input class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุ"
+								required="" type="number"
+								value="<?php echo $row['age'];?>" >
 							</div>
 							<div class="form-group col-md-5">
-								<label for="validationDefault02">อาชีพ</label> <select class="custom-select d-block col" id="career" name="career" required="">
+								<label for="validationDefault02">อาชีพ</label>
+								<select class="custom-select d-block col" id="career" name="career" required="">
 									<option disabled hidden="" selected value="">
 										-- โปรดเลือกอาชีพ --
 									</option>
@@ -72,36 +142,44 @@ include 'menu.php';
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="validationDefault01">ชื่อ</label> <input class="form-control" id="validationDefault01" name="first_name" placeholder="กรุณากรอกชื่อ" required="" type="text">
+								<label for="first_name">ชื่อ</label>
+								<input class="form-control" id="first_name" name="first_name" placeholder="กรุณากรอกชื่อ" required="" type="text"
+								value="<?php echo $row['first_name'];?>">
 							</div>
 							<div class="form-group col-md-6">
-								<label for="validationDefault01">นามสกุล</label> <input class="form-control" id="validationDefault01" name="last_name" placeholder="กรุณากรอกนามสกุล" required="" type="text">
+								<label for="last_name">นามสกุล</label>
+								<input class="form-control" id="last_name" name="last_name" placeholder="กรุณากรอกนามสกุล" required="" type="text" value="<?php echo $row['last_name'];?>">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
-								<label for="validationDefault01">Email</label> <input class="form-control" id="validationDefault01" name="email" placeholder="กรุณากรอก E-mail" required="" type="email">
+								<label for="email">Email</label>
+								<input class="form-control" id="email" name="email" placeholder="กรุณากรอก E-mail" required="" type="email" value="<?php echo $row['email'];?>">
 							</div>
 							<div class="form-group col-md-6">
-								<label for="validationDefault02">เบอร์โทรศัพท์ (Username)</label>
-								<input class="form-control" id="validationDefault02" name="telephone" maxlength=
-            "10" placeholder="xxx-xxxxxxx" required="" type="text">
+								<label for="telephone">เบอร์โทรศัพท์ (Username)</label>
+								<input class="form-control" id="telephone" name="telephone" maxlength="10"
+            					placeholder="xxx-xxxxxxx" required="" type="text" value="<?php echo $row['telephone'];?>">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6" id="autodistrict">
-								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text">
+								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text"
+								value="<?php echo $row['district'];?>">
 							</div>
 							<div class="form-group col-md-6" id="autoamphoe">
-								<label for="validationDefault04">อำเภอ</label> <input class="form-control" id="validationDefault04" name="amphoe" placeholder="กรุณากรอกอำเภอ" required="" type="text">
+								<label for="validationDefault04">อำเภอ</label> <input class="form-control" id="validationDefault04" name="amphoe" placeholder="กรุณากรอกอำเภอ" required="" type="text"
+								value="<?php echo $row['amphoe'];?>">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6" id="autoprovince">
-								<label for="validationDefault04">จังหวัด</label> <input class="form-control" id="validationDefault04" name="county" placeholder="กรุณากรอกจังหวัด" required="" type="text">
+								<label for="validationDefault04">จังหวัด</label> <input class="form-control" id="validationDefault04" name="county" placeholder="กรุณากรอกจังหวัด" required="" type="text"
+								value="<?php echo $row['county'];?>">
 							</div>
 							<div class="form-group col-md-6" id="autozipcode">
-								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" required="" type="text">
+								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" required="" type="text"
+								value="<?php echo $row['zipcode'];?>">
 							</div>
 						</div>
 					</div>
@@ -116,7 +194,8 @@ include 'menu.php';
 							<div class="form-group col-md-4">
 								<p>โรคประจำตัว</p>
 								<label class="custom-control custom-radio">
-									<input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span>
+									<input class="custom-control-input" id="congenital_dis" name="congenital_dis"
+									required="" type="radio" value="0"> <span class="custom-control-indicator"></span>
 									<span class="custom-control-description">ไม่มี</span>
 								</label>
 									<label class="custom-control custom-radio">
@@ -152,7 +231,9 @@ include 'menu.php';
 								</select>
 							</div>
 							<div class="form-group col-md-4">
-								<label>การเคลื่อนไหวร่างกาย</label> <select class="custom-select d-block col" id="body_movement" name="body_movement" required="">
+								<label>การเคลื่อนไหวร่างกาย</label>
+								<select class="custom-select d-block col" id="body_movement" name="body_movement"
+								required="">
 									<option disabled hidden="" selected value="">
 										-- โปรดเลือกการเคลื่อนไหวร่างกาย --
 									</option>
@@ -183,7 +264,7 @@ include 'menu.php';
 			</div>
 			<div class="container">
 				<div class="text-right">
-					<button class="btn btn-outline-success" type="submit" name="account">บันทึกข้อมูล</button>
+					<button class="btn btn-outline-success" type="submit" name="edit_account">บันทึกข้อมูล</button>
 				</div>
 			</div>
 		</form>
@@ -244,5 +325,16 @@ include 'menu.php';
 	   });
 	   */
 	</script>
+
+<script>
+	// .val()
+$( "input#gender").val(["ชาย"]);
+$( "#career").val([ "พนักงานบริษัท"]);
+$( "input#congenital_dis").val([ "1"]);
+$( "#name_congenital_dis").val([ "โรคหัวใจ"]);
+$( "#body_movement").val([ "เดินได้เล็กน้อย" ]);
+
+</script>
+
 </body>
 </html>

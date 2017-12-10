@@ -1,5 +1,14 @@
 <?php
 include_once "control_user.php";
+require "include/db_connect.php";
+// include './include/include_head.php';
+// include 'menu.php';
+
+$user = "SELECT * FROM users as us
+				INNER JOIN info_users as info on us.id_user = info.id_user
+				WHERE us.id_user = 1";
+$db  = $conn->query($user);
+$row = $db->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,25 +34,25 @@ include_once "control_user.php";
 <?php
 if (isSignin() !== TRUE) {
 	?>
-									<li class="nav-item navbar-right">
-										<a class="nav-link" href="singin.php">เข้าสู่ระบบ</a>
-									</li><?php
+																<li class="nav-item navbar-right">
+																	<a class="nav-link" href="singin.php">เข้าสู่ระบบ</a>
+																</li><?php
 } else {
 	?>
 	<li class="nav-item">
-										<div class="nav-link">
-											ยินดีต้อนรับ คุณ
+																	<div class="nav-link">
+																		ยินดีต้อนรับ คุณ
 	<?php
 	echo $_SESSION['first_name'];
 	?>
-	</div>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="account.php">บัญชีผู้ใช้</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="logout.php">ออกจากระบบ</a>
-									</li>
+								</div>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link" href="account.php?first_name=<?php echo $row["first_name"];?>">บัญชีผู้ใช้</a>
+																</li>
+																<li class="nav-item">
+																	<a class="nav-link" href="logout.php">ออกจากระบบ</a>
+																</li>
 	<?php
 }
 ?>

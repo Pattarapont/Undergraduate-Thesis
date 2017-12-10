@@ -63,7 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								<label for="validationDefault04">อายุ</label> <input class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุ" required="" type="number">
 							</div>
 							<div class="form-group col-md-5">
-								<label for="validationDefault02">อาชีพ</label> <select class="custom-select d-block col" id="career" name="career" required="">
+								<label for="validationDefault02">อาชีพ</label>
+								<select class="custom-select d-block col" id="career" name="career" required="">
 									<option disabled hidden="" selected value="">
 										-- โปรดเลือกอาชีพ --
 									</option>

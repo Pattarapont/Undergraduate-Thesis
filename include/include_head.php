@@ -6,6 +6,7 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+        <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/map-icons.min.css">
     <link rel="stylesheet" type="text/css" href="./css/custom.css">
 
@@ -17,4 +18,5 @@
     <script src="./js/tether.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script> -->
+
