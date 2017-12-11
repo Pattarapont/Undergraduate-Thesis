@@ -1,12 +1,13 @@
 <?php
-include "include/db_connect.php";
-include "control_user.php";
+include './include/db_connect.php';
+include './include/include_head.php';
+include 'control_user.php';
+include 'menu.php';
 // session_start();
-/*
+
 if (!isSignin()) {
-header("location: singin.php");
+	header("location: singin.php");
 }
- */
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (isset($_POST['edit_account'])) {
@@ -15,58 +16,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	}
 }
-/*
-$user = "SELECT * FROM users as us
+
+$idUser = $_SESSION['id_user'];
+$user   = "SELECT * FROM users as us
 INNER JOIN info_users as info on us.id_user = info.id_user
-WHERE us.id_user = '".$_GET["id_user"]."'";
-$db  = $conn->query($user);
-$row = $db->fetch_assoc();
- */
-/*
-$user = "SELECT * FROM users as us
-INNER JOIN info_users as info on us.id_user = info.id_user
-WHERE us.id_user = '".$_GET["id_user"]."'";
-
-$db  = $conn->query($user);
-$row = $db->fetch_assoc();
- */
-/*
-$user = "SELECT * FROM users as us
-INNER JOIN info_users as inf on us.id_user = inf.info_users
-WHERE us.id_user = 1";
- */
-
-// $user = "SELECT * FROM info_users as inf
-// INNER JOIN users as us on us.id_user = inf.info_users
-// WHERE us.id_user = 1";
-// $db  = $conn->query($user);
-// $row = $db->fetch_assoc();
-
-// $key = mysqli_query($conn, $user);
-// $row = mysqli_fetch_array($key);
-
-$user = "SELECT * FROM users as us
-INNER JOIN info_users as info on us.id_user = info.id_user
-WHERE us.id_user = 4";
-// WHERE us.id_user = 'idUser()'";
-// WHERE info.id_user = '".$_SESSION['id_user']."'";
+WHERE us.id_user = $idUser";
 $db  = $conn->query($user);
 $row = $db->fetch_assoc();
 
-include './include/include_head.php';
-include 'menu.php';
 ?>
 <script type="text/javascript">
-var agender = <?php echo $row['gender'];
-?>;
-var career = <?php echo $row['career'];
-?>;
-var congenital_dis = <?php echo $row['congenital_dis'];
-?>;
-var name_congenital_dis = <?php echo $row['name_congenital_dis'];
-?>;
-var body_movement = <?php echo $row['body_movement'];
-?>;
+
+// var agender = <?php echo $row['gender'];
+//       ?>;
+// var career = <?php echo $row['career'];
+//       ?>;
+// var congenital_dis = <?php echo $row['congenital_dis'];
+//       ?>;
+// var name_congenital_dis = <?php echo $row['name_congenital_dis'];
+//       ?>;
+// var body_movement = <?php echo $row['body_movement'];
+//       ?>;
+// alert("hh");
 
 </script>
 <!DOCTYPE html>
@@ -74,16 +45,18 @@ var body_movement = <?php echo $row['body_movement'];
 <head>
 
 	<link href="./jquery.Thailand.js/dist/jquery.Thailand.min.css" rel="stylesheet">
-	<title>Account <?=$first_name?></title>
+	<title>Account</title>
 </head>
 <body>
-<?php
-// echo $row['id_user'];
-// echo $_SESSION['id_user'];
-// echo $_SESSION['active'];
-// echo $row['active'];
-// echo "<br>";
+<?
+
+echo "eeeeeeeeeeeee".$row["gender"], $row["age"];
+
+echo "<br>";
+echo $row['email'];
+echo "<br>";
 echo $row['first_name'];
+echo "<br>";
 echo $row['age'];
 echo $row['gender'];
 ?>
@@ -263,10 +236,7 @@ echo $row['gender'];
 									</option>
 								</select>
 							</div>
-						</div><!-- <div class="text-right">
-                            <button class="btn btn-outline-success" type="submit">Submit form</button>
-                        </div> -->
-						<!-- </form> -->
+						</div>
 					</div>
 				</div>
 				<hr>

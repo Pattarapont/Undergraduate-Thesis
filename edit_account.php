@@ -1,5 +1,7 @@
 <?php
 include 'include/db_connect.php';
+session_start();
+$idUser = $_SESSION['id_user'];
 
 // Escape user inputs for security
 $first_name          = $conn->real_escape_string($_REQUEST['first_name']);
@@ -18,13 +20,13 @@ $name_congenital_dis = $conn->real_escape_string($_REQUEST['name_congenital_dis'
 $body_movement       = $conn->real_escape_string($_REQUEST['body_movement']);
 
 $edit_user = "UPDATE users SET first_name = '$first_name', last_name = '$last_name' , email = '$email',
-telephone = '$telephone' WHERE id_user = 4";
+telephone = '$telephone' WHERE id_user = $idUser";
 
 $edit_info_user = "UPDATE info_users
 SET gender = '$gender', age = '$age', career = '$career', district = '$district', amphoe = '$amphoe',
 	county = '$county', zipcode = '$zipcode', congenital_dis = '$congenital_dis',
 	name_congenital_dis = '$name_congenital_dis', body_movement = '$body_movement'
-	WHERE id_user = 4";
+	WHERE id_user = $idUser";
 
 if ($conn->query($edit_user) === true && $conn->query($edit_info_user) === true) {
 	echo '	<div class="row" style="margin-top: 200px;">

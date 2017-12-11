@@ -6,11 +6,11 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-        <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.1/css/all.css">
     <link rel="stylesheet" type="text/css" href="./css/map-icons.min.css">
     <link rel="stylesheet" type="text/css" href="./css/custom.css">
 
-    <!-- <link rel="stylesheet" type="text/css" href="./css/style.css"> -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 

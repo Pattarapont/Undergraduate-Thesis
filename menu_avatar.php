@@ -7,7 +7,8 @@
 <title>Beautiful Navbar with Menu Icons</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -175,16 +176,24 @@
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
         <ul class="nav navbar-nav navbar-left ml-auto">
             <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home"></i><span>หน้าหลัก</span></a></li>
-			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>ค้นหาสถานที่</span></a></li>
-			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-pie-chart"></i><span>ประวัติการท่องเที่ยว</span></a></li>
+			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-search"></i><span>ค้นหาสถานที่</span></a></li>
+			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-history"></i><span>ประวัติการท่องเที่ยว</span></a></li>
+
         </ul>
 		<ul class="nav navbar-nav navbar-right ml-auto">
 
+			<li class="nav-item"><a href="#" class="nav-link"><i class="material-icons">&#xE890;</i><span>เข้าสู่ระบบ</span></a></li>
+
 			<li class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
-                    <img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar"> Antonio Moreno <b class="caret"></b></a>
+                    <img src="https://image.flaticon.com/icons/svg/149/149071.svg" class="avatar" alt="Avatar"> User <b class="caret"></b>
+                    <img src="https://image.flaticon.com/icons/svg/145/145842.svg" class="avatar" alt="Avatar"> Man  <b class="caret"></b>
+                    <img src="https://image.flaticon.com/icons/svg/146/146015.svg" class="avatar" alt="Avatar"> Female  <b class="caret"></b>
+
+
+                </a>
 				<ul class="dropdown-menu">
-					<li><a href="account.php" class="dropdown-item"><i class="fa fa-user-o"></i> บัญชี</a></li>
+					<li><a href="account.php" class="dropdown-item"><i class="fa fa-user"></i> บัญชี</a></li>
 					<li class="divider dropdown-divider"></li>
 					<li><a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> ออกจากระบบ</a></li>
 				</ul>

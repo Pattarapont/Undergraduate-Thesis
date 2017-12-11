@@ -4,13 +4,15 @@ require 'include/db_connect.php';
 include 'include/include_head.php';
 include 'menu.php';
 // session_start();
-/*
+
 if (!isSignin()) {
-header("location: singin.php");
+	header("location: singin.php");
 }
- */
+
+$idUser = $_SESSION['id_user'];
+
 // acction จาก guide.php
-/*
+
 $new_car        = $_REQUEST['car'];
 $new_traveltime = $_REQUEST['traveltime'];
 $new_camp       = $_REQUEST['camp'];
@@ -19,8 +21,7 @@ $new_travel     = $_REQUEST['travel_form'];
 $new_saving     = $_REQUEST['saving'];
 $province       = $_REQUEST['check_province'];
 
-$id_user   = $_SESSION['id_user'];
-$conn_user = "SELECT * FROM info_users WHERE id_user = 1";
+$conn_user = "SELECT * FROM info_users WHERE id_user = $idUser";
 $conn_u    = $conn->query($conn_user);
 $conUser   = $conn_u->fetch_assoc();
 
@@ -31,8 +32,8 @@ $new_career              = $conUser['career'];
 $new_congenital_dis      = $conUser['congenital_dis'];
 $new_name_congenital_dis = $conUser['name_congenital_dis'];
 $new_body_movement       = $conUser['body_movement'];
- */
 
+/*
 $new_gender              = "หญิง";
 $new_age                 = "50";
 $new_homeland            = "กำแพงเพชร";
@@ -47,6 +48,7 @@ $new_traveltime          = "2";
 $new_camp                = "รีสอร์ท";
 $new_money               = "4";
 $province                = '1';
+ */
 
 $oldcase_db = "SELECT * FROM oldcase as oc
         INNER JOIN location as lc on oc.id_location = lc.id_location
@@ -307,7 +309,7 @@ echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
  */
-
+$_SESSION['id_location'] = $answer['id_location'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -317,11 +319,31 @@ echo "จังหวัด : ", $answer['name_province'], "<br>";
 <body>
 <?php
 // echo $$new_car;
+//
+
 echo $result;
+echo "<br>";
+print(number_format($result, 2));
+echo "<br>";
+echo $answer['id_location'];
 echo "<br>";
 echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (isset($_POST['research'])) {
+		//user logging in
+
+		header("Location: guide.php");
+
+	} elseif (isset($_POST['save_location'])) {
+		//user registering
+
+		header("Location: save_location.php");
+
+	}
+}
 ?>
   <section style="padding: 10px 0px">
     <div class="container">
@@ -332,10 +354,11 @@ echo "จังหวัด : ", $answer['name_province'], "<br>";
       <br>
     <div class="row">
       <center>
-<div class="col-md-8 col-sm-12 col-xs-12">
+      	<form action="predict.php" method="post">
+      		<div class="col-md-8 col-sm-12 col-xs-12">
         <div class="card mb-3">
-          <img alt="Card image cap" class="card-img-top" src="images/watyai.jpg">
-                    <!-- <img alt="Card image cap" class="card-img-top" src="images/location/<?php echo $answer['img'];?>"> -->
+          <!-- <img alt="Card image cap" class="card-img-top" src="images/watyai.jpg"> -->
+                    <img alt="Card image cap" class="card-img-top" src="images/location/<?php echo $answer['img'];?>">
           <div class="card-body">
             <h4 class="card-title"><?php
 echo $answer['name_location'];
@@ -344,14 +367,16 @@ echo $answer['name_location'];
 <?php
 echo "จังหวัด : ", $answer['name_province'];?></p>
            <p>
-             <button type="button" class="btn btn-outline-primary">ค้นหาสถานที่ใหม่</button>
-<a href="">
-	<button type="button" class="btn btn-outline-warning">เลือกสถานที่</button>
-</a>
+             <button type="submit" class="btn btn-outline-primary" name="research">ค้นหาสถานที่ใหม่</button>
+	<button type="submit" class="btn btn-outline-warning" name="save_location">เลือกสถานที่</button>
+
            </p>
           </div>
         </div>
       </div>
+      	</form>
+
+
       </center>
     </div>
   </div>
