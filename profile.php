@@ -1,15 +1,15 @@
 <?php
-include "include/db_connect.php";
-
-include 'include/include_head.php';
+include "./include/db_connect.php";
+include './include/include_head.php';
 include 'menu.php';
 /* Displays user information and some useful messages */
 // session_start();
 
 // Check if user is logged in using the session variable
 if ($_SESSION['logged_in'] != 1) {
-	$_SESSION['message'] = "You must log in before viewing your profile page!";
-	header("location: error.php");
+	// $_SESSION['message'] = "กรุณาเข้าสู่ระบบ";
+	// header("location: error.php");
+	header("location: singin.php");
 } else {
 	// Makes it easier to read
 	$first_name = $_SESSION['first_name'];
@@ -20,29 +20,28 @@ if ($_SESSION['logged_in'] != 1) {
 ?>
 
 <?php
+/*
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (isset($_POST['profile'])) {
-		//user logging in
+if (isset($_POST['profile'])) {
+//user logging in
 
-		require 'include/save_profile.php';
+require 'include/save_profile.php';
 
-	} elseif (isset($_POST['register'])) {
-		//user registering
+} elseif (isset($_POST['register'])) {
+//user registering
 
-		require 'register.php';
+require 'register.php';
 
-	}
 }
+}
+ */
 ?>
+<? echo $first_name.' '.$last_name?>
 <!DOCTYPE html>
 <html>
 <head>
-<?php
-
-?>
 	<link href="./jquery.Thailand.js/dist/jquery.Thailand.min.css" rel="stylesheet">
-	<title>Welcome <?=$first_name.' '.$last_name?>
-	</title>
+	<title>Welcome</title>
 </head>
 <body>
 	<section>

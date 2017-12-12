@@ -1,20 +1,25 @@
+
+
 <?php
 include 'include/db_connect.php';
 session_start();
 
 $id_location = $_SESSION['id_location'];
+$idUser      = $_SESSION['id_user'];
+
 // echo $id_location;
-echo "<h1>" . $id_location . "</h1>";
+echo "<h1>".$id_location."</h1>";
 
 $s_location = "INSERT INTO transcript (id_user, id_location, memo_detail, save_date , year)
-				VALUES ('1', '$id_location ', 'a', 'b', 'c')";
+				VALUES ('$idUser', '$id_location ', 'a', 'b', 'c')
+				WHERE id_user = $idUser";
 
 if ($conn->query($s_location) === true) {
-	// echo "Records inserted successfully.";
+	echo "Records inserted successfully.";
 	// header("Location: /et_cbr/guide.php");
 	die();
 } else {
-	echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+	echo "ERROR: Could not able to execute $sql. " .$mysqli->error;
 }
 
 ?>

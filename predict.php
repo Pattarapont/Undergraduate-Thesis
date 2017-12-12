@@ -333,12 +333,10 @@ echo "จังหวัด : ", $answer['name_province'], "<br>";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (isset($_POST['research'])) {
-		//user logging in
 
 		header("Location: guide.php");
 
 	} elseif (isset($_POST['save_location'])) {
-		//user registering
 
 		header("Location: save_location.php");
 
@@ -357,7 +355,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       	<form action="predict.php" method="post">
       		<div class="col-md-8 col-sm-12 col-xs-12">
         <div class="card mb-3">
-          <!-- <img alt="Card image cap" class="card-img-top" src="images/watyai.jpg"> -->
                     <img alt="Card image cap" class="card-img-top" src="images/location/<?php echo $answer['img'];?>">
           <div class="card-body">
             <h4 class="card-title"><?php
