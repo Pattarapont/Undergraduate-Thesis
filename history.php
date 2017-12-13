@@ -11,36 +11,64 @@ if (!isSignin()) {
 	die();
 }
 
-// รอเรียกใช้ secsion id_user
-/*
-$id_user       = $_SESSION['id_user'];
-$conn_location = "SELECT * FROM transcript WHERE id_user = $id_user";
- */
+$idUser = $_SESSION['id_user'];
+
 $conn_location = "SELECT * FROM transcript as ts
 INNER JOIN location as lc on ts.id_location = lc.id_location
 INNER JOIN province as pv on lc.id_province = pv.id_province
-WHERE id_user = 1";
+WHERE ts.id_user = '".$idUser."'";
 //WHERE id_user = 'idUser()'";
 
 $connect = $conn->query($conn_location);
-$row     = $connect->fetch_assoc();
+// $history = $connect->fetch_assoc();
 // $id_location = "";
-$count = 0;
+// $count = 0;
 /*
-while ($row = $connect->fetch_assoc()) {
-//  echo $row['id_location'], "<br>";
+while ($history = $connect->fetch_assoc()) {
+//  echo $history['id_location'], "<br>";
 if ($count == 0) {
-$id_location = $id_location.$row['id_location'];
+$id_location = $id_location.$history['id_location'];
 } else if ($count > 0) {
-$id_location = $id_location.",".$row['id_location'];
+$id_location = $id_location.",".$history['id_location'];
 }
-// $id_location = $id_location.$row['id_location'].",";
+// $id_location = $id_location.$history['id_location'].",";
 $count = $coun_t+1;
 }
  */
-// $id_location = $row['id_location'];
-$id_location = "1".","."2".","."3";
+
+if ($connect->num_rows > 0) {
+
+	$id_location = array();
+
+	while ($history = $connect->fetch_assoc()) {
+
+		$id_location[] = $history['id_location'];
+
+	}
+
+	print_r($id_location);
+	echo '<br>';
+	$arrlength = count($id_location);
+
+	echo $arrlength;
+	echo '<br>';
+
+	for ($i = 0; $i < $arrlength; $i++) {
+		echo $id_location[$i].',';
+		echo "<br>";
+		$id = $id_location[$i].',';
+	}
+
+}
+
+echo $id;
+echo "<br>";
+
+$id_location = $id_location[2].',';
+// $id_location = $history['id_location'];
+// $id_location = "1".","."2".","."3";
 // $id_location = "1";
+// $id_location = "1".","."2".",";
 echo "Location is ", $id_location;
 ?>
 <!DOCTYPE html>
@@ -84,17 +112,17 @@ echo "Location is ", $id_location;
             <img alt="Card image cap" class="card-img-top" src="./images/watyai.jpg">
             <div class="card-body">
               <p><?php
-echo $row['name_location']."<br>";
+echo $history['name_location']."<br>";
 ?> <small><?php
-echo "จังหวัด"." ".$row['name_province'];
+echo "จังหวัด"." ".$history['name_province'];
 ?></small></p>
               <hr>
               <p><?php
-echo $row['memo_detail'];
+echo $history['memo_detail'];
 ?>
 <small>
 
-<?php echo "<br>".$row['date'];?>
+<?php echo "<br>".$history['date'];?>
               </small></p>
             </div>
           </div>

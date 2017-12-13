@@ -42,15 +42,15 @@ echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
 <script type="text/javascript">
 
 // var agender = <?php echo $callAccount['gender'];
-//                                                                                                                                                                ?>;
+//                                                                                                                                                                 ?>;
 // var career = <?php echo $callAccount['career'];
-//                                                                                                                                                                ?>;
+//                                                                                                                                                                 ?>;
 // var congenital_dis = <?php echo $callAccount['congenital_dis'];
-//                                                                                                                                                                ?>;
+//                                                                                                                                                                 ?>;
 // var name_congenital_dis = <?php echo $callAccount['name_congenital_dis'];
-//                                                                                                                                                                ?>;
+//                                                                                                                                                                 ?>;
 // var body_movement = <?php echo $callAccount['body_movement'];
-//                                                                                                                                                                ?>;
+//                                                                                                                                                                 ?>;
 
 </script>
 <!DOCTYPE html>
@@ -302,7 +302,7 @@ echo $callAccount['gender'];
 <script>
 	// .val()
 $( "input#gender").val(["ชาย"]);
-$( "#career").val([ "พนักงานบริษัท"]);
+$( "#career").val([ "ธุรกิจส่วนตัว"]);
 $( "input#congenital_dis").val([ "1"]);
 $( "#name_congenital_dis").val([ "โรคหัวใจ"]);
 $( "#body_movement").val([ "เดินได้เล็กน้อย" ]);
