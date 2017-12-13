@@ -23,7 +23,7 @@ error_reporting(E_ALL);
 
 $conn = new mysqli($host, $user, $password, $database);
 
-$conn->set_charset("utf8");
+// $conn->set_charset("utf8");
 
 // Check connection
 if ($conn->connect_error) {
@@ -33,10 +33,9 @@ if ($conn->connect_error) {
 	// echo "<h1><center> WHO AM I </center></h1>";
 }
 
-/*
 if (!$conn->set_charset("utf8")) {
-printf("Error loading character set utf8: %s\n", $mysqli->error);
-exit();
+	printf("Error loading character set utf8: %s\n", $mysqli->error);
+	exit();
 }
 
 /*

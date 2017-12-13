@@ -1,9 +1,13 @@
 <?php
+// session_start();
+
 include "./include/db_connect.php";
 include './include/include_head.php';
 include 'menu.php';
 /* Displays user information and some useful messages */
 // session_start();
+//
+// $_SESSION['id_user'];
 
 // Check if user is logged in using the session variable
 if ($_SESSION['logged_in'] != 1) {

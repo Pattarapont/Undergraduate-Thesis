@@ -16,28 +16,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	}
 }
+$email = $_SESSION['email'];
 
-$idUser = $_SESSION['id_user'];
-$user   = "SELECT * FROM users as us
-INNER JOIN info_users as info on us.id_user = info.id_user
-WHERE us.id_user = $idUser";
-$db  = $conn->query($user);
-$row = $db->fetch_assoc();
+$sql_account = "SELECT * FROM users as us
+			INNER JOIN info_users as info on us.id_user = info.id_user
+			WHERE email = '".$email."'";
 
+$result      = $conn->query($sql_account);
+$callAccount = $result->fetch_assoc();
+
+echo $callAccount['id_user'];
+echo $callAccount['first_name'];
+/*
+$idUser = $callAccount['id_user'];
+echo $idUser;
+
+echo $callAccount['id_user'];
+echo "<br>";
+
+echo $callAccount['id_user'];
+echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
+ */
 ?>
 <script type="text/javascript">
 
-// var agender = <?php echo $row['gender'];
-//       ?>;
-// var career = <?php echo $row['career'];
-//       ?>;
-// var congenital_dis = <?php echo $row['congenital_dis'];
-//       ?>;
-// var name_congenital_dis = <?php echo $row['name_congenital_dis'];
-//       ?>;
-// var body_movement = <?php echo $row['body_movement'];
-//       ?>;
-// alert("hh");
+// var agender = <?php echo $callAccount['gender'];
+//                                                                                                                                                           ?>;
+// var career = <?php echo $callAccount['career'];
+//                                                                                                                                                           ?>;
+// var congenital_dis = <?php echo $callAccount['congenital_dis'];
+//                                                                                                                                                           ?>;
+// var name_congenital_dis = <?php echo $callAccount['name_congenital_dis'];
+//                                                                                                                                                           ?>;
+// var body_movement = <?php echo $callAccount['body_movement'];
+//                                                                                                                                                           ?>;
 
 </script>
 <!DOCTYPE html>
@@ -49,16 +61,17 @@ $row = $db->fetch_assoc();
 </head>
 <body>
 <?
+/*
+echo "eeeeeeeeeeeee".$callAccount["gender"], $callAccount["age"];
 
-echo "eeeeeeeeeeeee".$row["gender"], $row["age"];
-
 echo "<br>";
-echo $row['email'];
+echo $sw['email'];
 echo "<br>";
-echo $row['first_name'];
+echo $callAccount['first_name'];
 echo "<br>";
-echo $row['age'];
-echo $row['gender'];
+echo $callAccount['age'];
+echo $callAccount['gender'];
+*/
 ?>
 	<section>
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
@@ -74,7 +87,7 @@ echo $row['gender'];
 
 					</div>
 					<div class="card-body">
-						<div class="form-row">
+						<div class="form-acc">
 							<div class="form-group col-md-3">
 								<p>เพศ</p>
 								<label class="custom-control custom-radio">
@@ -90,7 +103,7 @@ echo $row['gender'];
 								<label for="validationDefault04">อายุ</label>
 								<input class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุ"
 								required="" type="number"
-								value="<?php echo $row['age'];?>" >
+								value="<?php echo $callAccount['age'];?>" >
 							</div>
 							<div class="form-group col-md-5">
 								<label for="validationDefault02">อาชีพ</label>
@@ -122,46 +135,46 @@ echo $row['gender'];
 								</select>
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-acc">
 							<div class="form-group col-md-6">
 								<label for="first_name">ชื่อ</label>
 								<input class="form-control" id="first_name" name="first_name" placeholder="กรุณากรอกชื่อ" required="" type="text"
-								value="<?php echo $row['first_name'];?>">
+								value="<?php echo $callAccount['first_name'];?>">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="last_name">นามสกุล</label>
-								<input class="form-control" id="last_name" name="last_name" placeholder="กรุณากรอกนามสกุล" required="" type="text" value="<?php echo $row['last_name'];?>">
+								<input class="form-control" id="last_name" name="last_name" placeholder="กรุณากรอกนามสกุล" required="" type="text" value="<?php echo $callAccount['last_name'];?>">
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-acc">
 							<div class="form-group col-md-6">
 								<label for="email">Email</label>
-								<input class="form-control" id="email" name="email" placeholder="กรุณากรอก E-mail" required="" type="email" value="<?php echo $row['email'];?>">
+								<input class="form-control" id="email" name="email" placeholder="กรุณากรอก E-mail" required="" type="email" value="<?php echo $callAccount['email'];?>">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="telephone">เบอร์โทรศัพท์ (Username)</label>
 								<input class="form-control" id="telephone" name="telephone" maxlength="10"
-            					placeholder="xxx-xxxxxxx" required="" type="text" value="<?php echo $row['telephone'];?>">
+            					placeholder="xxx-xxxxxxx" required="" type="text" value="<?php echo $callAccount['telephone'];?>">
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-acc">
 							<div class="form-group col-md-6" id="autodistrict">
 								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text"
-								value="<?php echo $row['district'];?>">
+								value="<?php echo $callAccount['district'];?>">
 							</div>
 							<div class="form-group col-md-6" id="autoamphoe">
 								<label for="validationDefault04">อำเภอ</label> <input class="form-control" id="validationDefault04" name="amphoe" placeholder="กรุณากรอกอำเภอ" required="" type="text"
-								value="<?php echo $row['amphoe'];?>">
+								value="<?php echo $callAccount['amphoe'];?>">
 							</div>
 						</div>
-						<div class="form-row">
+						<div class="form-acc">
 							<div class="form-group col-md-6" id="autoprovince">
 								<label for="validationDefault04">จังหวัด</label> <input class="form-control" id="validationDefault04" name="county" placeholder="กรุณากรอกจังหวัด" required="" type="text"
-								value="<?php echo $row['county'];?>">
+								value="<?php echo $callAccount['county'];?>">
 							</div>
 							<div class="form-group col-md-6" id="autozipcode">
 								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" required="" type="text"
-								value="<?php echo $row['zipcode'];?>">
+								value="<?php echo $callAccount['zipcode'];?>">
 							</div>
 						</div>
 					</div>
@@ -172,7 +185,7 @@ echo $row['gender'];
 						ข้อมูลด้านสุขภาพ
 					</div>
 					<div class="card-body">
-						<div class="form-row">
+						<div class="form-acc">
 							<div class="form-group col-md-4">
 								<p>โรคประจำตัว</p>
 								<label class="custom-control custom-radio">
@@ -283,26 +296,6 @@ echo $row['gender'];
 	                  $('#loader, .demo').toggle();
 	              }
 	          });
-
-	       /*
-	   // watch on change
-	   $('#autoprovince [name="district"]').change(function()
-	   {
-	       console.log('ตำบล', this.value);
-	   });
-	   $('#autoprovince [name="amphoe"]').change(function()
-	   {
-	       console.log('อำเภอ', this.value);
-	   });
-	   $('#autoprovince [name="province"]').change(function()
-	   {
-	       console.log('จังหวัด', this.value);
-	   });
-	   $('#autoprovince [name="zipcode"]').change(function()
-	   {
-	       console.log('รหัสไปรษณีย์', this.value);
-	   });
-	   */
 	</script>
 
 <script>

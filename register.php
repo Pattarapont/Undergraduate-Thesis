@@ -35,6 +35,7 @@ if ($result->num_rows > 0) {
 	// Add user to the database
 	if ($conn->query($sql) == true) {
 		// $_SESSION['id_user']   = 50;
+		// $_SESSION['email']     = $email;
 		$_SESSION['active']    = 1;//0 until user activates their account with verify.php
 		$_SESSION['logged_in'] = true;// So we know the user has logged in
 		$_SESSION['message']   = "Confirmation link has been sent to $email, please verify
@@ -42,9 +43,16 @@ if ($result->num_rows > 0) {
 
 		// INSERT id_user to info_users โดยนับจาก id_user ล่าสุด
 		$info = "INSERT INTO info_users (id_user)
-			VALUES (LAST_INSERT_ID())";
+				VALUES (LAST_INSERT_ID())";
 		$conn->query($info);
 
+		/*
+		$user = "SELECT * FROM users as us WHERE us.email = $email";
+		echo $email;
+		 */
+		// echo $_SESSION['email'];
+		// echo $_SESSION['email'];
+		// echo "a878564aa";
 		/*
 		// Send registration confirmation link (verify.php)
 		$to           = $email;

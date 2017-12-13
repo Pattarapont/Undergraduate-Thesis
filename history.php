@@ -17,14 +17,15 @@ $id_user       = $_SESSION['id_user'];
 $conn_location = "SELECT * FROM transcript WHERE id_user = $id_user";
  */
 $conn_location = "SELECT * FROM transcript as ts
-                  INNER JOIN location as lc on ts.id_location = lc.id_location
-                  INNER JOIN province as pv on lc.id_province = pv.id_province
-                  WHERE id_user = 'idUser()'";
+INNER JOIN location as lc on ts.id_location = lc.id_location
+INNER JOIN province as pv on lc.id_province = pv.id_province
+WHERE id_user = 1";
+//WHERE id_user = 'idUser()'";
 
-$connect     = $conn->query($conn_location);
-$row         = $connect->fetch_assoc();
-$id_location = "";
-$count       = 0;
+$connect = $conn->query($conn_location);
+$row     = $connect->fetch_assoc();
+// $id_location = "";
+$count = 0;
 /*
 while ($row = $connect->fetch_assoc()) {
 //  echo $row['id_location'], "<br>";
@@ -34,12 +35,13 @@ $id_location = $id_location.$row['id_location'];
 $id_location = $id_location.",".$row['id_location'];
 }
 // $id_location = $id_location.$row['id_location'].",";
-$count = $count+1;
+$count = $coun_t+1;
 }
  */
-// $id_location = "1".","."2".","."3";
-$id_location = "1";
-// echo "Location is ", $id_location;
+// $id_location = $row['id_location'];
+$id_location = "1".","."2".","."3";
+// $id_location = "1";
+echo "Location is ", $id_location;
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,24 +53,24 @@ $id_location = "1";
           width: 100%;
           margin: 0;
           padding: 0;
-        }*/
-         #map {
-          height: 85%;
-          width: 100%;
-          /*background-color: grey;*/
-         }
+          }*/
+          #map {
+            height: 85%;
+            width: 100%;
+            /*background-color: grey;*/
+          }
   /*.map-icon-label .map-icon {
    font-size: 24px;
    color: red;
    line-height: 48px;
    text-align: center;
    white-space: nowrap;
-  }*/
-  </style>
-  <script type="text/javascript">
-     var idLocation = "<?php echo $id_location;?>";
-  </script>
-  <title>ประวัติการท่องเที่ยว</title>
+   }*/
+ </style>
+ <script type="text/javascript">
+   var idLocation = "<?php echo $id_location;?>";
+ </script>
+ <title>ประวัติการท่องเที่ยว</title>
 </head>
 <body>
   <section>
@@ -93,7 +95,7 @@ echo $row['memo_detail'];
 <small>
 
 <?php echo "<br>".$row['date'];?>
-</small></p>
+              </small></p>
             </div>
           </div>
         </div>
@@ -102,6 +104,7 @@ echo $row['memo_detail'];
   </section>
 
   <script>
+    /*
       var customLabel = {
         restaurant: {
           label: 'R'
@@ -173,56 +176,42 @@ echo $row['memo_detail'];
       }
 
       function doNothing() {}
+      */
     </script>
 
-  <script src="./js/locations.json">
-  </script>
-  <script>
-/*
-             var htmlText = '';
-             var res = idLocation.split(",");
-             // window.alert("array is " + alert(res[1]));
-             for (i = 0; i < res.length; i++) {
-               // alert(res[i])
-               for ( var key in datalocation) {
-               if( res[i] == datalocation[key].id_location)
-               {
-                 var aaaa = datalocation[key].lat;
-                 var bbbb = datalocation[key].lng;
-                 // htmlText += '<div class="div-conatiner">';
-                 // htmlText += '<p class="p-name"> id: ' + datalocation[key].id_location + '<\/p>';
+    <script src="./js/locations.json">
+    </script>
+    <script>
 
-                 // htmlText += '<p class="p-loc"> สถานที่: ' + datalocation[key].name + '<\/p>';
-                 // htmlText += '<p class="p-desc"> จังหวัด: ' + datalocation[key].province + '<\/p>';
-                 // htmlText += '<p class="p-created"> lat: ' + datalocation[key].lat + '<\/p>';
-                 // htmlText += '<p class="p-uname"> lng: ' + datalocation[key].lng + '<\/p>';
-                 // htmlText += '<\/div>';
+           function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 10,
+              center: {lat: 16.744411, lng: 100.192972}
+            });
 
-               }
-               }
-               $('body').append(htmlText);
-             }
+            var infoWindow = new google.maps.InfoWindow;
+
+            setMarkers(map);
+          }
+
+          function setMarkers(map) {
+            var positionMarker = idLocation.split(",");
+
+            for(i = 0; i < positionMarker.length; i++){
+              for(j = 0; j < datalocation.length; j++){
+                if (datalocation[j].id_location == positionMarker[i]){
+                  var marker = new google.maps.Marker({
+                    position: {lat: datalocation[j].lat, lng: datalocation[j].lng},
+                    map: map,
+                  });
+                }
+              }
+            }
+          }
 
 
-        function initMap() {
-          var uluru = {lat: aaaa, lng: bbbb };
-          // var uluru = {lat: 16.789298, lng: 101.050892};
-          // 17.8806018,101.4711614,7z
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 7,
-            center: uluru
-          });
-           // var iconBase = './images/flag.png';
-          var marker = new google.maps.Marker({
-            position: uluru,
-            map: map,
-            // icon: iconBase
-          });
-
-        }
-        */
-  </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Q08GZVHA3-W9eZstsk3dgZRUrCoqBqU&callback=initMap">
-  </script>
-</body>
-</html>
+       </script>
+       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Q08GZVHA3-W9eZstsk3dgZRUrCoqBqU&callback=initMap">
+       </script>
+     </body>
+     </html>
