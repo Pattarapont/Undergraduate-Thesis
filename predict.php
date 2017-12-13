@@ -10,7 +10,7 @@ if (!isSignin()) {
 }
 
 $idUser = $_SESSION['id_user'];
-
+// WHERE us.email = '".$email."'";
 // acction จาก guide.php
 
 $new_car        = $_REQUEST['car'];
@@ -21,7 +21,7 @@ $new_travel     = $_REQUEST['travel_form'];
 $new_saving     = $_REQUEST['saving'];
 $province       = $_REQUEST['check_province'];
 
-$conn_user = "SELECT * FROM info_users WHERE id_user = $idUser";
+$conn_user = "SELECT * FROM info_users WHERE id_user = '".$idUser."'";
 $conn_u    = $conn->query($conn_user);
 $conUser   = $conn_u->fetch_assoc();
 
@@ -33,6 +33,7 @@ $new_congenital_dis      = $conUser['congenital_dis'];
 $new_name_congenital_dis = $conUser['name_congenital_dis'];
 $new_body_movement       = $conUser['body_movement'];
 
+// echo $new_gender;
 /*
 $new_gender              = "หญิง";
 $new_age                 = "50";
@@ -56,7 +57,6 @@ $oldcase_db = "SELECT * FROM oldcase as oc
         ORDER BY oc.id ASC ";
 
 $key = $conn->query($oldcase_db);
-// $key->num_rows > 0;
 
 $n1 = 0;
 $t1 = "";

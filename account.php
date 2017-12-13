@@ -20,11 +20,12 @@ $email = $_SESSION['email'];
 
 $sql_account = "SELECT * FROM users as us
 			INNER JOIN info_users as info on us.id_user = info.id_user
-			WHERE email = '".$email."'";
+			WHERE us.email = '".$email."'";
 
 $result      = $conn->query($sql_account);
 $callAccount = $result->fetch_assoc();
 
+$_SESSION['id_user'] = $callAccount['id_user'];
 echo $callAccount['id_user'];
 echo $callAccount['first_name'];
 /*
@@ -41,15 +42,15 @@ echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
 <script type="text/javascript">
 
 // var agender = <?php echo $callAccount['gender'];
-//                                                                                                                                                           ?>;
+//                                                                                                                                                                ?>;
 // var career = <?php echo $callAccount['career'];
-//                                                                                                                                                           ?>;
+//                                                                                                                                                                ?>;
 // var congenital_dis = <?php echo $callAccount['congenital_dis'];
-//                                                                                                                                                           ?>;
+//                                                                                                                                                                ?>;
 // var name_congenital_dis = <?php echo $callAccount['name_congenital_dis'];
-//                                                                                                                                                           ?>;
+//                                                                                                                                                                ?>;
 // var body_movement = <?php echo $callAccount['body_movement'];
-//                                                                                                                                                           ?>;
+//                                                                                                                                                                ?>;
 
 </script>
 <!DOCTYPE html>
@@ -87,7 +88,7 @@ echo $callAccount['gender'];
 
 					</div>
 					<div class="card-body">
-						<div class="form-acc">
+						<div class="form-row">
 							<div class="form-group col-md-3">
 								<p>เพศ</p>
 								<label class="custom-control custom-radio">
@@ -135,7 +136,7 @@ echo $callAccount['gender'];
 								</select>
 							</div>
 						</div>
-						<div class="form-acc">
+						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="first_name">ชื่อ</label>
 								<input class="form-control" id="first_name" name="first_name" placeholder="กรุณากรอกชื่อ" required="" type="text"
@@ -146,7 +147,7 @@ echo $callAccount['gender'];
 								<input class="form-control" id="last_name" name="last_name" placeholder="กรุณากรอกนามสกุล" required="" type="text" value="<?php echo $callAccount['last_name'];?>">
 							</div>
 						</div>
-						<div class="form-acc">
+						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="email">Email</label>
 								<input class="form-control" id="email" name="email" placeholder="กรุณากรอก E-mail" required="" type="email" value="<?php echo $callAccount['email'];?>">
@@ -157,7 +158,7 @@ echo $callAccount['gender'];
             					placeholder="xxx-xxxxxxx" required="" type="text" value="<?php echo $callAccount['telephone'];?>">
 							</div>
 						</div>
-						<div class="form-acc">
+						<div class="form-row">
 							<div class="form-group col-md-6" id="autodistrict">
 								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text"
 								value="<?php echo $callAccount['district'];?>">
@@ -167,7 +168,7 @@ echo $callAccount['gender'];
 								value="<?php echo $callAccount['amphoe'];?>">
 							</div>
 						</div>
-						<div class="form-acc">
+						<div class="form-row">
 							<div class="form-group col-md-6" id="autoprovince">
 								<label for="validationDefault04">จังหวัด</label> <input class="form-control" id="validationDefault04" name="county" placeholder="กรุณากรอกจังหวัด" required="" type="text"
 								value="<?php echo $callAccount['county'];?>">
@@ -185,7 +186,7 @@ echo $callAccount['gender'];
 						ข้อมูลด้านสุขภาพ
 					</div>
 					<div class="card-body">
-						<div class="form-acc">
+						<div class="form-row">
 							<div class="form-group col-md-4">
 								<p>โรคประจำตัว</p>
 								<label class="custom-control custom-radio">
