@@ -9,8 +9,9 @@ require './include/db_connect.php';
   <title>Sign-Up/Login Form</title>
 <?php
 include './include/include_head.php';
-include './css/css.html';
 include 'menu.php';
+
+include './css/css.html';
 ?>
 </head>
 

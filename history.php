@@ -17,59 +17,31 @@ $conn_location = "SELECT * FROM transcript as ts
 INNER JOIN location as lc on ts.id_location = lc.id_location
 INNER JOIN province as pv on lc.id_province = pv.id_province
 WHERE ts.id_user = '".$idUser."'";
-//WHERE id_user = 'idUser()'";
 
 $connect = $conn->query($conn_location);
-// $history = $connect->fetch_assoc();
-// $id_location = "";
-// $count = 0;
-/*
-while ($history = $connect->fetch_assoc()) {
-//  echo $history['id_location'], "<br>";
-if ($count == 0) {
-$id_location = $id_location.$history['id_location'];
-} else if ($count > 0) {
-$id_location = $id_location.",".$history['id_location'];
-}
-// $id_location = $id_location.$history['id_location'].",";
-$count = $coun_t+1;
-}
- */
 
 if ($connect->num_rows > 0) {
 
-	$id_location = array();
+	$location = array();
 
 	while ($history = $connect->fetch_assoc()) {
 
-		$id_location[] = $history['id_location'];
+		$location[] = $history['id_location'];
 
-	}
-
-	print_r($id_location);
-	echo '<br>';
-	$arrlength = count($id_location);
-
-	echo $arrlength;
-	echo '<br>';
-
-	for ($i = 0; $i < $arrlength; $i++) {
-		echo $id_location[$i].',';
-		echo "<br>";
-		$id = $id_location[$i].',';
 	}
 
 }
 
-echo $id;
-echo "<br>";
+$str = "";
 
-$id_location = $id_location[2].',';
-// $id_location = $history['id_location'];
-// $id_location = "1".","."2".","."3";
-// $id_location = "1";
-// $id_location = "1".","."2".",";
-echo "Location is ", $id_location;
+foreach ($location as $value) {
+	$str = $str.$value.",";
+
+}
+
+echo $str;
+
+$location = $str;
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,7 +68,8 @@ echo "Location is ", $id_location;
    }*/
  </style>
  <script type="text/javascript">
-   var idLocation = "<?php echo $id_location;?>";
+      var idLocation = "<?php echo $location;?>";
+   // document.write(idLocation);
  </script>
  <title>ประวัติการท่องเที่ยว</title>
 </head>
@@ -224,6 +197,7 @@ echo $history['memo_detail'];
 
           function setMarkers(map) {
             var positionMarker = idLocation.split(",");
+            // var positionMarker = idLocation;
 
             for(i = 0; i < positionMarker.length; i++){
               for(j = 0; j < datalocation.length; j++){

@@ -42,15 +42,15 @@ echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
 <script type="text/javascript">
 
 // var agender = <?php echo $callAccount['gender'];
-//                                                                                                                                                                 ?>;
+//                                                                                                                                                                      ?>;
 // var career = <?php echo $callAccount['career'];
-//                                                                                                                                                                 ?>;
+//                                                                                                                                                                      ?>;
 // var congenital_dis = <?php echo $callAccount['congenital_dis'];
-//                                                                                                                                                                 ?>;
+//                                                                                                                                                                      ?>;
 // var name_congenital_dis = <?php echo $callAccount['name_congenital_dis'];
-//                                                                                                                                                                 ?>;
+//                                                                                                                                                                      ?>;
 // var body_movement = <?php echo $callAccount['body_movement'];
-//                                                                                                                                                                 ?>;
+//                                                                                                                                                                      ?>;
 
 </script>
 <!DOCTYPE html>
@@ -77,7 +77,10 @@ echo $callAccount['gender'];
 	<section>
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
 		<form action="edit_account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
-			<div class="container">
+			<div class="container" style="padding-top: 50px;
+    padding-right: 8%;
+    padding-bottom: 20px;
+    padding-left: 8%;">
 				<div style="font-size:3em; color:Tomato">
   <i class="fas fa-camera-retro"></i>
 </div>
@@ -255,7 +258,10 @@ echo $callAccount['gender'];
 				</div>
 				<hr>
 			</div>
-			<div class="container">
+			<div class="container" style="padding-top: 0px;
+    padding-right: 8%;
+    padding-bottom: 50px;
+    padding-left: 8%;">
 				<div class="text-right">
 					<button class="btn btn-outline-success" type="submit" name="edit_account">บันทึกข้อมูล</button>
 				</div>
