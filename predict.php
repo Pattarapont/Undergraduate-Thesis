@@ -9,6 +9,18 @@ if (!isSignin()) {
 	header("location: singin.php");
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	if (isset($_POST['research'])) {
+
+		header("Location: guide.php");
+
+	} elseif (isset($_POST['save_location'])) {
+
+		header("Location: save_location.php");
+
+	}
+}
+
 $idUser = $_SESSION['id_user'];
 // WHERE us.email = '".$email."'";
 // acction จาก guide.php
@@ -309,7 +321,9 @@ echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
  */
-$_SESSION['id_location'] = $answer['id_location'];
+$_SESSION['id_location']   = $answer['id_location'];
+$_SESSION['name_location'] = $answer['name_location'];
+$_SESSION['name_province'] = $answer['name_province'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -331,17 +345,6 @@ echo "สถานที่ : ", $answer['name_location'], "<br>";
 echo "เคสที่ : ", $answer['id'], "<br>";
 echo "จังหวัด : ", $answer['name_province'], "<br>";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (isset($_POST['research'])) {
-
-		header("Location: guide.php");
-
-	} elseif (isset($_POST['save_location'])) {
-
-		header("Location: save_location.php");
-
-	}
-}
 ?>
   <section style="padding: 10px 0px">
     <div class="container">
