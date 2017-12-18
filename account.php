@@ -25,36 +25,29 @@ $sql_account = "SELECT * FROM users as us
 $result      = $conn->query($sql_account);
 $callAccount = $result->fetch_assoc();
 
-$_SESSION['id_user'] = $callAccount['id_user'];
-echo $callAccount['id_user'];
-echo $callAccount['first_name'];
-/*
-$idUser = $callAccount['id_user'];
-echo $idUser;
+// $_SESSION['id_user'] = $callAccount['id_user'];
+// echo $callAccount['id_user'];
+// echo $callAccount['first_name'];
+// echo $age    = $callAccount['age'];
+// echo $gender = $callAccount['gender'];
 
-echo $callAccount['id_user'];
-echo "<br>";
-
-echo $callAccount['id_user'];
-echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
- */
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 
 	<script type="text/javascript">
+      var Gender = "<?php echo $callAccount['gender'];?>";
+   // document.write(Gender);
+	var Career = "<?php echo $callAccount['career'];?>";
+// document.write(Career);
+	var CongenitalDis = "<?php echo $callAccount['congenital_dis'];?>";
+	// document.write(CongenitalDis);
+	var NameCongenitalDis = "<?php echo $callAccount['name_congenital_dis'];?>";
+	// document.write(NameCongenitalDis);
+	var BodyMovement = "<?php echo $callAccount['body_movement'];?>";
+	// document.write(BodyMovement);
 
-	// var agender = <?php echo $callAccount['gender'];
-//                                                                                                                                                                            ?>;
-	// var career = <?php echo $callAccount['career'];
-//                                                                                                                                                                            ?>;
-	// var congenital_dis = <?php echo $callAccount['congenital_dis'];
-//                                                                                                                                                                            ?>;
-	// var name_congenital_dis = <?php echo $callAccount['name_congenital_dis'];
-//                                                                                                                                                                            ?>;
-	// var body_movement = <?php echo $callAccount['body_movement'];
-//                                                                                                                                                                            ?>;
 
 	</script>
 	<link href="./jquery.Thailand.js/dist/jquery.Thailand.min.css" rel="stylesheet">
@@ -95,8 +88,8 @@ echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
 									<option value="พนักงานบริษัท">
 										พนักงานบริษัท
 									</option>
-									<option value="เกษตรกรรม">
-										เกษตรกรรม
+									<option value="เกษตรกร">
+										เกษตรกร
 									</option>
 									<option value="รับจ้างทั่วไป">
 										รับจ้างทั่วไป
@@ -172,7 +165,7 @@ echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
 									<option value="จอประสาทตาเสื่อม">
 										จอประสาทตาเสื่อม
 									</option>
-									<option value="">
+									<option value="อื่นๆ">
 										โรคอื่นๆ
 									</option>
 								</select>
@@ -248,15 +241,90 @@ echo "eeeeeeeeeeeee".$callAccount['gender'], $callAccount["age"];
 	             });
 	</script>
 	<script>
-	   // .val()
-	$( "input#gender").val(["ชาย"]);
-	$( "#career").val([ "ธุรกิจส่วนตัว"]);
-	$( "input#congenital_dis").val([ "1"]);
-	$( "#name_congenital_dis").val([ "โรคหัวใจ"]);
-	$( "#body_movement").val([ "เดินได้เล็กน้อย" ]);
+// Gender
+if(Gender == "ชาย"){
+	$("input#gender").val(["ชาย"]);
+}
+else if(Gender == "หญิง"){
+	$("input#gender").val(["หญิง"]);
+}
 
-	</script> <?php
-$conn->close();
-?>
+// Career
+if(Career == "รับราชการ"){
+$( "#career").val([ "รับราชการ"]);
+}
+else if(Career== "ธุรกิจส่วนตัว"){
+$( "#career").val([ "ธุรกิจส่วนตัว"]);
+}
+else if(Career =="ค้าขาย"){
+$( "#career").val([ "ค้าขาย"]);
+}
+else if(Career == "พนักงานบริษัท"){
+$( "#career").val([ "พนักงานบริษัท"]);
+}
+else if(Career =="เกษตรกร"){
+$( "#career").val([ "เกษตรกร"]);
+}
+else if(Career== "รับจ้างทั่วไป"){
+$( "#career").val([ "รับจ้างทั่วไป"]);
+}
+else if(Career== "อื่นๆ"){
+$( "#career").val([ "อื่นๆ"]);
+}
+
+// CongenitalDis
+if(CongenitalDis == "1"){
+$( "input#congenital_dis").val([ "1"]);
+}
+else if(CongenitalDis == "0"){
+$( "input#congenital_dis").val([ "0"]);
+}
+
+// NameCongenitalDis
+if(NameCongenitalDis == "โรคหัวใจ"){
+$( "#name_congenital_dis").val([ "โรคหัวใจ"]);
+}
+else if(NameCongenitalDis == "เบาหวาน"){
+$( "#name_congenital_dis").val([ "เบาหวาน"]);
+}
+else if(NameCongenitalDis == "ความดันโลหิต"){
+$( "#name_congenital_dis").val([ "ความดันโลหิต"]);
+}
+else if(NameCongenitalDis == "ข้อเข่าเสื่อม"){
+$( "#name_congenital_dis").val([ "ข้อเข่าเสื่อม"]);
+}
+else if(NameCongenitalDis == "จอประสาทตาเสื่อม"){
+$( "#name_congenital_dis").val([ "จอประสาทตาเสื่อม"]);
+}
+else if(NameCongenitalDis == "อื่นๆ"){
+$( "#name_congenital_dis").val([ "อื่นๆ"]);
+}
+
+// body_movement
+if(BodyMovement == "เดินได้ปกติ"){
+$( "#body_movement").val([ "เดินได้ปกติ"]);
+}
+else if(BodyMovement == "เดินได้เล็กน้อย"){
+$( "#body_movement").val([ "เดินได้เล็กน้อย"]);
+}
+else if(BodyMovement == "เดินได้เล็กน้อย/ใช้ไม้เท้า"){
+$( "#body_movement").val([ "เดินได้เล็กน้อย/ใช้ไม้เท้า"]);
+}
+else if(BodyMovement == "เดินได้เล็กน้อย/ใช้รถเข็น"){
+$( "#body_movement").val([ "เดินได้เล็กน้อย/ใช้รถเข็น"]);
+}
+else if(BodyMovement == "เดินไม่ได้/ใช้รถเข็น"){
+$( "#body_movement").val([ "เดินไม่ได้/ใช้รถเข็น"]);
+}
+
+	   // .val()
+	// $( "input#gender").val(["ชาย"]);
+	// $( "#career").val([ "ค้าขาย"]);
+	// $( "input#congenital_dis").val([ "1"]);
+	// $( "#name_congenital_dis").val([ "โรคหัวใจ"]);
+	// $( "#body_movement").val([ "เดินได้เล็กน้อย" ]);
+
+	</script>
+<?php $conn->close();?>
 </body>
 </html>
