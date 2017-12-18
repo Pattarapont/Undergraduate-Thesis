@@ -64,7 +64,7 @@ $memo     = $memo_d;
            }*/
            #map {
              height: 85%;
-             width: 100%;
+             width: 50%;
              /*background-color: grey;*/
            }
    /*.map-icon-label .map-icon {
@@ -79,20 +79,20 @@ $memo     = $memo_d;
   <title>ประวัติการท่องเที่ยว</title>
 </head>
 <body>
-  <section>
+  <section style="padding: 30px 0px;">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-12" id="map"></div>
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-7 col-sm-7 col-xs-12" id="map" ></div>
+        <div class="col-md-5 col-sm-5 col-xs-12">
           <br>
           <h5>ประวัติการท่องเที่ยว</h5>
           <div class="card" style="width: 100%">
-            <img alt="Card image cap" class="card-img-top" id="Img" src="http://via.placeholder.com/350x300">
+            <img alt="Card image cap" class="card-img-top" id="Img" src="http://via.placeholder.com/350x300" style="width: 100%;">
             <div class="card-body">
               <h6 id="nameLocation">สถานที่ : </h6>
               <p id="province"><small>จังหวัด : </small></p>
               <hr>
-              <p id="memo">บันทึก : </p>
+              <p id="memo_detail">บันทึก : </p>
 
                 <small>
                   <p>วันเวลา : </p></small>
@@ -114,12 +114,14 @@ $memo     = $memo_d;
 
 
       function getArray(location_marker) {
-
+                var memo_detail = Memo.split(",");
+               // alert(Memo);
                for(j = 0; j < datalocation.length; j++){
+
                 if (datalocation[j].id_location == location_marker){
                   document.getElementById("province").innerHTML = "จังหวัด : " + datalocation[j].province;
                   document.getElementById("nameLocation").innerHTML = "สถานที่ : " + datalocation[j].name;
-                  document.getElementById("memo").innerHTML = "บันทึก : " + memo[location_marker];
+                  document.getElementById("memo_detail").innerHTML = "บันทึก : " + memo_detail[j];
                   document.getElementById("Img").src = datalocation[j].img;
                }
              }
@@ -138,8 +140,6 @@ $memo     = $memo_d;
 
      function setMarkers(map) {
        var positionMarker = idLocation.split(",");
-        var memo = Memo.split(",");
-             // var positionMarker = idLocation;
 
              for(i = 0; i < positionMarker.length; i++){
                for(j = 0; j < datalocation.length; j++){

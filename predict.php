@@ -298,13 +298,7 @@ if ($new_money) {
 }
 
 $result = ($resultmath/68)*100;
-/*
-echo $result;
-echo "<br>";
-echo "สถานที่ : ", $answer['name_location'], "<br>";
-echo "เคสที่ : ", $answer['id'], "<br>";
-echo "จังหวัด : ", $answer['name_province'], "<br>";
- */
+
 $_SESSION['id_location']   = $answer['id_location'];
 $_SESSION['name_location'] = $answer['name_location'];
 $_SESSION['name_province'] = $answer['name_province'];
@@ -315,57 +309,26 @@ $_SESSION['name_province'] = $answer['name_province'];
   <title>แนะนำสถานที่ท่องเที่บง</title>
 </head>
 <body>
-<?php
 
-// echo $result;
-// echo "<br>";
-print(number_format($result, 2));
-// echo "<br>";
-// echo $answer['id_location'];
-// echo "<br>";
-// echo "สถานที่ : ", $answer['name_location'], "<br>";
-// echo "เคสที่ : ", $answer['id'], "<br>";
-// echo "จังหวัด : ", $answer['name_province'], "<br>";
-
-?>
-  <section style="padding: 10px 0px">
+  <section style="padding: 10px 10px;">
     <div class="container">
-
-    <h2>ผลการค้นหาสถานที่ท่องเที่ยวคือ</h2>
-
-      <hr>
-      <br>
-    <div class="row">
-      <center>
-      	<form action="predict.php" method="post">
-      		<div class="col-md-8 col-sm-12 col-xs-12">
-        <div class="card mb-3">
-                    <img alt="Card image cap" class="card-img-top" src="images/location/<?php echo $answer['img'];?>">
-          <div class="card-body">
-            <h4 class="card-title"><?php
-echo $answer['name_location'];
-?></h4>
-            <div>
-            	<p class="card-text">
-<?php
-echo "จังหวัด : ", $answer['name_province'];?></p>
-           <p>
-</div>
-<div>
-	<small>ค่าความเหมาะสม : <?php print(number_format($result, 2))."%";?> </small>
-</div>
-             <button type="submit" class="btn btn-outline-primary" name="research">ค้นหาสถานที่ใหม่</button>
-	<button type="submit" class="btn btn-outline-warning" name="save_location">เลือกสถานที่</button>
-
-           </p>
-          </div>
-        </div>
-      </div>
-      	</form>
-
-
-      </center>
-    </div>
+    	<h3 class="text-center" style="padding: 20px 10px;">ผลการค้นหาสถานที่ท่องเที่ยวคือ</h3>
+    	<div class="row">
+    		<div class="card mx-auto" style="width: 30rem;">
+    			<form action="predict.php" method="post">
+    			<img class="card-img-top" src="images/location/<?php echo $answer['img'];?>" alt="Card image cap">
+    			<div class="card-body">
+    				<h4 class="card-title text-center"><?php echo $answer['name_location'];?></h4>
+    				<p class="card-text text-right"><?php echo "จังหวัด : ", $answer['name_province'];?></p>
+    				<p class="text-right"><small >ค่าความเหมาะสม : <?php print(number_format($result, 2))."%";?> </small></p>
+    			</div>
+    			<div class="text-center">
+					<button type="submit" class="btn btn-outline-primary" name="research">ค้นหาสถานที่ใหม่</button>
+					<button type="submit" class="btn btn-outline-warning" name="save_location">เลือกสถานที่</button>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
   </div>
 
   </section>
