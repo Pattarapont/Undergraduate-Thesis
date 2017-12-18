@@ -119,7 +119,7 @@ $memo     = $memo_d;
                 if (datalocation[j].id_location == location_marker){
                   document.getElementById("province").innerHTML = "จังหวัด : " + datalocation[j].province;
                   document.getElementById("nameLocation").innerHTML = "สถานที่ : " + datalocation[j].name;
-                  document.getElementById("memo").innerHTML = "บันทึก : " + memo[j];
+                  document.getElementById("memo").innerHTML = "บันทึก : " + memo[location_marker];
                   document.getElementById("Img").src = datalocation[j].img;
                }
              }
