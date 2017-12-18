@@ -20,7 +20,7 @@ WHERE ts.id_user = '".$idUser."' ";
 // WHERE ts.id_user = '".$idUser."' ORDER BY ts.id_transcript ASC ";
 
 $connect = $conn->query($conn_location);
-$history = $connect->fetch_assoc();
+
 if ($connect->num_rows >= 0) {
 
 	$location = array();
@@ -35,6 +35,8 @@ if ($connect->num_rows >= 0) {
 	}
 
 }
+
+// $history = $connect->fetch_assoc();
 
 echo $history['img'];
 print_r($memo);
