@@ -1,5 +1,9 @@
 /* import scss file form dir custom
 */
+@font-face {
+  font-family: 'Prompt', sans-serif;
+  font-family: 'Athiti', sans-serif; }
+
 html, body {
   width: 100%;
   height: 100%; }
