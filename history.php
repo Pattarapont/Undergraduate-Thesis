@@ -17,7 +17,6 @@ $conn_location = "SELECT * FROM transcript as ts
 INNER JOIN location as lc on ts.id_location = lc.id_location
 INNER JOIN province as pv on lc.id_province = pv.id_province
 WHERE ts.id_user = '".$idUser."' ";
-// WHERE ts.id_user = '".$idUser."' ORDER BY ts.id_transcript ASC ";
 
 $connect = $conn->query($conn_location);
 
@@ -36,29 +35,21 @@ if ($connect->num_rows >= 0) {
 
 }
 
-// $history = $connect->fetch_assoc();
-
-echo $history['img'];
 print_r($memo);
-print_r($img);
+//  print_r($img);
 
-$str = "";
-
+$str    = "";
+$memo_d = "";
 foreach ($location as $value) {
 	$str = $str.$value.",";
-
 }
-
-$location = $str;
-
-$memo_d = "";
 
 foreach ($memo as $value) {
 	$memo_d = $memo_d.$value.",";
-
 }
 
-echo $memo = $memo_d;
+$location = $str;
+$memo     = $memo_d;
 ?>
 <!DOCTYPE html>
 <html>
@@ -84,12 +75,7 @@ echo $memo = $memo_d;
     white-space: nowrap;
     }*/
   </style>
-  <script type="text/javascript">
-   var idLocation = "<?php echo $location;?>";
-   var Memo = "<?php echo $memo;?>";
-   var dateTime = "<?php echo $history['date'];?>";
-    // document.write(idLocation);
-  </script>
+
   <title>ประวัติการท่องเที่ยว</title>
 </head>
 <body>
@@ -101,23 +87,80 @@ echo $memo = $memo_d;
           <br>
           <h5>ประวัติการท่องเที่ยว</h5>
           <div class="card" style="width: 100%">
-            <img alt="Card image cap" class="card-img-top" src="./images/location/1.jpg">
+            <img alt="Card image cap" class="card-img-top" id="Img" src="http://via.placeholder.com/350x300">
             <div class="card-body">
-              <h6 id="nameLocation"></h6>
-              <p id="province"><small></small></p>
+              <h6 id="nameLocation">สถานที่ : </h6>
+              <p id="province"><small>จังหวัด : </small></p>
               <hr>
-              <p id="memo">memo นะ</p>
+              <p id="memo">บันทึก : </p>
 
                 <small>
-                  <p>
- วันเวลา        </small></p>
+                  <p>วันเวลา : </p></small>
             </div>
           </div>
         </div>
       </div>
-      <div class="row" id="myId"> <h2> 8;p</h2></div>
+
     </div>
+
   </section>
+  <script src="./js/locations.json">
+     </script>
+     <script>
+
+   var idLocation = "<?php echo $location;?>";
+   var Memo = "<?php echo $memo;?>";
+   var dateTime = "<?php echo $history['date'];?>";
+
+
+      function getArray(location_marker) {
+
+               for(j = 0; j < datalocation.length; j++){
+                if (datalocation[j].id_location == location_marker){
+                  document.getElementById("province").innerHTML = "จังหวัด : " + datalocation[j].province;
+                  document.getElementById("nameLocation").innerHTML = "สถานที่ : " + datalocation[j].name;
+                  document.getElementById("memo").innerHTML = "บันทึก : " + memo[j];
+                  document.getElementById("Img").src = datalocation[j].img;
+               }
+             }
+      }
+
+      function initMap() {
+       var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 7,
+         center: {lat: 18.5398488, lng: 100.62403}
+       });
+
+       var infoWindow = new google.maps.InfoWindow;
+
+       setMarkers(map);
+     }
+
+     function setMarkers(map) {
+       var positionMarker = idLocation.split(",");
+        var memo = Memo.split(",");
+             // var positionMarker = idLocation;
+
+             for(i = 0; i < positionMarker.length; i++){
+               for(j = 0; j < datalocation.length; j++){
+                 if (datalocation[j].id_location == positionMarker[i]){
+                   var marker = new google.maps.Marker({
+                     position: {lat: datalocation[j].lat, lng: datalocation[j].lng},
+                     map: map,
+                   });
+                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                      getArray(positionMarker[i]);
+                    }
+                  })(marker, i));
+                 }
+               }
+             }
+           }
+
+         </script>
+         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Q08GZVHA3-W9eZstsk3dgZRUrCoqBqU&callback=initMap">
+         </script>
   <script>
      /*
        var customLabel = {
@@ -193,59 +236,6 @@ echo $memo = $memo_d;
        function doNothing() {}
        */
      </script>
-     <script src="./js/locations.json">
-     </script>
-     <script>
 
-      function myFunction(location_marker) {
-        var memo = Memo.split(",");
-        // alert(memo);
-               for(j = 0; j < datalocation.length; j++){
-                if (datalocation[j].id_location == location_marker){
-                  document.getElementById("province").innerHTML = "จังหวัด : " + datalocation[j].province;
-                  document.getElementById("nameLocation").innerHTML = "สถานที่ : " + datalocation[j].name;
-                  document.getElementById("memo").innerHTML = memo[j];
-
-               }
-             }
-      }
-
-      function initMap() {
-       var map = new google.maps.Map(document.getElementById('map'), {
-         zoom: 10,
-         center: {lat: 16.744411, lng: 100.192972}
-       });
-
-       var infoWindow = new google.maps.InfoWindow;
-
-       setMarkers(map);
-     }
-
-     function setMarkers(map) {
-       var positionMarker = idLocation.split(",");
-
-             // var positionMarker = idLocation;
-
-             for(i = 0; i < positionMarker.length; i++){
-               for(j = 0; j < datalocation.length; j++){
-                 if (datalocation[j].id_location == positionMarker[i]){
-                   var marker = new google.maps.Marker({
-                     position: {lat: datalocation[j].lat, lng: datalocation[j].lng},
-                     map: map,
-                   });
-                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-                      // alert(positionMarker[i]);
-                      myFunction(positionMarker[i]);
-                    }
-                  })(marker, i));
-                 }
-               }
-             }
-           }
-
-         </script>
-         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9Q08GZVHA3-W9eZstsk3dgZRUrCoqBqU&callback=initMap">
-         </script>
        </body>
        </html>

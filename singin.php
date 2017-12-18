@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" required autocomplete="off" name="password"/>
           </div>
 
-          <p class="forgot"><a href="forgot.php">ลืมรหัสผ่าน ?</a></p>
+          <!-- <p class="forgot"><a href="forgot.php">ลืมรหัสผ่าน ?</a></p> -->
 
           <button class="button button-block" name="login" />เข้าสู่ระบบ</button>
 

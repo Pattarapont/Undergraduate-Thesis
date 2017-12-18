@@ -24,13 +24,13 @@ require "include/db_connect.php";
 					<a class="nav-link" href="history.php"><i class="fa fa-history"></i> <span>ประวัติการท่องเที่ยว</span></a>
 				</li>
 			</ul>
-			<ul class="navbar-nav navbar-right ml-auto" style="margin-right: 2%;">
+			<ul class="navbar-nav navbar-right ml-auto" style="margin-right: 4%;">
 <?php
 if (isSignin() !== TRUE) {
 	?>
-							<li class="nav-item">
-								<a class="nav-link" href="singin.php"><i class="material-icons">&#xE890;</i> <span>เข้าสู่ระบบ</span></a>
-							</li><?php
+									<li class="nav-item">
+										<a class="nav-link" href="singin.php"><i class="material-icons">&#xE890;</i> <span>เข้าสู่ระบบ</span></a>
+									</li><?php
 } else {
 	$email       = $_SESSION['email'];
 	$show_userer = "SELECT * FROM users as us
@@ -40,8 +40,8 @@ if (isSignin() !== TRUE) {
 	$show_user = $result->fetch_assoc();
 
 	?>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle user-action" data-toggle="dropdown" href="#"><?php
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle user-action" data-toggle="dropdown" href="#"><?php
 	if ($show_user['gender'] == "ชาย") {
 		?> <img alt="Avatar" class="avatar" src="https://image.flaticon.com/icons/svg/145/145842.svg"> <?php
 		echo $_SESSION['first_name'];
@@ -52,16 +52,16 @@ if (isSignin() !== TRUE) {
 		?> <img alt="Avatar" class="avatar" src="https://image.flaticon.com/icons/svg/149/149071.svg"> <?php
 		echo $_SESSION['first_name'];
 		?><b class="caret"></b> <?php }?></a>
-								<ul class="dropdown-menu">
-									<li>
-										<a class="dropdown-item" href="account.php"><i class="fa fa-user"></i> บัญชี</a>
-									</li>
-									<li class="divider dropdown-divider"></li>
-									<li>
-										<a class="dropdown-item" href="logout.php"><i class="material-icons">&#xE8AC;</i> ออกจากระบบ</a>
-									</li>
-								</ul>
-							</li><?php
+										<ul class="dropdown-menu">
+											<li>
+												<a class="dropdown-item" href="account.php"><i class="fa fa-user"></i> บัญชี</a>
+											</li>
+											<li class="divider dropdown-divider"></li>
+											<li>
+												<a class="dropdown-item" href="logout.php"><i class="material-icons">&#xE8AC;</i> ออกจากระบบ</a>
+											</li>
+										</ul>
+									</li><?php
 }?>
 			</ul>
 		</div>

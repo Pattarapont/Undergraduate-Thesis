@@ -317,15 +317,15 @@ $_SESSION['name_province'] = $answer['name_province'];
 <body>
 <?php
 
-echo $result;
-echo "<br>";
+// echo $result;
+// echo "<br>";
 print(number_format($result, 2));
-echo "<br>";
-echo $answer['id_location'];
-echo "<br>";
-echo "สถานที่ : ", $answer['name_location'], "<br>";
-echo "เคสที่ : ", $answer['id'], "<br>";
-echo "จังหวัด : ", $answer['name_province'], "<br>";
+// echo "<br>";
+// echo $answer['id_location'];
+// echo "<br>";
+// echo "สถานที่ : ", $answer['name_location'], "<br>";
+// echo "เคสที่ : ", $answer['id'], "<br>";
+// echo "จังหวัด : ", $answer['name_province'], "<br>";
 
 ?>
   <section style="padding: 10px 0px">
@@ -345,10 +345,15 @@ echo "จังหวัด : ", $answer['name_province'], "<br>";
             <h4 class="card-title"><?php
 echo $answer['name_location'];
 ?></h4>
-            <p class="card-text">
+            <div>
+            	<p class="card-text">
 <?php
 echo "จังหวัด : ", $answer['name_province'];?></p>
            <p>
+</div>
+<div>
+	<small>ค่าความเหมาะสม : <?php print(number_format($result, 2))."%";?> </small>
+</div>
              <button type="submit" class="btn btn-outline-primary" name="research">ค้นหาสถานที่ใหม่</button>
 	<button type="submit" class="btn btn-outline-warning" name="save_location">เลือกสถานที่</button>
 

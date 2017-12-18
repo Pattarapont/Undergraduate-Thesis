@@ -34,22 +34,31 @@ if ($conn->query($edit_user) === true && $conn->query($edit_info_user) === true)
 					<div class="col-lg-4 col-lg-offset-4">
 					<div class="panel panel-success">
 					<div class="panel-heading">
-						<h4>บันทึกข้อมูล</h4>
-					</div>
-						<div class="panel-body">
-						<h4>บันข้อมูลสำเร็จ</h4>
+						<h4>บันทึกข้อมูลสำเร็จ</h4>
 					</div>
 					</div>
 					</div>
 					</div>';
 
-	header("Refresh:0.7; url=/et_cbr/account.php");
+	$save_us = "SELECT * FROM users as us
+					INNER JOIN info_users as info on us.id_user = info.id_user
+					WHERE us.id_user = '".$idUser."'";
+
+	$db  = $conn->query($save_us);
+	$col = $db->fetch_assoc();
+
+	if ($col['gender'] == NULL OR $col['age'] == NULL OR $col['career'] == NULL
+		 OR $col['county'] == NULL OR $col['congenital_dis'] == NULL OR $col['body_movement'] == NULL) {
+
+		header("Refresh:0.7; url=/et_cbr/account.php");
+
+	} else {
+
+		header("Refresh:0.7; url=/et_cbr/guide.php");
+	}
 } else {
 	echo "ERROR: Could not able to execute $sql. " .$mysqli->error;
 }
 
 $conn->close();
-
-// header("Location: /et_cbr/guide.php");
-// die();
 ?>

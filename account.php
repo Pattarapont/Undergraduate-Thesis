@@ -6,16 +6,20 @@ include 'menu.php';
 // session_start();
 
 if (!isSignin()) {
+
 	header("location: singin.php");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
 	if (isset($_POST['edit_account'])) {
 
 		require 'edit_account.php';
 
 	}
+
 }
+
 $email = $_SESSION['email'];
 
 $sql_account = "SELECT * FROM users as us
@@ -26,7 +30,8 @@ $result      = $conn->query($sql_account);
 $callAccount = $result->fetch_assoc();
 
 $_SESSION['first_name'] = $callAccount['first_name'];
-// $_SESSION['id_user'] = $callAccount['id_user'];
+$_SESSION['id_user']    = $callAccount['id_user'];
+
 // echo $callAccount['id_user'];
 // echo $callAccount['first_name'];
 // echo $age    = $callAccount['age'];
@@ -349,13 +354,6 @@ $_SESSION['first_name'] = $callAccount['first_name'];
 		        else if(BodyMovement == "เดินไม่ได้/ใช้รถเข็น"){
 		        $( "#body_movement").val([ "เดินไม่ได้/ใช้รถเข็น"]);
 		        }
-
-		              // .val()
-		           // $( "input#gender").val(["ชาย"]);
-		           // $( "#career").val([ "ค้าขาย"]);
-		           // $( "input#congenital_dis").val([ "1"]);
-		           // $( "#name_congenital_dis").val([ "โรคหัวใจ"]);
-		           // $( "#body_movement").val([ "เดินได้เล็กน้อย" ]);
 
 		</script> <?php $conn->close();?>
 	</body>
