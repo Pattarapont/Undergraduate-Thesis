@@ -39,7 +39,7 @@ foreach ($location as $value) {
 
 }
 
-echo $str;
+// echo $str;
 
 $location = $str;
 ?>
@@ -69,7 +69,7 @@ $location = $str;
  </style>
  <script type="text/javascript">
       var idLocation = "<?php echo $location;?>";
-   document.write(idLocation);
+   // document.write(idLocation);
  </script>
  <title>ประวัติการท่องเที่ยว</title>
 </head>

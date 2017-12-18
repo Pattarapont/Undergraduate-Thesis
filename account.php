@@ -58,10 +58,10 @@ $callAccount = $result->fetch_assoc();
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
 		<form action="edit_account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
 			<div class="container" style="padding-top: 20px; padding-right: 8%; padding-bottom: 10px; padding-left: 8%;">
-				<h1>กรุณากรอกข้อมูลของท่าน</h1>
+				<h1>ประวัติส่วนตัว</h1>
 				<div class="card">
 					<div class="card-header">
-						ข้อมูลส่วนตัว
+						ข้อมูลพื้นฐาน
 					</div>
 					<div class="card-body">
 						<div class="form-row">
@@ -105,7 +105,7 @@ $callAccount = $result->fetch_assoc();
 								<label for="first_name">ชื่อ</label> <input class="form-control" id="first_name" name="first_name" placeholder="กรุณากรอกชื่อ" required="" type="text" value="<?php echo $callAccount['first_name'];?>">
 							</div>
 							<div class="form-group col-md-6">
-								<label for="last_name">นามสกุล</label> <input class="form-control" id="last_name" name="last_name" placeholder="กรุณากรอกนามสกุล" required="" type="text" value="<?php echo $callAccount['last_name'];?>">
+								<label for="last_name">นามสกุล</label> <input class="form-control" id="last_name" name="last_name" placeholder="กรุณากรอกนามสกุล" type="text" value="<?php echo $callAccount['last_name'];?>">
 							</div>
 						</div>
 						<div class="form-row">
@@ -113,15 +113,15 @@ $callAccount = $result->fetch_assoc();
 								<label for="email">Email</label> <input class="form-control" id="email" name="email" placeholder="กรุณากรอก E-mail" required="" type="email" value="<?php echo $callAccount['email'];?>">
 							</div>
 							<div class="form-group col-md-6">
-								<label for="telephone">เบอร์โทรศัพท์ (Username)</label> <input class="form-control" id="telephone" maxlength="10" name="telephone" placeholder="xxx-xxxxxxx" required="" type="text" value="<?php echo $callAccount['telephone'];?>">
+								<label for="telephone">เบอร์โทรศัพท์</label> <input class="form-control" id="telephone" maxlength="10" name="telephone" placeholder="เบอร์โทรศัพท์ 10 หลัก" required="" type="text" value="<?php echo $callAccount['telephone'];?>">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6" id="autodistrict">
-								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" required="" type="text" value="<?php echo $callAccount['district'];?>">
+								<label for="validationDefault04">ตำบล</label> <input class="form-control" id="validationDefault04" name="district" placeholder="กรุณากรอกตำบล" type="text" value="<?php echo $callAccount['district'];?>">
 							</div>
 							<div class="form-group col-md-6" id="autoamphoe">
-								<label for="validationDefault04">อำเภอ</label> <input class="form-control" id="validationDefault04" name="amphoe" placeholder="กรุณากรอกอำเภอ" required="" type="text" value="<?php echo $callAccount['amphoe'];?>">
+								<label for="validationDefault04">อำเภอ</label> <input class="form-control" id="validationDefault04" name="amphoe" placeholder="กรุณากรอกอำเภอ" type="text" value="<?php echo $callAccount['amphoe'];?>">
 							</div>
 						</div>
 						<div class="form-row">
@@ -129,7 +129,7 @@ $callAccount = $result->fetch_assoc();
 								<label for="validationDefault04">จังหวัด</label> <input class="form-control" id="validationDefault04" name="county" placeholder="กรุณากรอกจังหวัด" required="" type="text" value="<?php echo $callAccount['county'];?>">
 							</div>
 							<div class="form-group col-md-6" id="autozipcode">
-								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" required="" type="text" value="<?php echo $callAccount['zipcode'];?>">
+								<label for="validationDefault05">รหัสไปรษณีย์</label> <input class="form-control" id="validationDefault05" name="zipcode" placeholder="กรุณากรอกรหัสไปรษณีย์" type="text" value="<?php echo $callAccount['zipcode'];?>">
 							</div>
 						</div>
 					</div>
@@ -145,7 +145,7 @@ $callAccount = $result->fetch_assoc();
 								<p>โรคประจำตัว</p><label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="0"> <span class="custom-control-indicator"></span> <span class="custom-control-description">ไม่มี</span></label> <label class="custom-control custom-radio"><input class="custom-control-input" id="congenital_dis" name="congenital_dis" required="" type="radio" value="1"> <span class="custom-control-indicator"></span> <span class="custom-control-description">มี</span></label>
 							</div>
 							<div class="form-group col-md-4">
-								<label>โรคประจำตัว</label> <select class="custom-select d-block col" id="name_congenital_dis" name="name_congenital_dis" required="">
+								<label>โรคประจำตัว</label> <select class="custom-select d-block col" id="name_congenital_dis" name="name_congenital_dis">
 									<!-- <select class="form-group custom-select d-block col" required> -->
 									<option disabled hidden="" selected value="">
 										-- โปรดเลือกโรคประจำตัว --

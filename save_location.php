@@ -41,10 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<!-- เริ่มกรอกข้อมูลส่วนตัว -->
 		<form action="save_location.php" class="was-validated" method="POST">
 			<div class="container" style="padding-top: 20px; padding-right: 10%; padding-bottom: 10px; padding-left: 10%;">
-				<h1>กรุณากรอกข้อมูลของท่าน</h1>
+				<h1>บันทึกสถานที่ท่องเที่ยว</h1>
 				<div class="card">
 					<div class="card-header">
-						ข้อมูลส่วนตัว
+						ข้อมูลพื้นฐาน
 					</div>
 					<div class="card-body">
 						<div class="form-row">
@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						<div class="form-row">
 							<div class="form-group col-md-12">
 								<label for="memo">จดบันทึก :</label>
-								<textarea class="form-control" id="memo" name="memo" placeholder="บักทึกข้อความ" required="" rows="4"></textarea>
+								<textarea class="form-control" id="memo" name="memo" placeholder="บักทึกข้อความ" rows="4"></textarea>
 							</div>
 							<div class="form-group col-md-12">
 								<div class="text-right">
-									<button class="btn btn-outline-success" name="save_location" type="">บันทึกข้อมูล</button>
+									<button class="btn btn-outline-success" name="save_location" type="submit">บันทึกข้อมูล</button>
 								</div>
 							</div>
 						</div>

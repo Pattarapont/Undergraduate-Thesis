@@ -12,14 +12,14 @@ if (!isSignin()) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>ค้นหาสถานที่ท่องเที่ยว</title>
 </head>
 <body>
 	<div class="container" style="padding-top: 50px;
 	padding-right: 8%;
 	padding-bottom: 50px;
 	padding-left: 8%;">
-	<h1>กรุณากรอกข้อมูลการท่องเที่ยว</h1>
+	<h1>ตัวเลือกการท่องเที่ยว</h1>
 	<div class="row">
 		<div class="col">
 			<div class="card">
