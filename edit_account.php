@@ -50,11 +50,11 @@ if ($conn->query($edit_user) === true && $conn->query($edit_info_user) === true)
 	if ($col['gender'] == NULL OR $col['age'] == NULL OR $col['career'] == NULL
 		 OR $col['county'] == NULL OR $col['congenital_dis'] == NULL OR $col['body_movement'] == NULL) {
 
-		header("Refresh:0.7; url=/et_cbr/account.php");
+		header("Refresh:0.0; url=/et_cbr/account.php");
 
 	} else {
 
-		header("Refresh:0.7; url=/et_cbr/guide.php");
+		header("Refresh:0.0; url=/et_cbr/guide.php");
 	}
 } else {
 	echo "ERROR: Could not able to execute $sql. " .$mysqli->error;

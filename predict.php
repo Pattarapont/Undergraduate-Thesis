@@ -4,29 +4,12 @@ require 'include/db_connect.php';
 include 'include/include_head.php';
 include 'menu.php';
 // session_start();
+$idUser = $_SESSION['id_user'];
 
 if (!isSignin()) {
 	header("location: singin.php");
 }
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-
-	header("Location: guide.php");
-
-} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-	if (isset($_POST['research'])) {
-
-		header("Location: guide.php");
-
-	} elseif (isset($_POST['save_location'])) {
-
-		header("Location: save_location.php");
-
-	}
-}
-
-$idUser = $_SESSION['id_user'];
 // WHERE us.email = '".$email."'";
 // acction จาก guide.php
 
@@ -217,9 +200,6 @@ $t3 = "";
 	}
 }
 
-// echo $t3;
-// echo '<br>';
-
 $casemath = "SELECT * FROM oldcase as oc
         INNER JOIN location as lc on oc.id_location = lc.id_location
         INNER JOIN province as pv on lc.id_province = pv.id_province
@@ -299,9 +279,18 @@ if ($new_money) {
 
 $result = ($resultmath/68)*100;
 
-$_SESSION['id_location']   = $answer['id_location'];
-$_SESSION['name_location'] = $answer['name_location'];
-$_SESSION['name_province'] = $answer['name_province'];
+// echo $_SESSION['id_location'];
+// echo $_SESSION['name_location'];
+
+echo $_SESSION['ca_id_location']   = $answer['id_location'];
+echo $_SESSION['ca_name_location'] = $answer['name_location'];
+echo $_SESSION['ca_name_province'] = $answer['name_province'];
+// $_SESSION['ca_id_user']       = $answer['id_user'];
+
+// $_SESSION['ca_id_location'];
+// $_SESSION['ca_name_location'];
+// $_SESSION['ca_name_province'];
+// $_SESSION['ca_id_user'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -315,16 +304,16 @@ $_SESSION['name_province'] = $answer['name_province'];
     	<h3 class="text-center" style="padding: 20px 10px;">ผลการค้นหาสถานที่ท่องเที่ยวคือ</h3>
     	<div class="row">
     		<div class="card mx-auto" style="width: 30rem;">
-    			<form action="predict.php" method="post">
+    			<form action="predict.php" method="POST">
     			<img class="card-img-top" src="images/location/<?php echo $answer['img'];?>" alt="Card image cap">
     			<div class="card-body">
-    				<h4 class="card-title text-center"><?php echo $answer['name_location'];?></h4>
-    				<p class="card-text text-right"><?php echo "จังหวัด : ", $answer['name_province'];?></p>
+    				<h4 class="card-title text-center"><?php echo $_SESSION['name_location'];?></h4>
+    				<p class="card-text text-right"><?php echo "จังหวัด : ", $_SESSION['name_province'];?></p>
     				<p class="text-right"><small >ค่าความเหมาะสม : <?php print(number_format($result, 2))."%";?> </small></p>
     			</div>
     			<div class="text-center">
 					<button type="submit" class="btn btn-outline-primary" name="research">ค้นหาสถานที่ใหม่</button>
-					<button type="submit" class="btn btn-outline-warning" name="save_location">เลือกสถานที่</button>
+					<button type="submit" class="btn btn-outline-warning" onclick="return clickConfirm();" name="save">เลือกสถานที่</button>
     				</div>
     			</form>
     		</div>
@@ -332,5 +321,16 @@ $_SESSION['name_province'] = $answer['name_province'];
   </div>
 
   </section>
+  <script type="text/javascript">
+
+  	// function clickConfirm(){
+    var check = confirm('ยืนยันการท่องเที่ยว');
+    if(check == true){
+        return true;
+    }else{
+        return false;
+    }
+}
+  </script>
 </body>
 </html>

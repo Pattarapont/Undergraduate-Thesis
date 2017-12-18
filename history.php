@@ -92,10 +92,10 @@ $memo     = $memo_d;
               <h6 id="nameLocation">สถานที่ : </h6>
               <p id="province"><small>จังหวัด : </small></p>
               <hr>
-              <p id="memo_detail">บันทึก : </p>
+              <!-- <p id="memo_detail">บันทึก : </p>
 
                 <small>
-                  <p>วันเวลา : </p></small>
+                  <p>วันเวลา : </p></small> -->
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@ $memo     = $memo_d;
                 if (datalocation[j].id_location == location_marker){
                   document.getElementById("province").innerHTML = "จังหวัด : " + datalocation[j].province;
                   document.getElementById("nameLocation").innerHTML = "สถานที่ : " + datalocation[j].name;
-                  document.getElementById("memo_detail").innerHTML = "บันทึก : " + memo_detail[j];
+                  // document.getElementById("memo_detail").innerHTML = "บันทึก : " + memo_detail[j];
                   document.getElementById("Img").src = datalocation[j].img;
                }
              }

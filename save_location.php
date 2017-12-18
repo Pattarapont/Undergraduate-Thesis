@@ -4,8 +4,8 @@ include 'include/include_head.php';
 include 'menu.php';
 // session_start();
 
-$id_location = $_SESSION['id_location'];
-$idUser      = $_SESSION['id_user'];
+echo $id_location = $_SESSION['id_location'];
+echo $idUser      = $_SESSION['id_user'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (isset($_POST['save_location'])) {

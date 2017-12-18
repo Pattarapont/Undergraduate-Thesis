@@ -8,6 +8,22 @@ if (!isSignin()) {
 	header("location: singin.php");
 }
 
+$email = $_SESSION['email'];
+
+$check_us = "SELECT * FROM users as us
+					INNER JOIN info_users as info on us.id_user = info.id_user
+					WHERE us.email = '".$email."'";
+
+$db       = $conn->query($check_us);
+$check_us = $db->fetch_assoc();
+
+if ($check_us['gender'] == NULL OR $check_us['age'] == NULL OR $check_us['career'] == NULL
+	 OR $check_us['county'] == NULL OR $check_us['congenital_dis'] == NULL OR $check_us['body_movement'] == NULL) {
+
+	header("Refresh:0.3; url=/et_cbr/account.php");
+
+}
+
 ?>
 <!DOCTYPE html>
 <html>
