@@ -1,6 +1,4 @@
 <?php
-// include './include/include_head.php';
-
 /* Displays all error messages */
 session_start();
 ?>
@@ -8,23 +6,21 @@ session_start();
 <html>
 <head>
   <title>Error</title>
-
-<link rel="stylesheet" type="text/css" href="./css/loginstyle.css">
+<?php include 'css/css.html';?>
 </head>
-
 <body>
 <div class="form">
-    <h1>ผิดพลาด</h1>
+    <h1>ผิดพลาด!!</h1>
     <p>
 <?php
 if (isset($_SESSION['message']) AND !empty($_SESSION['message'])):
 echo $_SESSION['message'];
  else :
-header("location: account.php");
+header("location: singin.php");
 endif;
 ?>
 </p>
-    <a href="account.php"><button class="button button-block"/>ลองอีกครั้ง</button></a>
+    <a href="singin.php"><button class="button button-block"/>เข้าสู่ระบบ</button></a>
 </div>
 </body>
 </html>
