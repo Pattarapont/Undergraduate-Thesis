@@ -34,7 +34,7 @@ if ($result->num_rows == 0) {
 		if ($row['gender'] == NULL OR $row['age'] == NULL OR $row['career'] == NULL
 			 OR $row['county'] == NULL OR $row['congenital_dis'] == NULL OR $row['body_movement'] == NULL) {
 
-			header("location: profile.php");
+			header("location: account.php");
 
 		} else {
 

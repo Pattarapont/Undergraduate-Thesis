@@ -19,15 +19,15 @@ $congenital_dis      = $conn->real_escape_string($_REQUEST['congenital_dis']);
 $name_congenital_dis = $conn->real_escape_string($_REQUEST['name_congenital_dis']);
 $body_movement       = $conn->real_escape_string($_REQUEST['body_movement']);
 
-$idUser    = $_SESSION['id_user'];
+$email     = $_SESSION['email'];
 $edit_user = "UPDATE users SET first_name = '$first_name', last_name = '$last_name' , email = '$email',
-telephone = '$telephone' WHERE id_user = $idUser";
+telephone = '$telephone' WHERE email = '" .$email."'";
 
 $edit_info_user = "UPDATE info_users
 SET gender = '$gender', age = '$age', career = '$career', district = '$district', amphoe = '$amphoe',
 	county = '$county', zipcode = '$zipcode', congenital_dis = '$congenital_dis',
 	name_congenital_dis = '$name_congenital_dis', body_movement = '$body_movement'
-	WHERE id_user = $idUser";
+	WHERE id_user = '" .$idUser."'";
 
 if ($conn->query($edit_user) === true && $conn->query($edit_info_user) === true) {
 	echo '	<div class="row" style="margin-top: 200px;">

@@ -46,6 +46,15 @@ if ($result->num_rows > 0) {
 				VALUES (LAST_INSERT_ID())";
 		$conn->query($info);
 
+		$idUser = "SELECT * FROM users as us
+            INNER JOIN info_users as info on us.id_user = info.id_user
+            WHERE us.email = '".$email."'";
+		$result = $conn->query($idUser);
+		$callID = $result->fetch_assoc();
+
+		$_SESSION['id_user'] = $callID['id_user'];
+
+		// echo $_SESSION['id_user'];
 		/*
 		$user = "SELECT * FROM users as us WHERE us.email = $email";
 		echo $email;
@@ -72,7 +81,7 @@ if ($result->num_rows > 0) {
 		// header("location: profile.php");
 		// header("Refresh:0.7; url=/et_cbr/account.php");
 
-		header("location: profile.php");
+		header("location: account.php");
 	} else {
 		$_SESSION['message'] = 'Registration failed!';
 		header("location: error.php");

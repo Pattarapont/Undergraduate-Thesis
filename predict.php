@@ -9,7 +9,12 @@ if (!isSignin()) {
 	header("location: singin.php");
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+
+	header("Location: guide.php");
+
+} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
 	if (isset($_POST['research'])) {
 
 		header("Location: guide.php");
@@ -44,24 +49,6 @@ $new_career              = $conUser['career'];
 $new_congenital_dis      = $conUser['congenital_dis'];
 $new_name_congenital_dis = $conUser['name_congenital_dis'];
 $new_body_movement       = $conUser['body_movement'];
-
-// echo $new_gender;
-/*
-$new_gender              = "หญิง";
-$new_age                 = "50";
-$new_homeland            = "กำแพงเพชร";
-$new_career              = "ค้าขาย";
-$new_congenital_dis      = "1";
-$new_name_congenital_dis = "เบาหวาน";
-$new_body_movement       = "เดินได้ปกติ";
-$new_saving              = "1";
-$new_travel              = "ครอบครัว";
-$new_car                 = "รถส่วนตัว";
-$new_traveltime          = "2";
-$new_camp                = "รีสอร์ท";
-$new_money               = "4";
-$province                = '1';
- */
 
 $oldcase_db = "SELECT * FROM oldcase as oc
         INNER JOIN location as lc on oc.id_location = lc.id_location
@@ -202,9 +189,6 @@ $t3 = "";
 
 		}
 
-		// echo $id;
-		// echo "<br>";
-
 		// เปรียบเทียบค่าหลังจาก query
 		if ($mathtotal >= $n1) {
 			if ($mathtotal >= $n2) {
@@ -332,8 +316,6 @@ $_SESSION['name_province'] = $answer['name_province'];
 </head>
 <body>
 <?php
-// echo $$new_car;
-//
 
 echo $result;
 echo "<br>";
