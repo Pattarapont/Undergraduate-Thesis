@@ -1,7 +1,7 @@
 <?php
 // include "include/include_pre.php";
-require 'include/db_connect.php';
-include 'include/include_head.php';
+require './include/db_connect.php';
+include './include/include_head.php';
 include 'menu.php';
 // session_start();
 $idUser = $_SESSION['id_user'];
@@ -296,8 +296,8 @@ $_SESSION['ca_name_province'] = $answer['name_province'];
     	<h3 class="text-center" style="padding: 20px 10px;">ผลการค้นหาสถานที่ท่องเที่ยวคือ</h3>
     	<div class="row">
     		<div class="card mx-auto" style="width: 30rem;">
-    			<form action="check_predict.php" method="POST">
-    			<img class="card-img-top" src="images/location/<?php echo $answer['img'];?>" alt="Card image cap">
+    			<form action="./include/check_predict.php" method="POST">
+    			<img class="card-img-top" src="./images/location/<?php echo $answer['img'];?>" alt="Card image cap">
     			<div class="card-body">
     				<h4 class="card-title text-center"><?php echo $answer['name_location'];?></h4>
     				<p class="card-text text-right"><?php echo "จังหวัด : ", $answer['name_province'];?></p>

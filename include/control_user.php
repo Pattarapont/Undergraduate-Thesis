@@ -10,17 +10,9 @@ session_start();
 function isSignin() {
 	return isset($_SESSION["logged_in"])?TRUE:FALSE;
 }
-// '".$_SESSION['id_user']."'
+
 function idUser() {
 	return isset($_SESSION['id_user'])?TRUE:FALSE;
 }
-/*
-function requireSignin($bool) {
-if ($bool && !isSignin()) {
-header("Location: signin_form.php?message=require_signined");
-die();
-}
-}
- */
 
 ?>

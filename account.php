@@ -1,7 +1,7 @@
 <?php
 include './include/db_connect.php';
 include './include/include_head.php';
-include 'control_user.php';
+include './include/control_user.php';
 include 'menu.php';
 // session_start();
 
@@ -65,7 +65,7 @@ $_SESSION['id_user']    = $callAccount['id_user'];
 		<section>
 			<!-- เริ่มกรอกข้อมูลส่วนตัว -->
 
-			<form action="edit_account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
+			<form action="./include/edit_account.php" class="was-validated" id="inputpersonal" method="post" name="form_user">
 				<div class="container" style="padding-top: 20px; padding-right: 8%; padding-bottom: 10px; padding-left: 8%;">
 					<h1>
 						ประวัติส่วนตัว

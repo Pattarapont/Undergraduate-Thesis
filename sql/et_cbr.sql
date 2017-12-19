@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 19, 2017 at 01:14 AM
+-- Generation Time: Dec 19, 2017 at 01:54 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -49,7 +49,7 @@ CREATE TABLE `info_users` (
 
 INSERT INTO `info_users` (`id_infouser`, `id_user`, `gender`, `age`, `career`, `district`, `amphoe`, `county`, `zipcode`, `congenital_dis`, `name_congenital_dis`, `body_movement`) VALUES
 (1, 3, 'หญิง', '58', 'ธุรกิจส่วนตัว', 'ทุ่งนางาม', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62130', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
-(2, 1, 'ชาย', '50', 'รับราชการ', 'ท่าทอง', 'เมืองพิษณุโลก', 'พิษณุโลก', '65000', '0', 'อื่นๆ', 'เดินได้ปกติ'),
+(2, 1, 'ชาย', '50', 'รับราชการ', 'dasdท่าทอง', 'เมืองพิษณุโลก', 'พิษณุโลก', '65000', '0', 'จอประสาทตาเสื่อม', 'เดินได้ปกติ'),
 (3, 5, 'ชาย', '80', 'พนักงานบริษัท', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
 (4, 6, 'ชาย', '8', 'พนักงานบริษัท', 'wqdf', 'fqwf', 'fwqf', 'w', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
 (5, 7, 'หญิง', '20', 'เกษตรกร', '', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62130', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
@@ -59,7 +59,9 @@ INSERT INTO `info_users` (`id_infouser`, `id_user`, `gender`, `age`, `career`, `
 (9, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (10, 12, 'หญิง', '20', 'ธุรกิจส่วนตัว', '', '', 'อุทัยธานี', '', '1', 'เบาหวาน', 'เดินได้เล็กน้อย'),
 (11, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 14, 'ชาย', '57', 'ธุรกิจส่วนตัว', 'ตลุกดู่', 'ทัพทัน', 'อุทัยธานี', '61120', '0', '', 'เดินได้ปกติ');
+(12, 14, 'ชาย', '57', 'ธุรกิจส่วนตัว', 'ตลุกดู่', 'ทัพทัน', 'อุทัยธานี', '61120', '0', '', 'เดินได้ปกติ'),
+(13, 15, 'ชาย', '80', 'ค้าขาย', 'ปากโทก', 'เมืองพิษณุโลก', 'พิษณุโลก', '65000', '1', 'เบาหวาน', 'เดินได้ปกติ'),
+(14, 16, 'หญิง', '52', 'ธุรกิจส่วนตัว', 'ทุ่งโพ', 'หนองฉาง', 'อุทัยธานี', '61110', '1', 'โรคหัวใจ', 'เดินได้ปกติ');
 
 -- --------------------------------------------------------
 
@@ -3584,7 +3586,12 @@ INSERT INTO `transcript` (`id_transcript`, `id_user`, `id_location`, `memo_detai
 (86, 1, 1, NULL, NULL),
 (87, 1, 16, NULL, NULL),
 (91, 1, 19, NULL, NULL),
-(92, 1, 17, NULL, NULL);
+(92, 1, 17, NULL, NULL),
+(93, 15, 23, NULL, NULL),
+(94, 15, 20, NULL, NULL),
+(95, 1, 16, NULL, NULL),
+(96, 1, 16, NULL, NULL),
+(97, 16, 17, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3608,7 +3615,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `first_name`, `last_name`, `telephone`, `email`, `password`, `hash`, `active`) VALUES
-(1, 'ภัทรพล', 'q', '0810145191', 'a@a', '$2y$10$kV6MptanowueJEqaFv4peOMwHX.M3v/q7ziHmDgsu6bIngxOPnXOm', 'c042f4db68f23406c6cecf84a7ebb0fe', 1),
+(1, 'ภัทรพล', 'qsad', '0810145191', 'a@a', '$2y$10$kV6MptanowueJEqaFv4peOMwHX.M3v/q7ziHmDgsu6bIngxOPnXOm', 'c042f4db68f23406c6cecf84a7ebb0fe', 1),
 (2, 'w', 'q', NULL, 'a@a2', '$2y$10$SNsvkP.KLh1YOJYrbKIbXOFZE80Z5RjssXsMDBCUcIThfn8PPQQTG', '352407221afb776e3143e8a1a0577885', 1),
 (3, 'THEANTHONG', '3', '1 044 5191', 'a@a3', '$2y$10$XnUs8QHJhfKjA0D22L6pJ.Wq/7Dul0vW1xzB7KNeKF0WDnBk.tsLe', '76dc611d6ebaafc66cc0879c71b5db5c', 1),
 (4, '2', '21', '88413621', 'a@aqqq', '$2y$10$FNlynD5aegAn4TPIqDn8EOb1WMtsWp34QTzf5SxFW2BwiEtpR5Eu6', '5737034557ef5b8c02c0e46513b98f90', 1),
@@ -3621,7 +3628,9 @@ INSERT INTO `users` (`id_user`, `first_name`, `last_name`, `telephone`, `email`,
 (11, 'w', 'e', NULL, 'aa@aw', '$2y$10$y2URRshvB3eUUCXuniJbtO8KaT4XT3uLu3GmNnNTqqg8/2jdW8xTy', '8f14e45fceea167a5a36dedd4bea2543', 1),
 (12, 'w', 'w', '', 'w@wq', '$2y$10$3ljl84cQu8JOHDahl/v1q.N1rXM8XkydG0435hB611oQdTXhLcQd6', '66f041e16a60928b05a7e228a89c3799', 1),
 (13, 'ๆำพ', 'ๆ', NULL, 'a@aasd', '$2y$10$LdMFhuloHMWz82e0D9j9IOwCrGA.1PEbywl12B5QtNDdP0gSduvqO', '6c4b761a28b734fe93831e3fb400ce87', 1),
-(14, 'd', 'd', '', 'test@a', '$2y$10$ZYpfcA0srozbu0FCAuzOWOV9pKh28eg01XXBdzqNxt4Wnk1oFHy4.', 'fec8d47d412bcbeece3d9128ae855a7a', 1);
+(14, 'd', 'd', '', 'test@a', '$2y$10$ZYpfcA0srozbu0FCAuzOWOV9pKh28eg01XXBdzqNxt4Wnk1oFHy4.', 'fec8d47d412bcbeece3d9128ae855a7a', 1),
+(15, 'tester', 'test', '', 'tester@t', '$2y$10$6ZiYs1I0JZ/FG/2tRWnYz.P07o2UIYrA4IV12y10VcObzRzvdGkLW', '1bb91f73e9d31ea2830a5e73ce3ed328', 1),
+(16, 'd', 'f', '', 'a@awqqf', '$2y$10$xWbyWv5SSR0J8pxHxpgzvupjVAFydZYOH8vmZMRX548DUDFTMm.je', '959a557f5f6beb411fd954f3f34b21c3', 1);
 
 --
 -- Indexes for dumped tables
@@ -3676,7 +3685,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `info_users`
 --
 ALTER TABLE `info_users`
-  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `oldcase`
@@ -3688,13 +3697,13 @@ ALTER TABLE `oldcase`
 -- AUTO_INCREMENT for table `transcript`
 --
 ALTER TABLE `transcript`
-  MODIFY `id_transcript` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id_transcript` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables

@@ -1,6 +1,6 @@
 <?php
-include 'include/db_connect.php';
-include 'include/include_head.php';
+include './include/db_connect.php';
+include './include/include_head.php';
 include 'menu.php';
 // session_start();
 

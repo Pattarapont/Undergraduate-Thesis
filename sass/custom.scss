@@ -1,7 +1,10 @@
 /* import scss file form dir custom
 */
 
+@import "./custom/normalize";
 @import "./custom/variable";
-@import "./custom/font";
+@import "./custom/fonts";
+@import "./custom/menu";
+@import "./custom/header";
 @import "./custom/configstyle";
 // @import "./custom/loginstyle";
