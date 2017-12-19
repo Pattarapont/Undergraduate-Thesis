@@ -6,12 +6,23 @@ include "menu.php";
 /*
 session_start();
  */
+
 if (!isSignin()) {
 	header("location: singin.php");
 	die();
 }
 
 $idUser = $_SESSION['id_user'];
+
+$id_location = $_SESSION['ca_id_location'];
+$_SESSION['ca_name_location'];
+
+$s_location = "INSERT INTO transcript (id_user, id_location)
+VALUES ('$idUser', '$id_location')";
+
+if ($conn->query($s_location) === true) {
+
+}
 
 $conn_location = "SELECT * FROM transcript as ts
 INNER JOIN location as lc on ts.id_location = lc.id_location
@@ -35,7 +46,7 @@ if ($connect->num_rows >= 0) {
 
 }
 
-print_r($memo);
+// print_r($memo);
 //  print_r($img);
 
 $str    = "";

@@ -36,7 +36,7 @@ $new_body_movement       = $conUser['body_movement'];
 $oldcase_db = "SELECT * FROM oldcase as oc
         INNER JOIN location as lc on oc.id_location = lc.id_location
         INNER JOIN province as pv on lc.id_province = pv.id_province
-        ORDER BY oc.id ASC ";
+        ORDER BY oc.id ";
 
 $key = $conn->query($oldcase_db);
 
@@ -279,18 +279,10 @@ if ($new_money) {
 
 $result = ($resultmath/68)*100;
 
-// echo $_SESSION['id_location'];
-// echo $_SESSION['name_location'];
+$_SESSION['ca_id_location']   = $answer['id_location'];
+$_SESSION['ca_name_location'] = $answer['name_location'];
+$_SESSION['ca_name_province'] = $answer['name_province'];
 
-echo $_SESSION['ca_id_location']   = $answer['id_location'];
-echo $_SESSION['ca_name_location'] = $answer['name_location'];
-echo $_SESSION['ca_name_province'] = $answer['name_province'];
-// $_SESSION['ca_id_user']       = $answer['id_user'];
-
-// $_SESSION['ca_id_location'];
-// $_SESSION['ca_name_location'];
-// $_SESSION['ca_name_province'];
-// $_SESSION['ca_id_user'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -304,11 +296,11 @@ echo $_SESSION['ca_name_province'] = $answer['name_province'];
     	<h3 class="text-center" style="padding: 20px 10px;">ผลการค้นหาสถานที่ท่องเที่ยวคือ</h3>
     	<div class="row">
     		<div class="card mx-auto" style="width: 30rem;">
-    			<form action="predict.php" method="POST">
+    			<form action="check_predict.php" method="POST">
     			<img class="card-img-top" src="images/location/<?php echo $answer['img'];?>" alt="Card image cap">
     			<div class="card-body">
-    				<h4 class="card-title text-center"><?php echo $_SESSION['name_location'];?></h4>
-    				<p class="card-text text-right"><?php echo "จังหวัด : ", $_SESSION['name_province'];?></p>
+    				<h4 class="card-title text-center"><?php echo $answer['name_location'];?></h4>
+    				<p class="card-text text-right"><?php echo "จังหวัด : ", $answer['name_province'];?></p>
     				<p class="text-right"><small >ค่าความเหมาะสม : <?php print(number_format($result, 2))."%";?> </small></p>
     			</div>
     			<div class="text-center">
