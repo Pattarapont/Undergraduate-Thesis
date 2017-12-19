@@ -14,16 +14,6 @@ if (!isSignin()) {
 
 $idUser = $_SESSION['id_user'];
 
-$id_location = $_SESSION['ca_id_location'];
-$_SESSION['ca_name_location'];
-
-$s_location = "INSERT INTO transcript (id_user, id_location)
-VALUES ('$idUser', '$id_location')";
-
-if ($conn->query($s_location) === true) {
-
-}
-
 $conn_location = "SELECT * FROM transcript as ts
 INNER JOIN location as lc on ts.id_location = lc.id_location
 INNER JOIN province as pv on lc.id_province = pv.id_province

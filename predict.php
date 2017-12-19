@@ -315,7 +315,7 @@ $_SESSION['ca_name_province'] = $answer['name_province'];
   </section>
   <script type="text/javascript">
 
-  	// function clickConfirm(){
+  	function clickConfirm(){
     var check = confirm('ยืนยันการท่องเที่ยว');
     if(check == true){
         return true;

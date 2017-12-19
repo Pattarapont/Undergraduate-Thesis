@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 18, 2017 at 08:02 AM
+-- Generation Time: Dec 19, 2017 at 01:14 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -49,9 +49,17 @@ CREATE TABLE `info_users` (
 
 INSERT INTO `info_users` (`id_infouser`, `id_user`, `gender`, `age`, `career`, `district`, `amphoe`, `county`, `zipcode`, `congenital_dis`, `name_congenital_dis`, `body_movement`) VALUES
 (1, 3, 'หญิง', '58', 'ธุรกิจส่วนตัว', 'ทุ่งนางาม', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62130', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
-(2, 1, 'หญิง', '88', 'ธุรกิจส่วนตัว', 'ป่าพุทรา', 'ขาณุวรลักษบุรี', 'กำแพงเพชร', '62130', '0', 'อื่นๆ', 'เดินไม่ได้/ใช้รถเข็น'),
+(2, 1, 'ชาย', '50', 'รับราชการ', 'ท่าทอง', 'เมืองพิษณุโลก', 'พิษณุโลก', '65000', '0', 'อื่นๆ', 'เดินได้ปกติ'),
 (3, 5, 'ชาย', '80', 'พนักงานบริษัท', 'น้ำรอบ', 'ลานสัก', 'อุทัยธานี', '61160', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
-(4, 6, 'ชาย', '8', 'พนักงานบริษัท', 'wqdf', 'fqwf', 'fwqf', 'w', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย');
+(4, 6, 'ชาย', '8', 'พนักงานบริษัท', 'wqdf', 'fqwf', 'fwqf', 'w', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
+(5, 7, 'หญิง', '20', 'เกษตรกร', '', 'ขาณุวรลักษบุรี', 'นครสวรรค์', '62130', '1', 'โรคหัวใจ', 'เดินได้เล็กน้อย'),
+(6, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 12, 'หญิง', '20', 'ธุรกิจส่วนตัว', '', '', 'อุทัยธานี', '', '1', 'เบาหวาน', 'เดินได้เล็กน้อย'),
+(11, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 14, 'ชาย', '57', 'ธุรกิจส่วนตัว', 'ตลุกดู่', 'ทัพทัน', 'อุทัยธานี', '61120', '0', '', 'เดินได้ปกติ');
 
 -- --------------------------------------------------------
 
@@ -3497,8 +3505,8 @@ CREATE TABLE `transcript` (
   `id_transcript` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_location` int(11) DEFAULT NULL,
-  `memo_detail` text COLLATE utf8_unicode_ci NOT NULL,
-  `save_date` date NOT NULL
+  `memo_detail` text COLLATE utf8_unicode_ci,
+  `save_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -3506,20 +3514,77 @@ CREATE TABLE `transcript` (
 --
 
 INSERT INTO `transcript` (`id_transcript`, `id_user`, `id_location`, `memo_detail`, `save_date`) VALUES
-(2, 1, 8, 'a', '0000-00-00'),
-(11, 1, 30, 'a', '0000-00-00'),
-(12, 1, 27, '8489', '0000-00-00'),
-(13, 1, 6, '', '0000-00-00'),
-(14, 1, 9, '', '0000-00-00'),
-(16, 1, 2, 'a', '0000-00-00'),
-(17, 1, 30, 's', '2017-12-14'),
-(18, 1, 30, 's', '2017-12-14'),
-(19, 1, 30, '5', '2017-12-15'),
-(20, 1, 30, '', '2017-12-06'),
-(21, 1, 30, '', '2017-12-14'),
-(22, 1, 30, '', '2017-12-01'),
-(23, 1, 30, '', '2017-11-30'),
-(24, 1, 30, '', '2017-11-30');
+(1, 1, 27, 'ฟกดหก', '0000-00-00'),
+(2, 1, 6, 'ฟหกฟหกเ', '0000-00-00'),
+(3, 1, 8, 'gbfsb', NULL),
+(4, 1, 24, 'safbn ', NULL),
+(5, 1, 14, 'asfbnm', NULL),
+(6, 14, 30, '', '2017-11-27'),
+(7, 14, 30, 'เเผก', '2017-11-27'),
+(8, 14, 24, '', '0000-00-00'),
+(9, 14, 30, '', '0000-00-00'),
+(10, 14, 30, '', '0000-00-00'),
+(11, 14, 30, '', '0000-00-00'),
+(12, 1, 30, '', '0000-00-00'),
+(13, 1, 30, NULL, NULL),
+(14, 1, 30, NULL, NULL),
+(15, 1, 30, NULL, NULL),
+(19, 1, 30, NULL, NULL),
+(20, 1, 30, NULL, NULL),
+(21, 1, 30, NULL, NULL),
+(22, 1, 30, NULL, NULL),
+(29, 1, 30, NULL, NULL),
+(30, 7, 30, NULL, NULL),
+(31, 7, 30, NULL, NULL),
+(33, 7, 30, NULL, NULL),
+(34, 7, 30, NULL, NULL),
+(35, 7, 30, NULL, NULL),
+(36, 7, 30, NULL, NULL),
+(37, 7, 30, NULL, NULL),
+(38, 7, 30, NULL, NULL),
+(39, 7, 30, NULL, NULL),
+(40, 7, 30, NULL, NULL),
+(41, 7, 30, NULL, NULL),
+(45, 7, 30, NULL, NULL),
+(46, 7, 30, NULL, NULL),
+(47, 7, 30, NULL, NULL),
+(48, 7, 30, NULL, NULL),
+(49, 7, 30, NULL, NULL),
+(50, 7, 30, NULL, NULL),
+(51, 7, 30, NULL, NULL),
+(52, 7, 30, NULL, NULL),
+(53, 7, 30, NULL, NULL),
+(54, 7, 30, NULL, NULL),
+(55, 7, 30, NULL, NULL),
+(56, 7, 30, NULL, NULL),
+(57, 7, 30, NULL, NULL),
+(58, 7, 30, NULL, NULL),
+(59, 1, 30, NULL, NULL),
+(60, 1, 30, NULL, NULL),
+(66, 1, 30, NULL, NULL),
+(67, 1, 30, NULL, NULL),
+(68, 1, 30, NULL, NULL),
+(69, 1, 30, NULL, NULL),
+(70, 1, 30, NULL, NULL),
+(71, 1, 30, NULL, NULL),
+(72, 1, 30, NULL, NULL),
+(73, 1, 30, NULL, NULL),
+(74, 1, 30, NULL, NULL),
+(75, 1, 30, NULL, NULL),
+(76, 1, 30, NULL, NULL),
+(77, 1, 30, NULL, NULL),
+(78, 1, 30, NULL, NULL),
+(79, 1, 30, NULL, NULL),
+(80, 1, 23, NULL, NULL),
+(81, 1, 17, NULL, NULL),
+(82, 1, 17, NULL, NULL),
+(83, 1, 17, NULL, NULL),
+(84, 1, 17, NULL, NULL),
+(85, 1, 1, NULL, NULL),
+(86, 1, 1, NULL, NULL),
+(87, 1, 16, NULL, NULL),
+(91, 1, 19, NULL, NULL),
+(92, 1, 17, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3543,12 +3608,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `first_name`, `last_name`, `telephone`, `email`, `password`, `hash`, `active`) VALUES
-(1, 'wqqwew', 'q', '0810145191', 'a@a', '$2y$10$kV6MptanowueJEqaFv4peOMwHX.M3v/q7ziHmDgsu6bIngxOPnXOm', 'c042f4db68f23406c6cecf84a7ebb0fe', 1),
+(1, 'ภัทรพล', 'q', '0810145191', 'a@a', '$2y$10$kV6MptanowueJEqaFv4peOMwHX.M3v/q7ziHmDgsu6bIngxOPnXOm', 'c042f4db68f23406c6cecf84a7ebb0fe', 1),
 (2, 'w', 'q', NULL, 'a@a2', '$2y$10$SNsvkP.KLh1YOJYrbKIbXOFZE80Z5RjssXsMDBCUcIThfn8PPQQTG', '352407221afb776e3143e8a1a0577885', 1),
 (3, 'THEANTHONG', '3', '1 044 5191', 'a@a3', '$2y$10$XnUs8QHJhfKjA0D22L6pJ.Wq/7Dul0vW1xzB7KNeKF0WDnBk.tsLe', '76dc611d6ebaafc66cc0879c71b5db5c', 1),
 (4, '2', '21', '88413621', 'a@aqqq', '$2y$10$FNlynD5aegAn4TPIqDn8EOb1WMtsWp34QTzf5SxFW2BwiEtpR5Eu6', '5737034557ef5b8c02c0e46513b98f90', 1),
 (5, 'w', 'qwe', '0841', 'a@aqwrg', '$2y$10$zxi5y7ykejlLRUbp4ykUweAOaX9ZeyDmhNKJefN8yv/bek5ULOJSW', 'f387624df552cea2f369918c5e1e12bc', 1),
-(6, 'qwe', 'wqe', 'wq', 'a@ahj3', '$2y$10$ZN1qhDlV9bc6MlNQuqUQPu0WEqYawy6X5FytVPDglwOR05UzxWwjq', '1f4477bad7af3616c1f933a02bfabe4e', 1);
+(6, 'qwe', 'wqe', 'wq', 'a@ahj3', '$2y$10$ZN1qhDlV9bc6MlNQuqUQPu0WEqYawy6X5FytVPDglwOR05UzxWwjq', '1f4477bad7af3616c1f933a02bfabe4e', 1),
+(7, 'THEANTHONG', 'เทียนทอง', '1 044 5191', 'botpower7@gmail.com', '$2y$10$SvFySCftvhWjQxRSUltC0.2jZRdC7Wr..LKVtuu28iHOA7M/daCr2', '6faa8040da20ef399b63a72d0e4ab575', 1),
+(8, 'หล่อ', 's', '', 'a@r', '$2y$10$4/whya0zjsNsFuhRH9qDGeWVWC4gbZB7da5Wj3SbYkzyHtfuX85TC', '024d7f84fff11dd7e8d9c510137a2381', 1),
+(9, 's', 's', NULL, 's@ss', '$2y$10$6TtJZXGziRnU0UB589iC6eVo1rFjDv2F6tHfiE3C.xYkfChqOQbgO', '99c5e07b4d5de9d18c350cdf64c5aa3d', 1),
+(10, 'sd', 'da', NULL, 'aa@aa', '$2y$10$PBGy1dVUY2GMkKxq/Euswe8KZLUKMCkUvr/piaoUJW0aE2GjbW6bC', 'd82c8d1619ad8176d665453cfb2e55f0', 1),
+(11, 'w', 'e', NULL, 'aa@aw', '$2y$10$y2URRshvB3eUUCXuniJbtO8KaT4XT3uLu3GmNnNTqqg8/2jdW8xTy', '8f14e45fceea167a5a36dedd4bea2543', 1),
+(12, 'w', 'w', '', 'w@wq', '$2y$10$3ljl84cQu8JOHDahl/v1q.N1rXM8XkydG0435hB611oQdTXhLcQd6', '66f041e16a60928b05a7e228a89c3799', 1),
+(13, 'ๆำพ', 'ๆ', NULL, 'a@aasd', '$2y$10$LdMFhuloHMWz82e0D9j9IOwCrGA.1PEbywl12B5QtNDdP0gSduvqO', '6c4b761a28b734fe93831e3fb400ce87', 1),
+(14, 'd', 'd', '', 'test@a', '$2y$10$ZYpfcA0srozbu0FCAuzOWOV9pKh28eg01XXBdzqNxt4Wnk1oFHy4.', 'fec8d47d412bcbeece3d9128ae855a7a', 1);
 
 --
 -- Indexes for dumped tables
@@ -3603,7 +3676,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `info_users`
 --
 ALTER TABLE `info_users`
-  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_infouser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `oldcase`
@@ -3615,13 +3688,13 @@ ALTER TABLE `oldcase`
 -- AUTO_INCREMENT for table `transcript`
 --
 ALTER TABLE `transcript`
-  MODIFY `id_transcript` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_transcript` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
