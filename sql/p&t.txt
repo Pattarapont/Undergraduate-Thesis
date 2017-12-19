@@ -1,0 +1,34 @@
+สวัสดีครับ
+
+ข้อมูลการใช้งานโฮสติ้ง
+
+Username: zp10462
+Password: v5dFcgt-!P
+
+หน้าเว็บแสดงผล
+ยังไม่มีโดเมน	http://www.zp10462.tld.122.155.18.18.no-domain.name/
+
+ข้อมูล FTP
+Host	edu1.pathosting.com
+Username	zp10462
+Password	v5dFcgt-!P
+Port	21
+
+Control Panel (DirectAdmin) (เข้าทางใดก็ได้)
+(พอร์ท 2222)	ผ่านไอพี	https://edu1.pathosting.com:2222/
+FAQ: ทำไมเข้า DirectAdmin แล้วขึ้นหน้าเตือนเรื่องความปลอดภัย?
+
+Name Servers
+NS1:	edu1.pathosting.com
+NS2:	edu2.pathosting.com
+Host IP:	122.155.18.18
+
+หน้าเว็บเมล
+ผ่านไอพี	http://122.155.18.18/roundcube/
+
+รายละเอียดโฮสติ้ง
+เริ่มใช้งาน	10 ก.ย. 2560
+หมดอายุ	10 มี.ค. 2561
+แพ็คเกจ	Education
+พื้นที่ใช้	100 MB
+แบนด์วิดท์[3]	1 GB/เดือน
