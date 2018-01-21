@@ -287,7 +287,7 @@ $_SESSION['ca_name_province'] = $answer['name_province'];
 <!DOCTYPE html>
 <html>
 <head>
-  <title>แนะนำสถานที่ท่องเที่บง</title>
+  <title>แนะนำสถานที่ท่องเที่ยว</title>
 </head>
 <body>
 
