@@ -182,7 +182,7 @@ if ($check_us['gender'] == NULL OR $check_us['age'] == NULL OR $check_us['career
 
 						</div>
 						<div class="text-right">
-							<button class="btn btn-outline-primary" type="submit" name="guide">ค้นหาสถานที่</button>
+							<button class="btn btn-outline-primary" type="submit" name="guide" style="cursor: pointer;">ค้นหาสถานที่</button>
 						</div>
 					</form>
 				</div>

@@ -236,7 +236,7 @@ $_SESSION['id_user']    = $callAccount['id_user'];
 
 				<div class="container" style="padding-top: 0px; padding-right: 8%; padding-bottom: 20px; padding-left: 8%;">
 					<div class="text-right">
-						<button class="btn btn-outline-success" name="edit_account" type="submit">บันทึกข้อมูล</button>
+						<button class="btn btn-outline-success" name="edit_account" type="submit" style="cursor: pointer;">บันทึกข้อมูล</button>
 					</div>
 				</div>
 			</form>

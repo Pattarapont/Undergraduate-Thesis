@@ -304,8 +304,8 @@ $_SESSION['ca_name_province'] = $answer['name_province'];
     				<p class="text-right"><small >ค่าความเหมาะสม : <?php print(number_format($result, 2))."%";?> </small></p>
     			</div>
     			<div class="text-center">
-					<button type="submit" class="btn btn-outline-primary" name="research">ค้นหาสถานที่ใหม่</button>
-					<button type="submit" class="btn btn-outline-warning" onclick="return clickConfirm();" name="save">เลือกสถานที่</button>
+					<button type="submit" class="btn btn-outline-primary" name="research" style="cursor: pointer;">ค้นหาสถานที่ใหม่</button>
+					<button type="submit" class="btn btn-outline-warning" onclick="return clickConfirm();" name="save" style="cursor: pointer;">เลือกสถานที่</button>
     				</div>
     			</form>
     		</div>
